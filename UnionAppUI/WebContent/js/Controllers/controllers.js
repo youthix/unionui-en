@@ -327,6 +327,8 @@ updateMeetingStatus = function(){
                             "detail": meetingData.detail,
                             "creator":$rootScope.userName,
                             "venue": meetingData.venue,
+                            "meetdate":meetingData.meetdate,
+                            "meettime":meetingData.meettime,
                             "status":status,
                             "meetingid":meetingData.meetingid
                         }
