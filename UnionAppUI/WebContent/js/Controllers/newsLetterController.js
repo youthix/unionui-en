@@ -253,13 +253,13 @@ updateNewsStatus = function(){
         var d2 = new Date();
         d1.setHours(0,0,0,0);
         d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
-           //updateMeetingStatus();
+        updateNewsStatus();
+        /*if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {           
            updateNewsStatus();
         } else{
                 alert("Sorry,You can't Update Past Date for Meetings!");
                 return;
-        }
+        }*/
 
              
     };
@@ -727,13 +727,14 @@ $scope.files =[];
         var d2 = new Date();
         d1.setHours(0,0,0,0);
         d2.setHours(0,0,0,0);
+        updateNewsStatus();/*
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            //updateMeetingStatus();
            updateNewsStatus();
         } else{
                 alert("Sorry,You can't Update Past Date for News!");
                 return;
-        }
+        }*/
 
 
     };
