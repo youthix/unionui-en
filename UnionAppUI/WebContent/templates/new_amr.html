@@ -1,0 +1,213 @@
+
+<!-- BEGIN PAGE -->
+<div class="container"> 
+  
+  <!-- Your logo goes here -->
+  <div class="logo-brand header sidebar rows main-logo">
+    <div class="logo">
+      <h1><a href="#fakelink" class="visible-xs"><img src="images/wfs-logo-transparent.png" alt="Logo"></a></h1>
+    </div>
+  </div>
+  <!-- End div .header .sidebar .rows --> 
+  
+  <!-- BEGIN SIDEBAR -->
+  <!-- <ng-include src="'templates/menubar.html'"></ng-include> -->
+
+   <ng-include src="'templates/menubar.html'"></ng-include>
+  <!-- END SIDEBAR --> 
+  
+  <!-- BEGIN CONTENT -->
+  <div class="right content-page"> 
+    
+    <!-- BEGIN CONTENT HEADER -->
+    <div class="header content rows-content-header"> 
+      
+      <!-- Button mobile view to collapse sidebar menu -->
+      <button class="button-menu-mobile show-sidebar"> <i class="fa fa-bars"></i> </button>
+      
+      <!-- BEGIN NAVBAR CONTENT-->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container"> 
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-angle-double-down"></i> </button>
+          </div>
+          <!-- End div .navbar-header --> 
+          
+          <!-- Navbar collapse -->
+          <div class="navbar-collapse collapse"> 
+		  
+			<ul class="nav navbar-nav top-navbar">
+              <!-- Notifications -->
+              <li>
+			  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
+              </li>
+              
+              <!-- Dropdown User session -->
+              <li class="dropdown"> <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
+                <ul class="dropdown-menu animated half flipInX">
+                  <li><a href="#fakelink">Account Setting</a></li>
+                  <li class="divider"></li>
+                  <li><a class="md-trigger" href="login.html">Logout</a></li>
+                </ul>
+              </li>
+              <!-- End Dropdown User session -->			
+			</ul> 
+			
+			<div class="top-logo">
+			  <img src="images/wfs-logo-transparent.png" alt="Logo">
+			</div>			
+            
+          </div>
+          <!-- End div .navbar-collapse --> 
+        </div>
+        <!-- End div .container --> 
+      </div>
+      <!-- END NAVBAR CONTENT--> 
+
+    <div class="media user-field">
+          <div class="media-body welcome pull-left">New AMR
+          <!-- End div .media-body --> 
+        </div>
+        <!-- End div .media --> 
+        
+      </div>
+
+    </div>
+    <!-- END CONTENT HEADER --> 
+    
+    <!-- START YOUR CONTENT HERE --> 
+    <!-- ============================================================== -->
+    <div class="body content rows scroll-y"> 
+	  
+      <!-- Page header -->
+      <div class="page-heading">       
+      
+      <div class="row">
+        <div class="col-sm-12"> 
+          <!-- Website statistic -->
+          <div class="box-info">
+            <form class="form-horizontal" name="myForm">
+               <div class="form-group"> 
+                 <label class="col-sm-2 control-label"></label>
+                  <div class="col-sm-10">
+                    <div class="row">
+                       <div class="col-xs-3">
+                        <label class="col-sm-12 control-label text-center">{{date}}</label>
+                         <datepicker date-format="dd-MM-yyyy" disabled-dates="[todayData]">
+                          <input ng-model="amr.meetdate" type="text"  placeholder="dd-mm-yyyy" />
+                        </datepicker>
+                       </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-9">
+                         <input type="text" class="form-control" placeholder="Subject" ng-model="amr.subject">
+                      </div>
+                    </div>
+                      <div class="row">
+                      <div class="col-xs-9">
+                         <textarea name="textarea" id="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea>
+
+                      <!--  <textarea id="txtEditor" name="txtEditorContent"></textarea> -->
+                      </div>
+                    </div>
+
+                    <!--<div class="row">
+
+                    <div class="col-xs-9 alert alert-info">
+                      <h4><b>As Attachments</b></h4>
+
+                             <h5>You can Upload Multiple Files. </h5> 
+
+                             <h5>Supported File Formats are .jpg, .jpg, .jpeg, .png,.txt, .pdf, .doc, .docx, .xls, .xlsx </h5> 
+                    </div>
+                      
+                    </div>-->
+
+                      <!--<div class="row">
+                          <div class="col-xs-3">
+                              <label class="col-sm-12 control-label text-center">Document Title</label>
+                                 <input type="text" class="form-control" ng-model="documentTitle">
+                         </div>
+
+                         <div class="col-xs-3">
+                                 <label class="col-sm-12 control-label text-center">Attachment Type</label>
+                            <select class="form-control" ng-model="selctedOption" ng-options="option for option in listOptions"></select>
+                        </div>
+                        
+
+            <div class="col-xs-3">
+              <label class="col-sm-12 control-label text-center">&nbsp;</label>
+              <input type="file" file-model='file' class="form-control"> 
+            <!--   <h5>{{fileNameIs}}</h5> 
+            </div>
+			 </div>-->
+         <!--     <div class="col-xs-3">
+             <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="addFiles()">addFiles</button>
+            </div> -->
+
+         
+
+         
+
+       
+             <!--<div class="row">
+            <div class="bs-component col-sm-9 pad-lt pad-rt">
+              <ul class="list-group slpit-50" ng-repeat="file in fileNames" >        
+              <li class="list-group-item"><span class="badge"><i class="fa fa-close" ng-click="close($index)"></i></span><a>{{file.title}} -- {{file.name}}</a></li>
+          
+              </ul>
+            </div>
+          </div> -->
+
+
+
+
+
+                  </div>
+               </div>
+              
+            </form>
+
+             <div class="text-center actions">
+          <div class="button-wrap">
+            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="saveAmr(amr)">Save</button>
+           <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+        </div>
+      </div>
+
+
+
+          </div>
+          <!-- End div .box-info --> 
+        </div>
+        
+        <!-- End div .col-sm-4 --> 
+      </div>
+      <!-- End div .row --> 
+      
+      <!-- Footer -->
+      <footer> &copy; <a href="http://www.wfs.aero/">WORLDWIDE FLIGHT SERVICES </a></footer>
+      <!-- End Footer --> 
+      
+    </div>
+    <!-- ============================================================== --> 
+    <!-- END YOUR CONTENT HERE --> 
+    <!-- ============================================================== --> 
+    
+  </div>
+  <script src="js/libs/jquery.timepicker.js"></script>
+<script>
+           (function () {
+             $('#jqte-test').jqte();
+}());
+</script>
+  <!-- END CONTENT -->
+  <div class="md-overlay"></div>
+</div>
+</div>
+<!-- End div .container --> 
+<!-- END PAGE --> 
+

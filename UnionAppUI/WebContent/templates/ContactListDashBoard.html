@@ -1,0 +1,124 @@
+<div class="container"> 
+  
+  <!-- Your logo goes here -->
+  <div class="logo-brand header sidebar rows main-logo">
+    <div class="logo">
+      <h1><a href="#fakelink" class="visible-xs"><img src="images/wfs-logo-transparent.png" alt="Logo"></a></h1>
+    </div>
+  </div>
+
+    <ng-include src="'templates/menubar.html'"></ng-include>
+  
+  <!-- BEGIN CONTENT -->
+  <div class="right content-page"> 
+    
+    <!-- BEGIN CONTENT HEADER -->
+    <div class="header content rows-content-header"> 
+      
+      <!-- Button mobile view to collapse sidebar menu -->
+      <button class="button-menu-mobile show-sidebar"> <i class="fa fa-bars"></i> </button>
+      
+      <!-- BEGIN NAVBAR CONTENT-->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container"> 
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-angle-double-down"></i> </button>
+          </div>
+          <!-- End div .navbar-header --> 
+          
+          <!-- Navbar collapse -->
+          <div class="navbar-collapse collapse"> 
+		  
+			<ul class="nav navbar-nav top-navbar">
+              <!-- Notifications -->
+              <li>
+			  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
+              </li>
+              
+              <!-- Dropdown User session -->
+              <li class="dropdown"> <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
+                <ul class="dropdown-menu animated half flipInX">
+                  <li><a href="#fakelink">Account Setting</a></li>
+                  <li class="divider"></li>
+                  <li><a class="md-trigger" href="login.html">Logout</a></li>
+                </ul>
+              </li>
+              <!-- End Dropdown User session -->			
+			</ul> 
+			
+			<div class="top-logo">
+			  <img src="images/wfs-logo-transparent.png" alt="Logo">
+			</div>			
+            
+          </div>
+          <!-- End div .navbar-collapse --> 
+        </div>
+        <!-- End div .container --> 
+      </div>
+      <!-- END NAVBAR CONTENT--> 
+	  
+	<div class="media user-field">
+          <div class="media-body welcome pull-left"> Contact List
+          <!-- End div .media-body --> 
+        </div>
+        <!-- End div .media --> 
+        
+	</div>
+    </div>
+    <!-- END CONTENT HEADER --> 
+    
+    <!-- START YOUR CONTENT HERE --> 
+    <!-- ============================================================== -->
+    <div class="body content rows scroll-y"> 
+	  
+      <!-- Page header -->
+      <div class="page-heading">       
+      
+      <div class="row">
+        <div class="col-sm-12"> 
+          <!-- Website statistic -->
+          <div class="box-info">
+			<div class="table-responsive text-center" ng-repeat="contact in ContactListData">
+			   <table data-sortable="" class="table" data-sortable-initialized="true">
+				  <thead>
+					 <tr>
+						<th></th>
+						<!-- <th width="190px">Actions</th> -->
+					 </tr>
+				  </thead>
+				  <tbody>
+					 <tr>
+						<td><h3 class="mgn-top-7" ng-click="detailContact(contact)">{{contact.catname}}</h3></td>
+						
+					 </tr>
+				  </tbody>
+			   </table>
+			</div>
+			
+		
+			<div class="text-center">
+			<button type="button" class="btn btn-wfs" ng-click="addNewContact()"><i class="fa fa-plus"></i>Add New Contact</button>
+			</div>
+          </div>
+          <!-- End div .box-info --> 
+        </div>
+        
+        <!-- End div .col-sm-4 --> 
+      </div>
+      <!-- End div .row --> 
+      
+      <!-- Footer -->
+      <footer> &copy; <a href="http://www.wfs.aero/">WORLDWIDE FLIGHT SERVICES </a></footer>
+      <!-- End Footer --> 
+      
+    </div>
+    <!-- ============================================================== --> 
+    <!-- END YOUR CONTENT HERE --> 
+    <!-- ============================================================== --> 
+    
+  </div>
+  <!-- END CONTENT -->
+  <div class="md-overlay"></div>
+</div>
+</div>

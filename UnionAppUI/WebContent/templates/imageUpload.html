@@ -1,0 +1,35 @@
+ <div>
+    <img ng-show="form.file.$valid" class="thumb select-zone" ngf-thumbnail="customModel">
+    <div class="select-zone" ngf-select ngf-change="onFileSelected($files, $file, $newFiles, $duplicateFiles, $invalidFiles, $event)" ng-model="customModel" name="fieldName" accept="image/*" ngf-max-size="2MB" required ng-hide="customModel"></div>
+    <button ng-click="remove()" ng-show="customModel">Remove</button>
+    <p ng-show="form.file.$error.maxSize">File too large {{customModel.size / 1000000|number:1}}MB: max 2M</p>
+    <p>
+        <br>
+            <button ng-disabled="!form.$valid" ng-click="uploadPic(customModel)">Submit</button>
+                <div class="progress" ng-show="customModel.progress >= 0">
+                    <div style="width:{{customModel.progress}}%" ng-bind="customModel.progress + '%'"></div>
+                </div>
+    </p> <span ng-show="customModel.result">Upload Successful</span>
+    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+</div>
+
+<!--  $scope.uploadPic = function (file) {
+        file.upload = Upload.upload({
+            url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+            data: {
+                file: file,
+                username: $scope.username
+            },
+        });
+
+        file.upload.then(function (response) {
+            $timeout(function () {
+                file.result = response.data;
+            });
+        }, function (response) {
+            if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+        }, function (evt) {
+            // Math.min is to fix IE which reports 200% sometimes
+            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+    } -->

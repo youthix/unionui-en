@@ -1,0 +1,183 @@
+
+<!-- BEGIN PAGE -->
+<div class="container"> 
+  
+  <!-- Your logo goes here -->
+  <div class="logo-brand header sidebar rows main-logo">
+    <div class="logo">
+      <h1><a href="#fakelink" class="visible-xs"><img src="images/wfs-logo-transparent.png" alt="Logo"></a></h1>
+    </div>
+  </div>
+  <!-- End div .header .sidebar .rows --> 
+  
+  <!-- BEGIN SIDEBAR -->
+  <!-- <ng-include src="'templates/menubar.html'"></ng-include> -->
+
+   <ng-include src="'templates/menubar.html'"></ng-include>
+  <!-- END SIDEBAR --> 
+  
+  <!-- BEGIN CONTENT -->
+  <div class="right content-page"> 
+    
+    <!-- BEGIN CONTENT HEADER -->
+    <div class="header content rows-content-header"> 
+      
+      <!-- Button mobile view to collapse sidebar menu -->
+      <button class="button-menu-mobile show-sidebar"> <i class="fa fa-bars"></i> </button>
+      
+      <!-- BEGIN NAVBAR CONTENT-->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container"> 
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-angle-double-down"></i> </button>
+          </div>
+          <!-- End div .navbar-header --> 
+          
+          <!-- Navbar collapse -->
+          <div class="navbar-collapse collapse"> 
+		  
+			<ul class="nav navbar-nav top-navbar">
+              <!-- Notifications -->
+              <li>
+			  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
+              </li>
+              
+              <!-- Dropdown User session -->
+              <li class="dropdown"> <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
+                <ul class="dropdown-menu animated half flipInX">
+                  <li><a href="#fakelink">Account Setting</a></li>
+                  <li class="divider"></li>
+                  <li><a class="md-trigger" href="login.html">Logout</a></li>
+                </ul>
+              </li>
+              <!-- End Dropdown User session -->			
+			</ul> 
+			
+			<div class="top-logo">
+			  <img src="images/wfs-logo-transparent.png" alt="Logo">
+			</div>			
+            
+          </div>
+          <!-- End div .navbar-collapse --> 
+        </div>
+        <!-- End div .container --> 
+      </div>
+      <!-- END NAVBAR CONTENT--> 
+      
+      <div class="media user-field">
+          <div class="media-body welcome pull-left">{{edit_activitiy}}
+          <!-- End div .media-body --> 
+        </div>
+        <!-- End div .media --> 
+        
+      </div>
+
+    </div>
+    <!-- END CONTENT HEADER --> 
+    
+    <!-- START YOUR CONTENT HERE --> 
+    <!-- ============================================================== -->
+    <div class="body content rows scroll-y"> 
+
+	  
+      <!-- Page header -->
+      <div class="page-heading">       
+      
+      <div class="row">
+        <div class="col-sm-12"> 
+          <!-- Website statistic -->
+          <div class="box-info">
+			<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<label class="col-sm-2 control-label"></label>
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col-xs-3">
+							<label class="col-sm-12 control-label text-center">{{date}}</label>
+							<!-- <input type="text" class="form-control" placeholder="{{date}}" ng-model="activitie.meetdate"> -->
+               <datepicker date-format="dd-MM-yyyy">
+                          <input ng-model="activitie.actdate" type="text" />
+              </datepicker>
+						</div>
+						<div class="col-xs-3">
+							<label class="col-sm-12 control-label text-center">{{time}}</label>
+							<!-- <input type="text" class="form-control" placeholder="{{time}}" ng-model="activitie.meettime"> -->
+                <input id="timepickerId2" type="text" class="form-control"  ng-model="activitie.acttime">
+						</div>
+						<div class="col-xs-3">
+							<label class="col-sm-12 control-label text-center">{{place}}</label>
+							<input type="text" class="form-control" placeholder="{{place}}" ng-model="activitie.venue">
+						</div>
+					</div>
+					
+					<div class="row">						
+						<div class="col-xs-9">
+						<label class="control-label text-left">{{subject}}</label><br>
+							<input type="text" class="form-control" placeholder="{{subject}}" ng-model="activitie.subject">
+						</div>
+					</div>
+					
+					<div class="row">
+				<div class="col-sm-9">
+				<label class="control-label text-left">Description</label><br>
+           <textarea rows="13" class="form-control" placeholder="Description" ng-model="activitie.detail"></textarea>
+          
+          </div>
+					</div>
+				</div>
+			</div>
+						
+			</form>
+		<!-- 	<div class="text-center actions">
+				<a data-toggle="tooltip" title="{{edit}}" class="btn btn-default white"><i class="fa fa-edit"></i></a>
+				<a data-toggle="tooltip" title="{{live}}" ng-click="saveMeeting(meeting)" class="btn btn-default live"><i class="fa"></i></a>
+				<a data-toggle="tooltip" title="{{offline}}" class="btn btn-default offline"><i class="fa"></i></a>
+				<a data-toggle="tooltip" title="{{delete}}" class="btn btn-default delete"><i class="fa fa-minus"></i></a>
+			</div> -->
+
+             <!--  <div class="text-center">
+                 <button type="button" class="btn btn-wfs" ng-click="saveActivitie(activitie)">{{save_activity}}</button>
+            </div>
+ -->
+            <div class="text-center actions">
+          <div class="button-wrap">
+            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="saveActivitie(activitie)">Save</button>
+           <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+        </div>
+      </div>
+
+
+          </div>
+          <!-- End div .box-info --> 
+        </div>
+        
+        <!-- End div .col-sm-4 --> 
+      </div>
+      <!-- End div .row --> 
+      
+      <!-- Footer -->
+      <footer> &copy; <a href="http://www.wfs.aero/">WORLDWIDE FLIGHT SERVICES </a></footer>
+      <!-- End Footer --> 
+      
+    </div>
+    <!-- ============================================================== --> 
+    <!-- END YOUR CONTENT HERE --> 
+    <!-- ============================================================== --> 
+    
+  </div>
+  <script src="js/libs/jquery.timepicker.js"></script>
+<script>
+
+            $('#timepickerId2').timepicker(
+                {
+                  'timeFormat': 'H:i:s' 
+                });
+</script>
+  <!-- END CONTENT -->
+  <div class="md-overlay"></div>
+</div>
+</div>
+<!-- End div .container --> 
+<!-- END PAGE --> 
+
