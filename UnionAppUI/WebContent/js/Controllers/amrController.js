@@ -132,7 +132,7 @@ var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
 
     $scope.deleteAmr = function (amrData) {
 
-  if (confirm('Are you sure you want to delete News?')) {
+  if (confirm('Are you sure you want to delete this AMR?')) {
 	console.log("delete amr Data:" + JSON.stringify(amrData));
 	var requestObject =
 				{
