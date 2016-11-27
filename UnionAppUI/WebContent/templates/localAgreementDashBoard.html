@@ -90,7 +90,7 @@
            <tr>
             <th>Date</th>            
             <th width="190px">Actions</th>
-            <th width="110px"  ng-if= "agreement.attachmentlist.listSize != '0' "></th>
+            <th width="110px"></th>
            </tr>
           </thead>
           <tbody>
@@ -102,7 +102,7 @@
                 <a data-toggle="tooltip" ng-show="agreement.status == 'online' " ng-click="statusUpdate('online',agreement)" class="btn btn-default offline"><i class="fa"></i></a>
                 <a data-toggle="tooltip" ng-click="deleteAgreement(agreement)"  class="btn btn-default delete"><i class="fa fa-minus"></i></a>
             </td> 
-            <td class="actions attachments" ng-if= "agreement.attachmentlist.listSize != '0'>                
+            <td class="actions attachments" ng-if= "agreement.attachmentlist.listSize != '0'">                
                 <i class="fa fa-link"></i>
             </td>           
            </tr>
