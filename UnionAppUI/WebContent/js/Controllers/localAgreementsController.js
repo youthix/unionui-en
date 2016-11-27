@@ -171,18 +171,19 @@ updateMeetingStatus = function(){
         var date = agreement.armdate;
 
 
-         var datearray = date.split("/");
-        var newdate = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
+         var datearray = date.split("-");
+        var newdate = datearray[1] + '-' + datearray[0] + '-' + datearray[2];
         var d1 = new Date(newdate);
         var d2 = new Date();
         d1.setHours(0,0,0,0);
         d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
+        updateMeetingStatus();
+        /*if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            updateMeetingStatus();
         } else{
                 alert("Sorry,You can't Update Past Date for Agreement!");
                 return;
-        }
+        }*/
 
              
     };
@@ -471,18 +472,19 @@ var requestObject = {
      var date = lag.armdate;
 
 
-         var datearray = date.split("/");
-        var newdate = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
+         var datearray = date.split("-");
+        var newdate = datearray[1] + '-' + datearray[0] + '-' + datearray[2];
         var d1 = new Date(newdate);
         var d2 = new Date();
         d1.setHours(0,0,0,0);
         d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
+        newAgreementcall();
+       /* if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            newAgreementcall();
         } else{
                 alert("Sorry,You can't Update Past Date for Agreement!");
                 return;
-        }
+        }*/
 
              
 
@@ -730,19 +732,20 @@ $scope.files =[];
         var date = agreement.armdate;
 
 
-         var datearray = date.split("/");
-        var newdate = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
+         var datearray = date.split("-");
+        var newdate = datearray[1] + '-' + datearray[0] + '-' + datearray[2];
         var d1 = new Date(newdate);
         var d2 = new Date();
         d1.setHours(0,0,0,0);
         d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
+        updateNewsStatus();
+        /*if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            //updateMeetingStatus();
            updateNewsStatus();
         } else{
                 alert("Sorry,You can't Update Past Date for Summary!");
                 return;
-        }
+        }*/
 
 
     };
