@@ -733,7 +733,9 @@ var catData ={"catname":$scope.profileData.category};
 app.controller('ContactListDataController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
 
-
+if ($rootScope.userName == undefined || $rootScope.userName == null) {
+         $location.path('/login');
+    }
 
    $scope.MeetingDashboard = function(){
        
