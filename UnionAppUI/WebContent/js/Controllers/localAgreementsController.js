@@ -688,7 +688,7 @@ $scope.files =[];
 
                        for(var i = 0; i < attachmentList.length;i++ ){
                          
-                         if (attachmentList[i].attachmentName == undefined) {
+                         if (attachmentList[i].title == undefined) {
                           j = j + 1; 
                           
                          } else {
@@ -710,7 +710,8 @@ $scope.files =[];
              }
                 else
             {
-                alert("Service :"+ status.msg);
+                //alert("Service :"+ status.msg);
+                	 $location.path('/localAgreements'); 
             }
         });
                      }
