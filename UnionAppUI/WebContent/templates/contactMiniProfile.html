@@ -101,12 +101,12 @@
 			<div class="image-holder profile"> 
 
       <!-- Image format -->
-
-       <img class="media-object img-circle" id="blah" src="images/avatar.jpg" ng-show="realImage" alt="Avatar">
+		
+       <img class="media-object img-circle" id="blah" ng-if="profileData.imageurl" ng-src="{{profileData.imageurl}}"  alt="Avatar">
 
       <!-- default icon -->
 
-      <i class="media-object img-circle fa fa-user" ng-show="defualtImage" alt="Avatar"></i>
+      <i class="media-object img-circle fa fa-user" ng-if="!profileData.imageurl" ng-show="defualtImage" alt="Avatar"></i>
 
       <input name="avatar" file-model='file' type="file" class="file-loading"  ng-show="showButtonFile">
 
@@ -144,6 +144,18 @@
 						<td>Email</td>
 						<td><input type="text" ng-model="profileData.emId" ng-disabled="disabled"></td>
 					 </tr>
+                     <tr>
+						<td>Job Title</td>
+						<td><input type="text" ng-model="profileData.title" ng-disabled="disabled"></td>
+					 </tr>
+                     <tr>
+						<td>Category</td>
+						<td>
+                        	<select ng-model="profileData.category" ng-disabled="disabled">
+                            <option value="{{cat.catname}}" ng-selected="profileData.category==cat.catname" ng-repeat="cat in ContactListCategory" >{{cat.catname}}</option>
+                            </select>
+                        </td>
+					 </tr>
 				  </tbody>
 			   </table>
 			</div>
@@ -162,7 +174,8 @@
 
         <div class="text-center actions">
           <div class="button-wrap">
-            <button type="submit" class="btn btn-default" ng-click="edit()" ng-show="showButton">Edit</button>
+          <button type="button" class="btn btn-primary" ng-click="contactcancel(profileData.category)">Cancel</button>
+           <button type="submit" class="btn btn-default" ng-click="edit()" ng-show="showButton">Edit</button>
            <button type="submit" class="btn btn-primary" ng-click="save(profileData)" ng-hide="showButton">Save</button>
         </div>
       </div>

@@ -334,7 +334,9 @@ $scope.addProfile = function(){
    $location.path('/miniContactProfile');
 };
 
-
+/*$scope.newProfile = function(){
+   $location.path('/newContactProfile');
+};*/
 $scope.save = function(summary){
 
   $scope.detail = angular.element('#jqte-test3').val();
@@ -509,6 +511,9 @@ app.controller('editContactController',['$scope','$location','services','constan
 app.controller('miniContactController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
 
+if ($rootScope.userName == undefined || $rootScope.userName == null) {
+         $location.path('/login');
+    }
 
 
    $scope.MeetingDashboard = function(){
@@ -550,6 +555,25 @@ app.controller('miniContactController',['$scope','$location','services','constan
     $scope.AdminUserDasgBoard = function(){
         $location.path('/adminUser');
     };
+//**---------------------------------------------------------*/
+var requestObjectcat = {
+						"bid":constant.bid,
+						"criteria": {
+						  "criteria": "FALSE"
+						}
+					  };
+	services.getAllContacts(requestObjectcat).then(function(data) {
+			var status = data.resStatus;
+			if (status.code == "00" &&  status.msg =="SUCCESS") {
+				$scope.ContactListCategory = data.categoryListObj.categorydtoLs;
+			}else{
+				alert("Service :"+ status.msg);
+			}
+	});
+
+//**---------------------------------------------------------*/
+
+
 
     /* $scope.defualtImage = true;
       $scope.realImage   = true;*/
@@ -630,35 +654,6 @@ $scope.$watch('file', function (newVal) {
   };
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     if ($scope.profileData.image == undefined || $scope.profileData.image ==  null) {
 
          $scope.defualtImage = true;
@@ -684,6 +679,12 @@ $scope.$watch('file', function (newVal) {
        $scope.showButtonFile = true;
 };
 
+
+$scope.contactcancel=function(cat){
+	var catData ={"catname":cat};
+	dataSharingService.addEditData(catData);
+	$location.path('/ContactListData');
+}
 $scope.save = function(){
 
              var requestObject = {
@@ -696,32 +697,33 @@ $scope.save = function(){
                 "joinDt": $scope.profileData.joinDt,
                 "age":  $scope.profileData.age,
                 "gen":  $scope.profileData.gen,
-                "add":  $scope.profileData.add ,
+                "add":  $scope.profileData.add,
                 "city":  $scope.profileData.city,
-                "zipcode":  $scope.profileData.zipcode,
+                "zipcode": $scope.profileData.zipcode,
                 "conNu": $scope.profileData.conNu,
                 "emId":  $scope.profileData.emId,
                 "role": $scope.profileData.role,
-                "category":$rootScope.category,
-                "title":"testTitle"
+                "category":$scope.profileData.category,
+                "title":$scope.profileData.title
    }]}
 };
 
-
-                    services.updateProfile(requestObject).then( function(data){
+var catData ={"catname":$scope.profileData.category};
+     services.updateProfile(requestObject).then( function(data){
                                                     
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
                   $scope.dataFromCategory = data.userListObj.ul;
-                $location.path('/ContactListData');            
-             }else
-            {
+				dataSharingService.addEditData(catData);
+                $location.path('/ContactListData');         
+             }else{
                 alert("Service :"+ status.msg);
             }
         });
 
 };
+
 
 
 }]); 
