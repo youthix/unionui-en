@@ -193,12 +193,13 @@ updateMeetingStatus = function(){
         var d2 = new Date();
         d1.setHours(0,0,0,0);
         d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
+        updateMeetingStatus();
+        /*if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            updateMeetingStatus();
         } else{
                 alert("Sorry,You can't Update Past Date for Summary!");
                 return;
-        }
+        }*/
 
              
     };
@@ -472,13 +473,14 @@ app.controller('editIdeaController',['$scope','$location','services','constant',
         var d2 = new Date();
         d1.setHours(0,0,0,0);
         d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
+        updateNewsStatus();
+        /*if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            //updateMeetingStatus();
            updateNewsStatus();
         } else{
                 alert("Sorry,You can't Update Past Date for Suggestions and Ideas!");
                 return;
-        }
+        }*/
 
 
     };
