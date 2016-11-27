@@ -93,7 +93,7 @@
                   <div class="col-sm-10">
                     <div class="row">
                        <div class="col-xs-3">
-                        <label class="col-sm-12 control-label text-center">Date</label>
+                        <label class="control-label text-center">Date</label>
                          <datepicker date-format="dd-MM-yyyy" disabled-dates="[todayData]">
                           <input ng-model="summary.sumdate" type="text"  placeholder="dd-MM-yyyy" />
                         </datepicker>
@@ -103,11 +103,13 @@
 
                     <div class="row">
                       <div class="col-xs-9">
-                         <input type="text" class="form-control" placeholder="Emne" ng-model="summary.subject">
+                      <label class="control-label text-left">Subject</label><br>
+                         <input type="text" class="form-control" placeholder="Subject" ng-model="summary.subject">
                       </div>
                     </div>
                       <div class="row">
                       <div class="col-xs-9">
+                      <label class="control-label text-left">Description</label><br>
                         <textarea name="textarea" id="jqte-test2" ng-model="summary.detail"></textarea>
                       </div>
                     </div>
