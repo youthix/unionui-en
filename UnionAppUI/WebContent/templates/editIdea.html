@@ -66,7 +66,7 @@
       <!-- END NAVBAR CONTENT--> 
 
       <div class="media user-field">
-          <div class="media-body welcome pull-left">Edit Summary
+          <div class="media-body welcome pull-left">Edit Suggestions and Ideas
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -93,7 +93,7 @@
                   <div class="col-sm-10">
                     <div class="row">
                        <div class="col-xs-3">
-                        <label class="col-sm-12 control-label text-center">Date</label>
+                        <label class="control-label text-center">Date</label>
                          <datepicker date-format="dd-MM-yyyy" disabled-dates="[todayData]">
                           <input ng-model="idea.suggideadate" type="text"  placeholder="dd-MM-yyyy" />
                         </datepicker>
@@ -103,11 +103,13 @@
 
                     <div class="row">
                       <div class="col-xs-9">
+                      <label class="control-label text-left">Subject</label><br>
                          <input type="text" class="form-control" placeholder="Emne" ng-model="idea.subject">
                       </div>
                     </div>
                       <div class="row">
                       <div class="col-xs-9">
+                      <label class="control-label text-left">Description</label><br>
                         <textarea name="textarea" id="jqte-test5" ng-model="idea.detail"></textarea>
                       </div>
                     </div>
