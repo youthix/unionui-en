@@ -3798,3 +3798,15 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 .table-responsive.text-center td.big-td {
     width: 74%;
 }
+
+.table-responsive.text-center td.mid-td {
+    width: 25%;
+}
+
+.table-responsive.text-center td.small-td {
+    width: 10%;
+}
+
+.table-responsive.text-center td.larger-td {
+    width: 45%;
+}
