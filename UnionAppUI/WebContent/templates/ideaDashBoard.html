@@ -88,18 +88,15 @@
          <table data-sortable="" class="table" data-sortable-initialized="true">
           <thead>
            <tr>
-            <th>Date</th>
-           <!--  <th>{{time}}</th>
-            <th>{{place}}</th>
-            <th>{{comming}}</th>
-            <th>{{not_coming}}</th> -->
-           <!--  <th>Text</th> -->
-            <th width="190px">Actions</th>
+            <th width="">{{date}}</th> 
+            <th width="">Subject</th>           
+            <th width="">{{actions}}</th>
            </tr>
           </thead>
           <tbody>
            <tr>
-             <td>{{idea.suggideadate}}</td>
+             <td class="mid-td">{{idea.suggideadate}}</td>
+             <td colspan="1" ng-bind-html="idea.subject" class="larger-td"></td>
            <!--  <td>{{meeting.meettime}}</td>
             <td>{{meeting.venue}}</td>
             <td>{{meeting.acceptcount}}</td>
@@ -112,10 +109,10 @@
                 <a data-toggle="tooltip" ng-click="deleteIdea(idea)"  class="btn btn-default delete"><i class="fa fa-minus"></i></a>
             </td> 
            </tr>
-           <tr>
+          <!--  <tr>
             <td colspan="1" ng-bind-html="idea.subject"></td>
            <td></td>
-           </tr>
+           </tr> -->
           </tbody>
          </table>
       </div>

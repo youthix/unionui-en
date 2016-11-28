@@ -87,14 +87,16 @@
          <table data-sortable="" class="table" data-sortable-initialized="true">
           <thead>
            <tr>           
-            <th>{{date}}</th>            
-            <th width="190px">{{actions}}</th>
-            <th width="110px"></th>
+            <th width="">{{date}}</th> 
+            <th width="">Subject</th>           
+            <th width="">{{actions}}</th>
+            <th width=""></th>
            </tr>
           </thead>
           <tbody>
            <tr>           	 
-             <td class="big-td">{{news.nldate}}</td>
+             <td class="mid-td">{{news.nldate}}</td>
+             <td  ng-bind-html="news.subject" class="larger-td"></td>
              <td class="actions">
                 <a data-toggle="tooltip"  ng-click="editNews(news)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
                 <a data-toggle="tooltip" ng-show="news.status == 'offline' " ng-click="statusUpdate('offline',news)" class="btn btn-default live"><i class="fa"></i></a>
@@ -105,11 +107,11 @@
                <!-- < data-toggle="tooltip" class="btn btn-default white"> --><i class="fa fa-link"></i>
              </td>
            </tr>
-           <tr>
+           <!-- <tr>
             <td  ng-bind-html="news.subject"></td>
            <td></td>
            <td></td>
-           </tr>
+           </tr> -->
           </tbody>
          </table>
       </div>

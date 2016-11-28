@@ -87,14 +87,15 @@
          <table data-sortable="" class="table" data-sortable-initialized="true">
           <thead>
            <tr>
-            <th>{{date}}</th>
-             <th width="190px">{{actions}}</th>
+            <th width="">{{date}}</th> 
+            <th width="">Subject</th>           
+            <th width="">{{actions}}</th>
            </tr>
           </thead>
           <tbody>
            <tr>
-             <td class="big-td">{{amr.amrdate}}</td>
-        
+             <td class="mid-td">{{amr.amrdate}}</td>
+        	 <td  ng-bind-html="amr.subject" class="larger-td"></td>
              <td class="actions">
                 <a data-toggle="tooltip"  ng-click="editAmr(amr)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
                 <a data-toggle="tooltip" ng-show="amr.status == 'offline' " ng-click="statusUpdate('online',amr)" class="btn btn-default live"><i class="fa"></i></a>
@@ -102,10 +103,10 @@
                 <a data-toggle="tooltip" ng-click="deleteAmr(amr)"  class="btn btn-default delete"><i class="fa fa-minus"></i></a>
             </td> 
            </tr>
-           <tr>
-            <td  ng-bind-html="amr.subject"></td>
+          <!--  <tr>
+            
            <td></td>
-           </tr>
+           </tr> -->
           </tbody>
          </table>
       </div>
