@@ -625,16 +625,13 @@ $scope.$watch('file', function (newVal) {
                     	   console.log(imageVal);
                               $('#blah').attr('ng-src', imageVal);
                        });
-                   
                 };
-
                 reader.readAsDataURL(newVal);
           }
-      
       } catch(error){
            console.log("File Error is:" + error);
         }
-      })
+ });
 
 
     /*
