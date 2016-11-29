@@ -586,6 +586,17 @@ var requestObjectcat = {
     $scope.activeMenu ="Contact List";
 
     $scope.profileData = dataSharingService.getEditData()[0];
+    
+    if(null != $scope.profileData.imageurl
+    		&& undefined !=$scope.profileData.imageurl
+    		   && ''!=$scope.profileData.imageurl){    	
+    	$("#blah").show();
+    	$('#blah').attr('src', $scope.profileData.imageurl);
+    }
+    else{
+    	//$("#blah").attr("style", "visibility: hidden");
+    	$("#blah").hide();
+    }
 /*
     function previewFile() {
   var preview = document.querySelector('img');
@@ -608,7 +619,7 @@ $scope.clckImage = function(){
 
     $scope.$watch('file', function (newVal) {
         try {
-          if (newVal != undefined || newVal != null){
+          if (newVal != undefined && newVal != null){
             
                 $scope.image = newVal;
                 $scope.imageName=newVal.name;
@@ -623,6 +634,7 @@ $scope.clckImage = function(){
                          //newVal=
 
                        $scope.$apply(function() {
+                    	      $("#blah").show();
                               $('#blah').attr('src', e.target.result);
                        });
                 };
