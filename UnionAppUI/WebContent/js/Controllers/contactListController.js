@@ -630,32 +630,6 @@ $scope.clckImage = function(){
            console.log("File Error is:" + error);
         }
  });
-<<<<<<< Upstream, based on branch 'master' of https://github.com/youthix/unionappui.git
-=======
-
->>>>>>> 0f62693 Updated
-
-
-    /*
-      
-
-          function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    };
-
-  $scope.imageChang
-  e = function(){
-     readURL(this);
-  };
-*/
 
     if ($scope.profileData.image == undefined || $scope.profileData.image ==  null) {
 
