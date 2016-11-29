@@ -611,11 +611,13 @@ $scope.clckImage = function(){
           if (newVal != undefined || newVal != null){
             
                 $scope.image = newVal;
+                $scope.imageName=newVal.name;
 
                   var reader = new FileReader();
                      reader.onload = function (e) {
 
                        console.log("File data is:" + e.target.result);
+                       
                         $scope.realImage = true;
                          $scope.defualtImage = false;
                          //newVal=
@@ -672,8 +674,7 @@ $scope.saveProfilePic = function(){
 	        var fd = new FormData();
 	        
 	        fd.append("file",$scope.image);
-	        console.log("hiiii>>>>"+$scope.image);
-	        $scope.eachDocName = "dummy";
+	        $scope.eachDocName = $scope.imageName;
 	        $scope.eachDocTitle = "profile-pic";
 	        $scope.eachDocSelectedType = "image";
 	        services.fileUpload($scope.eachDocTitle,$scope.featureType,$scope.featureId,$scope.eachDocName,fd,$scope.eachDocSelectedType).then(function(data1){           
