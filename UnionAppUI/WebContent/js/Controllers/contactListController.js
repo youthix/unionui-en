@@ -687,6 +687,30 @@ $scope.contactcancel=function(cat){
 	dataSharingService.addEditData(catData);
 	$location.path('/ContactListData');
 }
+
+$scope.saveProfilePic = function(){
+
+	   $scope.featureType = "profile";
+	   $scope.documentName;
+	   $scope.featureId = $scope.profileData.emId;
+
+	        var fd = new FormData();
+	        fd.append("file",$scope.file);
+	        console.log($scope.profileData.image);
+	        $scope.eachDocName = "dummy";
+	        $scope.eachDocTitle = "profile-pic";
+	        $scope.eachDocSelectedType = "image";
+	        services.fileUpload($scope.eachDocTitle,$scope.featureType,$scope.featureId,$scope.eachDocName,fd,$scope.eachDocSelectedType).then(function(data1){           
+	        console.log("Upload Data response:" + JSON.stringify(data1));
+	        var status1 = data1.resStatus;
+	       if (status1.code == "00" &&  status1.msg =="SUCCESS") {	         
+	    	   console.log("Upload Image successful");
+	        }
+	      });
+        };
+
+
+
 $scope.save = function(){
 
              var requestObject = {
@@ -718,6 +742,7 @@ var catData ={"catname":$scope.profileData.category};
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
                   $scope.dataFromCategory = data.userListObj.ul;
 				dataSharingService.addEditData(catData);
+				$scope.saveProfilePic();
                 $location.path('/ContactListData');         
              }else{
                 alert("Service :"+ status.msg);
