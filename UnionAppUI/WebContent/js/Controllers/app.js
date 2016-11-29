@@ -213,6 +213,16 @@ app.config(['$routeProvider','$locationProvider','$httpProvider',function($route
                                         controller:'amrEditController',
                                         templateUrl:'templates/amredit.html'
 
+                                      }).when('/voting',
+                                      {
+                                        controller:'votingController',
+                                        templateUrl:'templates/votingDashBoard.html'
+
+                                      }).when('/surveyQuestions',
+                                      {
+                                        controller:'questionController',
+                                        templateUrl:'templates/surveyQuestions.html'
+
                                       })
                                     .otherwise({
                                       	redirectTo: '/login'

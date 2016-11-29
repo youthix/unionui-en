@@ -110,7 +110,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope', functio
         $location.path('/adminUser');
     };
 
-
+$scope.activeMenu ="Dashboard";
    
 }]);
 
