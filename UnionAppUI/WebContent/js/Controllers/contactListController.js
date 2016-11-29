@@ -615,13 +615,15 @@ $scope.$watch('file', function (newVal) {
 
                   var reader = new FileReader();
                      reader.onload = function (e) {
-
-                       console.log("File Error is:" + e.target.result);
+                     var imageVal=e.target.result;
+                       console.log("File is:" + imageVal);
                         $scope.realImage = true;
                          $scope.defualtImage = false;
 
                        $scope.$apply(function() {
-                              $('#blah').attr('src', e.target.result)
+                    	   
+                    	   console.log(imageVal);
+                              $('#blah').attr('ng-src', imageVal);
                        });
                    
                 };
