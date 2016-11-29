@@ -606,8 +606,7 @@ $scope.clckImage = function(){
 };*/
 
 
-
-$scope.$watch('file', function (newVal) {
+    $scope.$watch('file', function (newVal) {
         try {
           if (newVal != undefined || newVal != null){
             
@@ -615,15 +614,14 @@ $scope.$watch('file', function (newVal) {
 
                   var reader = new FileReader();
                      reader.onload = function (e) {
-                     var imageVal=e.target.result;
-                       console.log("File is:" + imageVal);
+
+                       console.log("File data is:" + e.target.result);
                         $scope.realImage = true;
                          $scope.defualtImage = false;
+                         //newVal=
 
                        $scope.$apply(function() {
-                    	   
-                    	   console.log(imageVal);
-                              $('#blah').attr('ng-src', imageVal);
+                              $('#blah').attr('src', e.target.result);
                        });
                 };
                 reader.readAsDataURL(newVal);
@@ -632,6 +630,10 @@ $scope.$watch('file', function (newVal) {
            console.log("File Error is:" + error);
         }
  });
+<<<<<<< Upstream, based on branch 'master' of https://github.com/youthix/unionappui.git
+=======
+
+>>>>>>> 0f62693 Updated
 
 
     /*
@@ -694,8 +696,9 @@ $scope.saveProfilePic = function(){
 	   $scope.featureId = $scope.profileData.emId;
 
 	        var fd = new FormData();
-	        fd.append("file",$scope.file);
-	        console.log($scope.profileData.image);
+	        
+	        fd.append("file",$scope.image);
+	        console.log("hiiii>>>>"+$scope.image);
 	        $scope.eachDocName = "dummy";
 	        $scope.eachDocTitle = "profile-pic";
 	        $scope.eachDocSelectedType = "image";
