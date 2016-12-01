@@ -617,11 +617,32 @@ $scope.clckImage = function(){
 };*/
 var uploadImageFlag=false;
 
+
+$scope.validateExtension=function(oForm) {
+	var _validFileExtensions = [".jpg", ".jpeg", ".png"];
+    var sFileName = oForm.name;   
+    if (sFileName.length > 0) {
+      var blnValid = false;
+      for (var j = 0; j < _validFileExtensions.length; j++) {
+          var sCurExtension = _validFileExtensions[j];
+          if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+              blnValid = true;
+         }
+    }
+  } 
+};  
+
     $scope.$watch('file', function (newVal) {
         try {
           if (newVal != undefined && newVal != null){
             
+        	  if(!$scope.validateExtension(newVal)){
+              	alert("Invalid file extension! Only images with .png,.jpg,.jpeg extensions/formats are supported !");
+              	return false;
+              }  
+        	  
                 $scope.image = newVal;
+                
                 $scope.imageName=newVal.name;
 
                   var reader = new FileReader();
