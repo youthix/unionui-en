@@ -615,7 +615,7 @@ var requestObjectcat = {
 $scope.clckImage = function(){
   previewFile();
 };*/
-
+var uploadImageFlag=false;
 
     $scope.$watch('file', function (newVal) {
         try {
@@ -635,6 +635,7 @@ $scope.clckImage = function(){
 
                        $scope.$apply(function() {
                     	      $("#blah").show();
+                    	      $scope.uploadImageFlag=true;
                               $('#blah').attr('src', e.target.result);
                        });
                 };
@@ -731,10 +732,13 @@ var catData ={"catname":$scope.profileData.category};
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
                   $scope.dataFromCategory = data.userListObj.ul;
 				dataSharingService.addEditData(catData);
-				$scope.saveProfilePic();
-                $location.path('/ContactListData');         
+				if($scope.uploadImageFlag==true){
+				  console.log("Uploading image");
+				  $scope.saveProfilePic();
+				}
+                $location.path('/ContactList');                 
              }else{
-                alert("Service :"+ status.msg);
+                alert("Service Error:"+ status.msg);
             }
         });
 
