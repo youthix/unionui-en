@@ -14,7 +14,6 @@ $scope.delete = constant.Delete;
 $scope.add_new_meeting = constant.addNewMeeting;
 $scope.next_meeting = constant.Next_Meeting;
 $scope.currentPage = 1;
- //$scope.activeMenu ="News Letter";
 
  $scope.activeMenu ="Admin User";
 
@@ -130,140 +129,6 @@ $scope.currentPage = 1;
 
     };
 
-
-       $scope.statusUpdate = function(summaryStatus,summaryData){
-
-updateMeetingStatus = function(){
-          
-        var status;
-
-        if (summaryStatus == "offline") {
-            status = "online";
-        }else if(summaryStatus =="online"){
-              status = "offline";
-        }  
-
-        var requestObject =
-            {
-                "bid": constant.bid,
-                "summaryListObj": 
-                {
-                    "summarydtoLs": 
-                    [
-                        {
-                            "subject":summaryData.subject,
-                            "detail": summaryData.detail,
-                            "sumdate":summaryData.sumdate,
-                            "sumtime":"00:00:00",
-                            "creator":$rootScope.userName,
-                            "status":status,
-                            "sumid":summaryData.sumid
-                        }
-                    ]
-                }
-            };
-           
-     
-                                
-            services.updateSummary(requestObject).then(function(data){
-                                                    
-                console.log("Data is:" + JSON.stringify(data));
-                var status = data.resStatus;
-                if (status.code == "00" &&  status.msg =="SUCCESS") {
-                 gettingData();                 
-             }
-                else
-            {
-                alert("Service :"+ status.msg);
-            }
-        });
-
-                                };
-                
-
-
-        var date = summaryData.sumdate;
-
-
-         var datearray = date.split("/");
-        var newdate = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
-        var d1 = new Date(newdate);
-        var d2 = new Date();
-        d1.setHours(0,0,0,0);
-        d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
-           updateMeetingStatus();
-        } else{
-                alert("Sorry,You can't Update Past Date for Summary!");
-                return;
-        }
-
-             
-    };
-
-
-
-
-
-    $scope.deleteSummary = function (summaryData) {
-
-     if (confirm('Are you sure you want to delete Summary?')) {
-
-
-               // alert("Service need to intigreate.");
-        console.log("deleteMeetingData:" + JSON.stringify(summaryData));
-
-
-              var requestObject = {
-                                    "bid": constant.bid,
-                                    "summaryListObj": 
-                                        {
-                                            "summarydtoLs": 
-                                                [
-                                                    {
-                                                    "subject":summaryData.subject,
-                                                    "detail": summaryData.detail,
-                                                    "creator":$rootScope.userName,
-                                                    "sumdate":summaryData.sumdate,
-                                                    "sumtime":"00:00:00",
-                                                    "status":"delete",
-                                                    "sumid":summaryData.sumid
-                                                        }
-                                                ]
-                                        }
-                                };
-
-     
-                                
-            services.deleteSummary(requestObject).then(function(data) {
-                                                    
-             console.log("Data is:" + JSON.stringify(data));
-             var status = data.resStatus;
-             if (status.code == "00" &&  status.msg =="SUCCESS") {
-               // alert("SUCCESS");
-                             //  $location.path('/MeetingDashboard'); 
-                             //allMeeitngsRequest();
-                              gettingData();                       
-                            }else{
-                                alert("Service :"+ status.msg);
-                            }
-        });
-
-
-
-
-    
-} else {
-     return;
-}
-
-       
-
-    };
-
-
-
-
    
 }]);
 
@@ -316,52 +181,10 @@ app.controller('newadminUserController',['$scope','$location','services','consta
 
  if ($rootScope.userName == undefined || $rootScope.userName == null) {
          $location.path('/login');
-    }
-
-
-
-$scope.save = function(summary){
-
-  $scope.detail = angular.element('#jqte-test3').val();
-
-  var requestObject = {
-   "bid": "constant.bid",
-   "summaryListObj": {"summarydtoLs": [   {
-      "subject": summary.subject,
-      "detail":  $scope.detail,
-      "sumdate": summary.meetdate,
-      "sumtime": "00:00:00",
-      "creator": "$rootScope.userName",
-      "status": "offline"
-   }]}
-};
-
-    services.createNewsSummary(requestObject).then(function(data){
-                                                    
-                console.log("Data is:" + JSON.stringify(data));
-                var status = data.resStatus;
-                if (status.code == "00" &&  status.msg =="SUCCESS") {
-                 //allMeeitngsRequest();  
-                 $location.path('/summary');                     
-             }
-                else
-            {
-                alert("Service :"+ status.msg);
-            }
-        });
-
-
-};
-
-$scope.cancel = function(){
-   $location.path('/summary'); 
-};
-
-
-
-
+    };
    
 }]);
+
 app.controller('editadminUserController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
 
@@ -412,80 +235,5 @@ app.controller('editadminUserController',['$scope','$location','services','const
     
     //$scope.activeMenu ="Summary";
 
-    $scope.summary = dataSharingService.getEditData()[0];
     
-    angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
-
-
-   $scope.saveSummary = function(summaryData){
-
-    updateNewsStatus = function(){
-
-        $scope.detail = angular.element('#jqte-test2').val();
-        
-
-        var requestObject =
-            {
-                "bid": constant.bid,
-                "summaryListObj": 
-                {
-                    "summarydtoLs": 
-                    [
-                        {
-                            "subject":summaryData.subject,
-                            "detail": $scope.detail ,
-                            "sumdate":summaryData.sumdate,
-                            "sumtime":"00:00:00",
-                            "creator":$rootScope.userName,
-                            "status":summaryData.status,
-                            "sumid":summaryData.sumid
-                        }
-                    ]
-                }
-            };
-           
-     
-                                
-            services.updateSummary(requestObject).then(function(data){
-                                                    
-                console.log("Data is:" + JSON.stringify(data));
-                var status = data.resStatus;
-                if (status.code == "00" &&  status.msg =="SUCCESS") {
-                $location.path('/summary');            
-             }
-                else
-            {
-                alert("Service :"+ status.msg);
-            }
-        });
-
-                                };
-                
-
-
-        var date = summaryData.sumdate;
-
-
-         var datearray = date.split("/");
-        var newdate = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
-        var d1 = new Date(newdate);
-        var d2 = new Date();
-        d1.setHours(0,0,0,0);
-        d2.setHours(0,0,0,0);
-        if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
-           //updateMeetingStatus();
-           updateNewsStatus();
-        } else{
-                alert("Sorry,You can't Update Past Date for Summary!");
-                return;
-        }
-
-
-    };
-
-    $scope.cancel = function(){
-   $location.path('/summary'); 
-};
-
-
 }]);
