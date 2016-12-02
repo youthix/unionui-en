@@ -45,9 +45,9 @@ app.controller('loginController',['$scope','$location','services','constant','$r
                                                     
              console.log("Data is:" + JSON.stringify(data));
              var status = data.resStatus;
-             if (status.code == "00" &&  status.msg =="SUCCESS") {
-                   $rootScope.userName = data.userListObj.ul[0].usNa;
-                   $rootScope.userImage=data.userListObj.ul[0].imageurl;
+             if (status.code == "00" &&  status.msg =="SUCCESS") {            	   
+                   $rootScope.userName = data.userListObj.ul[0].usNa/*data.userListObj.ul[0].fname+" "+data.userListObj.ul[0].lname*/;
+                   $rootScope.userImage=null/*+data.userListObj.ul[0].imageurl*/;
                                $location.path('/dashBoard');  
                                 $scope.loading = false;                      
                             }else{
