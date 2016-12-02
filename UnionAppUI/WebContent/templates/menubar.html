@@ -9,7 +9,9 @@
         <!-- Logo Session -->
         <div class="media">
 						<a class="pull-left" href="#fakelink">
-							<img class="media-object img-circle" src="images/avatar.jpg" alt="Avatar">
+						
+							<img class="media-object img-circle" ng-if="userImage" ng-src="{{userImage}}" alt="Avatar">
+							<i class="media-object img-circle fa fa-user" ng-if="!userImage" ng-show="defualtImage" alt="Avatar"></i>
 						</a>
 						<div class="media-body">
 							<h4 class="media-heading"><strong>{{userName}}</strong></h4>

@@ -47,6 +47,7 @@ app.controller('loginController',['$scope','$location','services','constant','$r
              var status = data.resStatus;
              if (status.code == "00" &&  status.msg =="SUCCESS") {
                    $rootScope.userName = data.userListObj.ul[0].usNa;
+                   $rootScope.userImage=data.userListObj.ul[0].imageurl;
                                $location.path('/dashBoard');  
                                 $scope.loading = false;                      
                             }else{
@@ -111,7 +112,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope', functio
     };
 
 $scope.activeMenu ="Dashboard";
-   
+console.log("hiiiii>>>"+$scope.imageurl);   
 }]);
 
 
