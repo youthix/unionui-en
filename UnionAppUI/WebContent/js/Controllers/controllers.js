@@ -45,10 +45,14 @@ app.controller('loginController',['$scope','$location','services','constant','$r
                                                     
              console.log("Data is:" + JSON.stringify(data));
              var status = data.resStatus;
-             if (status.code == "00" &&  status.msg =="SUCCESS") {            	   
-                   $rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].ln;
+             if (status.code == "00" &&  status.msg =="SUCCESS") {    
+            	 var img=data.userListObj.ul[0].imageurl;
+                   $rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].fn;
+                   if(null != img && undefined != img && ""!=img)
                    $rootScope.userImage=data.userListObj.ul[0].imageurl;
-                   $("#uLink").attr("href",$rootScope.userImage);
+                   else
+                   $rootScope.userImage="images/default-user.jpg";
+                  
                                $location.path('/dashBoard');  
                                 $scope.loading = false;                      
                             }else{
