@@ -46,8 +46,8 @@ app.controller('loginController',['$scope','$location','services','constant','$r
              console.log("Data is:" + JSON.stringify(data));
              var status = data.resStatus;
              if (status.code == "00" &&  status.msg =="SUCCESS") {            	   
-                   $rootScope.userName = data.userListObj.ul[0].usNa/*data.userListObj.ul[0].fname+" "+data.userListObj.ul[0].lname*/;
-                   $rootScope.userImage=null/*+data.userListObj.ul[0].imageurl*/;
+                   $rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].ln;
+                   $rootScope.userImage=data.userListObj.ul[0].imageurl;
                                $location.path('/dashBoard');  
                                 $scope.loading = false;                      
                             }else{
@@ -112,7 +112,6 @@ app.controller('dashBoardController',['$scope','$location','$rootScope', functio
     };
 
 $scope.activeMenu ="Dashboard";
-console.log("hiiiii>>>"+$scope.imageurl);   
 }]);
 
 
