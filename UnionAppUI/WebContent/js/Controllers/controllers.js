@@ -48,6 +48,7 @@ app.controller('loginController',['$scope','$location','services','constant','$r
              if (status.code == "00" &&  status.msg =="SUCCESS") {            	   
                    $rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].ln;
                    $rootScope.userImage=data.userListObj.ul[0].imageurl;
+                   $("#uLink").attr("href",$rootScope.userImage);
                                $location.path('/dashBoard');  
                                 $scope.loading = false;                      
                             }else{
