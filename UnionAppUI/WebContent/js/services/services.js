@@ -372,9 +372,7 @@ app.service('services', function ($http, $q) {
 
 		return deferred.promise;
     }; 
-
-
-           this.getContactsFromCategory = function (getData) {
+    this.getContactsFromCategory = function (getData) {
 		var deferred = $q.defer();
 		$http.post(	serviceUrl +"fetch", getData,{'Content-Type': 'application/json;charset=UTF-8'})
 		.success(function(data) {
@@ -383,9 +381,22 @@ app.service('services', function ($http, $q) {
 		.error(function(){
 			deferred.reject();
 		});
-
 		return deferred.promise;
     }; 
+    
+    this.getAllUsers = function (getData) {
+		var deferred = $q.defer();
+		$http.post(	serviceUrl +"fetchalluser", getData,{'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+	return deferred.promise;
+    };
+
      this.newCategory = function (getData) {
 		var deferred = $q.defer();
 		$http.post(	serviceUrl +"addcategory", getData,{'Content-Type': 'application/json;charset=UTF-8'})
@@ -412,8 +423,8 @@ app.service('services', function ($http, $q) {
 		return deferred.promise;
     }; 
 
-
-});
+    }
+);
 
    
 

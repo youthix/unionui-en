@@ -751,6 +751,28 @@ $scope.save = function(){
                 "title":$scope.profileData.title
    }]}
 };
+             
+$scope.fetchAdminDetails=function(email){
+	var requestObject = {
+            "bid": "123",
+            "criteria": {
+              "criteria":  "TRUE",
+              "fetchUserCriteriaObj": {
+            	  "name":"emailid",
+                  "value":"super@gmail.com"
+              
+    }
+   }};
+	services.getContactsFromCategory(requestObject).then( function(data){
+		$rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].fn;
+        $rootScope.adminDetails=data.userListObj.ul[0];
+        var img=data.userListObj.ul[0].imageurl;
+        if(null != img && undefined != img && ""!=img)
+            $rootScope.userImage=img;
+            else
+            $rootScope.userImage="images/default-user.jpg";	
+    });  
+}
 
 var catData ={"catname":$scope.profileData.category};   
 
@@ -764,16 +786,10 @@ var catData ={"catname":$scope.profileData.category};
 				 if($scope.uploadImageFlag==true){
 					  console.log("Uploading image");
 					  $scope.saveProfilePic();
-					}
+				 }
 				if($rootScope.comingFromDashboard==true)
 				{
-					$rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].fn;
-	                $rootScope.adminDetails=data.userListObj.ul[0];
-	                var img=data.userListObj.ul[0].imageurl;
-	                if(null != img && undefined != img && ""!=img)
-	                    $rootScope.userImage=$rootScope.userImage;
-	                    else
-	                    $rootScope.userImage="images/default-user.jpg";
+					$scope.fetchAdminDetails(data.userListObj.ul[0].emId);
 					$location.path('/dashBoard');
 				}
 				else

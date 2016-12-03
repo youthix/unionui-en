@@ -76,7 +76,7 @@ app.controller('adminUserDashBoardController',['$scope','$location','$modal','se
           "criteria": "FALSE"
         }
     }
-    services.getContactsFromCategory(requestObject).then(function(data){
+    services.getAllUsers(requestObject).then(function(data){
       var status = data.resStatus;
       if (status.code == "00" &&  status.msg =="SUCCESS") {
         $scope.allAdminUsers = data.userListObj.ul               
