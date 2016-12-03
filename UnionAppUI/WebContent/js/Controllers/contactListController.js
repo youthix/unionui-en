@@ -628,6 +628,7 @@ $scope.validateExtension=function(oForm) {
           var sCurExtension = _validFileExtensions[j];
           if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
               blnValid = true;
+              return blnValid;
          }
     }
   } 
