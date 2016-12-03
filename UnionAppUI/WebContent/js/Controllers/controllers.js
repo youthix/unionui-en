@@ -69,7 +69,7 @@ app.controller('loginController',['$scope','$location','services','constant','$r
 
 }]);
 
-app.controller('dashBoardController',['$scope','$location','$rootScope', function ($scope,$location,$rootScope) {
+app.controller('dashBoardController',['$scope','$location','$rootScope','dataSharingService', function ($scope,$location,$rootScope,dataSharingService) {
       
 
       if ($rootScope.userName == undefined || $rootScope.userName == null) {
@@ -114,6 +114,10 @@ app.controller('dashBoardController',['$scope','$location','$rootScope', functio
 
     $scope.AdminUserDasgBoard = function(){
         $location.path('/adminUser');
+    };
+    $scope.detailAdmin = function(){
+        dataSharingService.addEditData($rootScope.adminDetails);
+        $location.path('/miniContactProfile');
     };
 
 $scope.activeMenu ="Dashboard";
