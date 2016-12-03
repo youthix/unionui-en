@@ -8,8 +8,8 @@
     </div>
   </div>
   <!-- End div .header .sidebar .rows --> 
- 
-   <ng-include src="'templates/menubar.html'"></ng-include> 
+  
+   <ng-include src="'templates/menubar.html'"></ng-include>
   <!-- END SIDEBAR --> 
   
   <!-- BEGIN CONTENT -->
@@ -62,7 +62,7 @@
       <!-- END NAVBAR CONTENT--> 
 	  
 	<div class="media user-field">
-          <div class="media-body welcome pull-left"> Admin
+          <div class="media-body welcome pull-left"> Admin Users
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -83,7 +83,6 @@
           <!-- Website statistic -->
           <div class="box-info">
 			<div class="col-md-9 table-responsive custom-table">
-			<div class="header">Admin Users</div>
 			   <table data-sortable="" class="table" data-sortable-initialized="true">
 				  <thead>
 					 <tr>
@@ -97,8 +96,8 @@
 					 <tr ng-show="user.status === 'A'" ng-repeat="user in allAdminUsers | orderBy:propertyName:reverse">
 						<td>{{user.fn}} {{user.ln}}</td>
             <td class="actions adminuser">
-              <a ng-click="open(user)" ng-if="user.role === 'N'" data-toggle="tooltip" title="" class="btn btn-default offline deleted" data-original-title="deleted"><i class="fa"></i></a>
-              <a ng-click="open(user)" ng-if="user.role === 'A' || user.role === 'S'"data-toggle="tooltip" title="" class="btn btn-default live online" data-original-title="Live"><i class="fa"></i></a>
+              <a ng-click="open(user)" ng-if="user.role === 'N'" data-toggle="tooltip" title="" class="btn btn-default offline deleted" data-original-title="Normal"><i class="fa"></i></a>
+              <a ng-click="open(user)" ng-if="user.role === 'A' || user.role === 'S'"data-toggle="tooltip" title="" class="btn btn-default live online" data-original-title="Admin"><i class="fa"></i></a>
             </td>
             <td>{{user.conNu}}</td>
             <td>{{user.title}}</td>
