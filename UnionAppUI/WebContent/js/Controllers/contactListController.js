@@ -821,7 +821,7 @@ $scope.addNewContact = function(){
     };
 
     
-    $scope.activeMenu ="Contact List"; 
+    $scope.activeMenu ="Contact List";
 
     $scope.ContactListDataFromDashBoard = dataSharingService.getEditData()[0];
     $rootScope.category = $scope.ContactListDataFromDashBoard.catname;
