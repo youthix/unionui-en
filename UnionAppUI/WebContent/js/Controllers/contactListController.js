@@ -706,7 +706,7 @@ $scope.contactcancel=function(cat){
 	{$location.path('/dashBoard');}
 }
 
-$scope.saveProfilePic = function(){
+$scope.saveProfilePic = function(data){
 
 	   $scope.featureType = "profile";
 	   $scope.documentName;
@@ -723,6 +723,13 @@ $scope.saveProfilePic = function(){
 	        var status1 = data1.resStatus;
 	       if (status1.code == "00" &&  status1.msg =="SUCCESS") {	         
 	    	   console.log("Upload Image successful");
+	    	   if($rootScope.comingFromDashboard==true)
+				{
+					$scope.fetchAdminDetails(data.userListObj.ul[0].emId);
+					$location.path('/dashBoard');
+				}
+				else
+               $location.path('/ContactList'); 
 	        }
 	      });
         };
@@ -785,15 +792,9 @@ var catData ={"catname":$scope.profileData.category};
 				dataSharingService.addEditData(catData);
 				 if($scope.uploadImageFlag==true){
 					  console.log("Uploading image");
-					  $scope.saveProfilePic();
+					  $scope.saveProfilePic(data);
 				 }
-				if($rootScope.comingFromDashboard==true)
-				{
-					$scope.fetchAdminDetails(data.userListObj.ul[0].emId);
-					$location.path('/dashBoard');
-				}
-				else
-                $location.path('/ContactList');                 
+				                
              }else{
                 alert("Service Error:"+ status.msg);
             }
