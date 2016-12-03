@@ -48,6 +48,7 @@ app.controller('loginController',['$scope','$location','services','constant','$r
              if (status.code == "00" &&  status.msg =="SUCCESS") {    
             	 var img=data.userListObj.ul[0].imageurl;
                    $rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].fn;
+                   $rootScope.adminDetails=data.userListObj.ul[0];
                    if(null != img && undefined != img && ""!=img)
                    $rootScope.userImage=data.userListObj.ul[0].imageurl;
                    else
@@ -115,7 +116,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
     $scope.AdminUserDasgBoard = function(){
         $location.path('/adminUser');
     };
-    $scope.detailAdmin = function(){
+    $rootScope.detailAdmin = function(){
         dataSharingService.addEditData($rootScope.adminDetails);
         $location.path('/miniContactProfile');
     };
