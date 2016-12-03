@@ -14,6 +14,7 @@ $scope.delete = constant.Delete;
 $scope.add_new_meeting = constant.addNewMeeting;
 $scope.next_meeting = constant.Next_Meeting;
 $scope.currentPage = 1;
+$rootScope.comingFromDashboard=false;
  //$scope.activeMenu ="News Letter";
 
  $scope.activeMenu ="Contact List";
@@ -693,10 +694,15 @@ $scope.validateExtension=function(oForm) {
 };
 
 
-$scope.contactcancel=function(cat){
+$scope.contactcancel=function(cat){	
 	var catData ={"catname":cat};
 	dataSharingService.addEditData(catData);
+	if($rootScope.comingFromDashboard==true)
+	{$location.path('/dashBoard');}
+	else if(cat!=null && undefined !=cat && ''!=cat)
 	$location.path('/ContactListData');
+	else
+	{$location.path('/dashBoard');}
 }
 
 $scope.saveProfilePic = function(){
@@ -757,6 +763,9 @@ var catData ={"catname":$scope.profileData.category};
 				  console.log("Uploading image");
 				  $scope.saveProfilePic();
 				}
+				if($rootScope.comingFromDashboard==true)
+				{$location.path('/dashBoard');}
+				else
                 $location.path('/ContactList');                 
              }else{
                 alert("Service Error:"+ status.msg);

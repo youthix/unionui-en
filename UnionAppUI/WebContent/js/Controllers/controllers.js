@@ -118,6 +118,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
     };
     $rootScope.detailAdmin = function(){
         dataSharingService.addEditData($rootScope.adminDetails);
+        $rootScope.comingFromDashboard=true;
         $location.path('/miniContactProfile');
     };
 
