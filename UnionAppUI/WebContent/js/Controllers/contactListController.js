@@ -658,7 +658,7 @@ $scope.validateExtension=function(oForm) {
 
                        $scope.$apply(function() {
                     	      $("#blah").show();
-                    	      $scope.uploadImageFlag=true;
+                    	      $scope.uploadImageFlag=true;                    	      
                               $('#blah').attr('src', e.target.result);
                        });
                 };
@@ -752,20 +752,30 @@ $scope.save = function(){
    }]}
 };
 
-var catData ={"catname":$scope.profileData.category};
+var catData ={"catname":$scope.profileData.category};   
+
      services.updateProfile(requestObject).then( function(data){
                                                     
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
-                  $scope.dataFromCategory = data.userListObj.ul;
+                $scope.dataFromCategory = data.userListObj.ul;                
 				dataSharingService.addEditData(catData);
-				if($scope.uploadImageFlag==true){
-				  console.log("Uploading image");
-				  $scope.saveProfilePic();
-				}
+				 if($scope.uploadImageFlag==true){
+					  console.log("Uploading image");
+					  $scope.saveProfilePic();
+					}
 				if($rootScope.comingFromDashboard==true)
-				{$location.path('/dashBoard');}
+				{
+					$rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].fn;
+	                $rootScope.adminDetails=data.userListObj.ul[0];
+	                var img=data.userListObj.ul[0].imageurl;
+	                if(null != img && undefined != img && ""!=img)
+	                    $rootScope.userImage=$rootScope.userImage;
+	                    else
+	                    $rootScope.userImage="images/default-user.jpg";
+					$location.path('/dashBoard');
+				}
 				else
                 $location.path('/ContactList');                 
              }else{
