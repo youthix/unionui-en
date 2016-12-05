@@ -70,7 +70,7 @@ app.controller('loginController',['$scope','$location','services','constant','$r
 
 }]);
 
-app.controller('dashBoardController',['$scope','$location','$rootScope','dataSharingService', function ($scope,$location,$rootScope,dataSharingService) {
+app.controller('dashBoardController',['$scope','$location','$rootScope','dataSharingService','constant','services', function ($scope,$location,$rootScope,dataSharingService,constant,services) {
       
 
       if ($rootScope.userName == undefined || $rootScope.userName == null) {
@@ -116,13 +116,221 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
     $scope.AdminUserDasgBoard = function(){
         $location.path('/adminUser');
     };
+    
     $rootScope.detailAdmin = function(){
         dataSharingService.addEditData($rootScope.adminDetails);
         $rootScope.comingFromDashboard=true;
         $location.path('/miniContactProfile');
-    };
+	  };
 
-$scope.activeMenu ="Dashboard";
+    $scope.aprroveUser = function(userData){
+       console.log(userData);
+       console.log($rootScope.adminDetails);
+        dataSharingService.addEditData(userData);
+        $location.path('/miniContactProfile');
+    };
+    
+    function drawGraph(){
+      services.getVisitorInfo({}).then(function(data){
+        var status = data.resStatus;
+        var visitorCountArray = []
+        var visitorDateArray = []
+        if (status.code == "00" &&  status.msg =="SUCCESS") {
+          data.visitorInfoListObj.visitorinfodtoLs.forEach(function(visitor){
+            visitorCountArray.push(visitor.count);
+            visitorDateArray.push(visitor.date.toUpperCase())
+          }) 
+          drawVisitorInfoGraph(visitorDateArray,visitorCountArray);
+        }
+        else
+        {
+          alert("Service :"+ status.msg);
+        }
+      });
+
+      services.getSpaceInfo({}).then(function(data){
+        var status = data.resStatus;
+        if (status.code == "00" &&  status.msg =="SUCCESS") {
+          drawSpaceInfoGraph(data.spaceInfoDTOObj);
+        }
+        else
+        {
+          alert("Service :"+ status.msg);
+        }
+      });
+    }
+    drawGraph();
+    drawSpaceInfoGraph = function(spaceInfo){
+      $scope.spaceInfo = angular.extend({},spaceInfo);
+      $scope.spaceInfo.usedSpacePercent = (spaceInfo.usedspace/spaceInfo.totalspace)*100+"%";
+      $scope.spaceInfo.unit = spaceInfo.unit.toUpperCase();
+      $scope.remSpace = spaceInfo.remspace+spaceInfo
+      var data = {
+        datasets: [
+        {
+          data: [spaceInfo.usedspace, spaceInfo.remspace],
+          backgroundColor: [
+          "#7CDAC7",
+          "#EEEEEE",
+          ]
+        }]
+      };
+
+      var usedSpace = new Chart(document.getElementById('usedSpace'), {
+        type: 'doughnut',
+        data: data,
+        options: {
+          cutoutPercentage: 80,
+          responsive: true,
+          legend: {
+            display: false
+          },
+          tooltips:{
+            mode:"disbaled"
+          }
+        }
+      });
+    }
+    drawVisitorInfoGraph = function(vDateArr,vCountArr) {
+      var barChartData = {
+        labels: vDateArr,
+        datasets: [{
+          type:'line',
+          data: vCountArr,
+          fill: false,
+          borderColor: '#4EAFD5',
+          backgroundColor: '#4EAFD5',
+          pointBorderColor: '#4EAFD5',
+          pointHoverBackgroundColor: '#4EAFD5',
+          pointHoverBorderColor: '#4EAFD5',
+          yAxisID: 'y-axis-1',
+          borderDash: [5,5],
+          pointStyle: 'circle'
+        },{
+          type: 'bar',
+          data: vCountArr,
+          fill: false,
+          backgroundColor: '#ABF2E2',
+          borderColor: '#A1E7E1',
+          yAxisID: 'y-axis-1'
+        } ]
+      };
+      var ctx = document.getElementById("appUsers").getContext("2d");
+      var showTextOnBars = function () {
+        var chartInstance = this.chart;
+        var ctx = chartInstance.ctx;
+        var height = chartInstance.controller.boxes[0].bottom;
+        ctx.textAlign = "center";
+        ctx.font = "30px Arial";
+        ctx.fillStyle="#DDF9F3";
+        Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
+          var meta = chartInstance.controller.getDatasetMeta(i);
+          Chart.helpers.each(meta.data.forEach(function (bar, index) {
+            ctx.fillText(dataset.data[index], bar._model.x, ctx.canvas.height - 40 );
+          }),this)
+        }),this);
+      }   
+      var myBar = new Chart(ctx, {
+        type: 'bar',
+        data: barChartData,
+        options: {
+          animation: {
+            onComplete: showTextOnBars,
+            onProgress: showTextOnBars
+          },
+          legend: { display: false },
+          responsive: true,
+          tooltips: {
+            mode: 'disbaled'
+          },
+          elements: {
+            line: {
+              fill: false
+            }
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              gridLines: {
+                display: true
+              },
+              labels: {
+                show: true,
+              }
+            }],
+            yAxes: [{
+              type: "linear",
+              display: true,
+              position: "left",
+              id: "y-axis-1",
+              gridLines:{
+                display: true
+              },
+              labels: {
+                show:true,
+              },
+              ticks: {
+                suggestedMin: 0,
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    }
+    
+    function getAllPendingUsers(){
+      var requestObject = {
+        "bid": constant.bid,
+        "criteria":{
+          "criteria": "FALSE"
+        }
+      }
+      services.getContactsFromCategory(requestObject).then(function(data){
+        var status = data.resStatus;
+        if (status.code == "00" &&  status.msg =="SUCCESS") {
+          $scope.allPendingUsers = data.userListObj.ul.filter(function(user){
+            return user.status === 'P';
+          })  
+          $scope.currUserIndex = 0;     
+        }
+        else
+        {
+          $scope.allPendingUsers = [];
+          alert("Service :"+ status.msg);
+        }
+      });
+    }
+    $scope.allPendingUsers = [];
+    getAllPendingUsers();
+    $scope.currUserIndex = 0; 
+    $scope.showWaitingUsers = false;
+    $scope.showPendingUsers = function(){
+      $scope.showWaitingUsers = $scope.showWaitingUsers? false:true;
+    }
+    $scope.nextUser = function(){
+      $scope.currUserIndex+=1;
+    }
+    $scope.prevUser = function(){
+      $scope.currUserIndex-=1;
+    }
+    function getAllActionLogs(){
+      $scope.allActionLogs = [];
+      var requestObject = {}
+      services.fetchActionLogs(requestObject).then(function(data){
+        var status = data.resStatus;
+        if (status.code == "00" &&  status.msg =="SUCCESS") {
+          $scope.allActionLogs = data.actionLogListObj.actionlogdtoLs
+        }
+        else
+        {
+          $scope.allActionLogs = [];
+          alert("Service :"+ status.msg);
+        }
+      });
+    }
+    getAllActionLogs()
+
 }]);
 
 

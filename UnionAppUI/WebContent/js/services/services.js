@@ -422,6 +422,42 @@ app.service('services', function ($http, $q) {
 
 		return deferred.promise;
     }; 
+    this.getSpaceInfo = function (getData) {
+		var deferred = $q.defer();
+		$http.post(	serviceUrl +"fetchspaceinfo", getData,{'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+		return deferred.promise;
+    };
+    this.getVisitorInfo = function (getData) {
+		var deferred = $q.defer();
+		$http.post(	serviceUrl +"fetchvisitorinfo", getData, {'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+		return deferred.promise;
+    }; 
+    this.fetchActionLogs = function (getData) {
+		var deferred = $q.defer();
+		$http.post(	serviceUrl +"fetchactionlog", getData, {'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+		return deferred.promise;
+    }; 
 
     }
 );

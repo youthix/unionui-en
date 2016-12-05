@@ -35,23 +35,22 @@
           <!-- Navbar collapse -->
           <div class="navbar-collapse collapse"> 
 		  
-			<ul class="nav navbar-nav top-navbar">
-              <!-- Notifications -->
-              <li>
-			  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
-              </li>
-              
-              <!-- Dropdown User session -->
-              <li class="dropdown"> <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
+           <ul class="nav navbar-nav top-navbar">
+            <!-- Dropdown User session -->
+            <li class="dropdown"> <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
                 <ul class="dropdown-menu animated half flipInX">
                   <li><a href="" ng-click="detailAdmin()">Account Setting</a></li>
                   <li class="divider"></li>
                   <li><a class="md-trigger" href="login.html">Logout</a></li>
                 </ul>
               </li>
-              <!-- End Dropdown User session -->	 		
-			</ul> 
-			
+            <!-- Notifications -->
+            <li>
+              <a href="" ng-click="showPendingUsers()" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">{{allPendingUsers.length}}</span></a>                
+            </li>
+            <!-- End Dropdown User session -->	 		
+          </ul> 
+
 			<div class="top-logo">
 			  <img src="images/wfs-logo-transparent.png" alt="Logo">
 			</div>			
@@ -67,49 +66,132 @@
     
     <!-- START YOUR CONTENT HERE --> 
     <!-- ============================================================== -->
-    <div class="body content rows scroll-y"> 
-	  
-      <!-- Page header -->
-      <div class="page-heading">       
-      
+    <div ng-show="showWaitingUsers === false" class="body content rows scroll-y"> 
+     <div class="box-info">
+      <div class="row">
+        <div class="col-sm-8"> 
+          <!-- Website statistic -->
+          <h2 class="dashboard-header">App Users</h2>
+          <canvas id="appUsers"></canvas>
+        </div>
+        <div class="col-sm-4"> 
+          <!-- Website statistic -->
+          <h2 class="dashboard-header">Space In Use</h2>
+          <canvas id="usedSpace"></canvas>
+          <div class="doughnut-inner text-center">
+            <p>{{spaceInfo.usedSpacePercent}}</p>
+            <span>In Use</span>
+          </div>
+          <ul class="memory-statistics">
+            <li><p class="in-use-space">{{spaceInfo.usedspace}} {{spaceInfo.unit}}</p>In use</li>
+            <li><p class="remaining-space">{{spaceInfo.remspace}} {{spaceInfo.unit}}</p>Remaining</li>
+            <li><p class="total-space">{{spaceInfo.totalspace}} {{spaceInfo.unit}}</p>Total</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="box-info" ng-show="allActionLogs.length > 0">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="dashboard-header">App Activities</h2>
+          <div class="table-responsive custom-table">
+            <table data-sortable="" class="table" data-sortable-initialized="true">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Subject</th>
+                  <th>Action</th>
+                  <th>Action By</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="actionLog in allActionLogs">
+                  <td>{{actionLog.module}}</td>
+                  <td>{{actionLog.subject}}</td>
+                  <td>{{actionLog.action}}</td>
+                  <td>{{actionLog.creator}}</td>
+                  <td>{{actionLog.actdate}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div ng-show="showWaitingUsers === true" class="body content rows scroll-y">
       <div class="row">
         <div class="col-sm-12"> 
-          <!-- Website statistic -->
           <div class="box-info">
-            <h2><strong>Account</strong> Status</h2>
+            <h2>New Users Waiting For Approval</h2>
             
-            <!-- Additional buttons -->
-            <div class="additional-btn"> <a class="additional-icon" href="#fakelink"><i class="fa fa-refresh fa-spin"></i></a> <a class="additional-icon" id="dropdownMenu1" data-toggle="dropdown"> <i class="fa fa-cog"></i> </a>
-              <ul class="dropdown-menu pull-right animated half fadeInDown" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#fakelink">Action</a></li>
-              </ul>
-			</div>
-            <!-- End div .additional-button --> 
-            <!-- Statistic inner -->
-            <div id="website-statistic" class="statistic-chart collapse in"> 
-              			<div id="graph"> </div>
-			<pre id="code" class="prettyprint linenums" style="display:none">
-			Morris.Donut({
-			  element: 'graph',
-			  data: [
-				{value: 70, label: 'Open'},
-				{value: 15, label: 'Pending'},
-				{value: 10, label: 'Closed'},
-				{value: 5, label: 'Processing'}
-			  ],
-			  formatter: function (x) { return x + "%"}
-			}).on('click', function(i, row){
-			  console.log(i, row);
-			});
-			</pre>
+            <div class="table-responsive myprofile" ng-show="allPendingUsers.length > 0">
+               <div ng-show="currUserIndex < allPendingUsers.length-1" ng-click="nextUser()" class="next-button">
+                  <i class="fa fa-3x fa-long-arrow-right" aria-hidden="true"></i>
+                </div>
+                <div ng-show="currUserIndex > 0" ng-click="prevUser()" class="prev-button">
+                  <i class="fa fa-3x fa-long-arrow-left" aria-hidden="true"></i>
+                </div>
+              <div class="image-holder profile"> 
+                <img class="media-object img-circle" id="blah" alt="Avatar" ng-if="allPendingUsers[currUserIndex].imageurl" ng-src="{{allPendingUsers[currUserIndex].imageurl}}">
+                <i class="media-object img-circle fa fa-user" ng-if="!allPendingUsers[currUserIndex].imageurl"  alt="Avatar"></i>
+              </div>
+
+              <div class="col-md-12 spacer-20"></div>
+              <table data-sortable="" width="500" class="table" data-sortable-initialized="true">
+
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td>{{allPendingUsers[currUserIndex].usNa}}</td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{allPendingUsers[currUserIndex].add}}</td>
+                  </tr>
+                  <tr>
+                    <td>Post Nr.</td>
+                    <td>{{allPendingUsers[currUserIndex].zipcode}}</td>
+                  </tr>
+                  <tr>
+                    <td>By</td>
+                    <td>{{allPendingUsers[currUserIndex].city}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tlf Nr.</td>
+                    <td>{{allPendingUsers[currUserIndex].conNu}}</td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>{{allPendingUsers[currUserIndex].emId}}</td>
+                  </tr>
+                  <tr>
+                    <td>Job Title</td>
+                    <td>{{allPendingUsers[currUserIndex].title}}</td>
+                  </tr>
+                  <tr>
+                    <td>Category</td>
+                    <td>
+                      {{allPendingUsers[currUserIndex].category.catname}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <!-- End div #website-statistic --> 
+
+            <div class="col-md-12 spacer-20"></div>
+            <div class="text-center actions">
+              <div class="button-wrap">
+                <button type="button" class="btn btn-primary" ng-click="aprroveUser(allPendingUsers[currUserIndex])">Approve</button>
+                <button type="submit" class="btn btn-primary" ng-click="donotApproveUser(allPendingUsers[currUserIndex])">Not Approve</button>
+              </div>
+            </div>
           </div>
-          <!-- End div .box-info --> 
         </div>
-        
-        <!-- End div .col-sm-4 --> 
       </div>
+    </div>
+  </div>
       <!-- End div .row --> 
       
       <!-- Footer -->
