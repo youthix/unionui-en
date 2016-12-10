@@ -459,6 +459,32 @@ app.service('services', function ($http, $q) {
 		return deferred.promise;
     }; 
 
+    this.getAllSurvey = function (getData) {
+		var deferred = $q.defer();
+		$http.post(	serviceUrl +"fetchsurvey", getData, {'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+		return deferred.promise;
+    };
+
+    this.createNewSurvey = function (getData) {
+		var deferred = $q.defer();
+		$http.post(	serviceUrl +"createsurvey", getData, {'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+		return deferred.promise;
+    }; 
+
     }
 );
 

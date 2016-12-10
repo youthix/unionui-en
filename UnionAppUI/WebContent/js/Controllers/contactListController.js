@@ -686,7 +686,7 @@ $scope.validateExtension=function(oForm) {
     
 
     $scope.showButton = true;
-
+    
    $scope.edit = function(){
      $scope.showButton = false;
 
@@ -694,7 +694,9 @@ $scope.validateExtension=function(oForm) {
        $scope.showButtonFile = true;
 };
 
-
+if($route.current.params.approveUser){
+      $scope.edit();
+    }
 $scope.contactcancel=function(cat){	
 	var catData ={"catname":cat};
 	dataSharingService.addEditData(catData);

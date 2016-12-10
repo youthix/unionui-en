@@ -1,7 +1,7 @@
 
 <!-- BEGIN PAGE -->
 <div class="container"> 
-  
+
   <!-- Your logo goes here -->
   <div class="logo-brand header sidebar rows main-logo">
     <div class="logo">
@@ -14,10 +14,10 @@
   
   <!-- BEGIN CONTENT -->
   <div class="right content-page"> 
-    
+
     <!-- BEGIN CONTENT HEADER -->
     <div class="header content rows-content-header"> 
-      
+
       <!-- Button mobile view to collapse sidebar menu -->
       <button class="button-menu-mobile show-sidebar"> <i class="fa fa-bars"></i> </button>
       
@@ -32,125 +32,115 @@
           
           <!-- Navbar collapse -->
           <div class="navbar-collapse collapse"> 
-		  
-			<ul class="nav navbar-nav top-navbar">
-              <!-- Notifications -->
+
+           <ul class="nav navbar-nav top-navbar">
+            <!-- Notifications -->
               <!-- <li>
 			  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
-              </li> -->
-              
-              <!-- Dropdown User session -->
-              <li class="dropdown"> <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
-                <ul class="dropdown-menu animated half flipInX">
-                  <li><a href="" ng-click="detailAdmin()">Account Setting</a></li>
-                  <li class="divider"></li>
-                  <li><a class="md-trigger" href="login.html">Logout</a></li>
-                </ul>
-              </li>
-              <!-- End Dropdown User session -->			
-			</ul> 
-			
-			<div class="top-logo">
-			  <img src="images/wfs-logo-transparent.png" alt="Logo">
-			</div>			
-            
-          </div>
-          <!-- End div .navbar-collapse --> 
-        </div>
-        <!-- End div .container --> 
-      </div>
-      <!-- END NAVBAR CONTENT--> 
+      </li> -->
 
-    <div class="media user-field">
-          <div class="media-body welcome pull-left">{{surveyData.subject}} Questions
-          <!-- End div .media-body --> 
-        </div>
-        <!-- End div .media --> 
-        
-      </div>
-      
-    </div>
-    <!-- END CONTENT HEADER --> 
-    
-    <!-- START YOUR CONTENT HERE --> 
-    <!-- ============================================================== -->
-    <div class="body content rows scroll-y"> 
-	  
-      <!-- Page header -->
-      <div class="page-heading">       
-      
-      <div class="row">
-        <div class="col-sm-12" style="position:relative"> 
-          <!-- Website statistic -->
-          <div class="box-info" ng-hide="showQues">
-			<div class="table-responsive text-center" >
-			   <table data-sortable="" class="table" data-sortable-initialized="true">
-				  <thead>
-					 <tr>
-						<th>#</th>
-						<th>Question</th>
-						
-					 </tr>
-				  </thead>
-				  <tbody ng-repeat="question in surveyData.questiondtoLs">
-					 <tr>
-						<td colspan="1">{{$index+1}}</td>
-						<td colspan="3"><h4>{{question.subject}}</h4></td>
-					 </tr>
-					<tr><td ng-repeat="opt in question.optiondtoLs"><label><input type="radio" name="question.id">{{opt.detail}}</label></td></tr>
-				  </tbody>
-			   </table>
-			</div>
+      <!-- Dropdown User session -->
+      <li class="dropdown"> <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
+        <ul class="dropdown-menu animated half flipInX">
+          <li><a href="" ng-click="detailAdmin()">Account Setting</a></li>
+          <li class="divider"></li>
+          <li><a class="md-trigger" href="login.html">Logout</a></li>
+        </ul>
+      </li>
+      <!-- End Dropdown User session -->			
+    </ul> 
 
-			<div class="text-center col-xs-12">
-            <a ng-href="#/voting" class="btn btn-wfs" >Back</a>
-			<button type="button" class="btn btn-wfs" ng-click="addQuestion()"><i class="fa fa-plus"></i>Add Question</button>
-			</div>
-          </div>
-          <!-- End div .box-info -->
-          
-          <div ng-show="showQues" style="width:100%; height:auto;">
-          	<div class="text-center col-xs-12" style="min-height:200px">
-            <div class="col-xs-2"></div>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" placeholder="Question" ng-model="activitie.subject">							
-                <textarea rows="3" class="form-control" placeholder="Description" ng-model="activitie.detail"></textarea>
-            </div>
-             <div class="col-xs-2"></div>
-            </div>
-          	<div class="text-center col-xs-12">
-            <button type="button" class="btn btn-wfs" ng-click="cancle()">Cancel</button>
-			<button type="button" class="btn btn-wfs" ng-click="saveQuestion()"><i class="fa fa-plus"></i>Save</button>
-			</div>
-          </div>
-          
-           
-        </div>
-        
-        <!-- End div .col-sm-4 --> 
-      </div>
+    <div class="top-logo">
+     <img src="images/wfs-logo-transparent.png" alt="Logo">
+   </div>			
 
-     
+ </div>
+ <!-- End div .navbar-collapse --> 
+</div>
+<!-- End div .container --> 
+</div>
+<!-- END NAVBAR CONTENT--> 
 
-        <div class="pagin_div">
-                <ul class="pagination pagn">
-                  <li ng-repeat="page in totalPages"><span><a ng-click="pageNumber(page)">{{page}}</a></span></li>
-                </ul>
-              </div> 
-      <!-- End div .row --> 
-      
-      <!-- Footer -->
-      <footer> &copy; <a href="http://www.wfs.aero/">WORLDWIDE FLIGHT SERVICES </a></footer>
-      <!-- End Footer --> 
-      
-    </div>
-    <!-- ============================================================== --> 
-    <!-- END YOUR CONTENT HERE --> 
-    <!-- ============================================================== --> 
-    
+<div class="media user-field">
+  <div class="media-body welcome pull-left">{{surveyData.subject}} Questions
+    <!-- End div .media-body --> 
   </div>
-  <!-- END CONTENT -->
-  <div class="md-overlay"></div>
+  <!-- End div .media --> 
+
+</div>
+
+</div>
+<!-- END CONTENT HEADER --> 
+
+<!-- START YOUR CONTENT HERE --> 
+<!-- ============================================================== -->
+<div class="body content rows scroll-y"> 
+
+  <!-- Page header -->
+  <div class="page-heading">       
+
+    <div class="row">
+      <div class="col-sm-12" style="position:relative"> 
+        <div style="width:100%; height:auto;">
+          <div class="questions-table" ng-repeat="question in questionList  track by $index">
+            <div class="questions-table-row">
+              <div class="questions-table-cell questions-label"><span>Question {{$index+1}}</span></div>
+              <div class="questions-table-cell questions-detail">
+                <textarea rows="3" class="form-control" placeholder="Description" ng-model="question.detail"></textarea>
+              </div>
+              <div class="questions-table-cell actions">
+                <a data-toggle="tooltip" ng-click="deleteQuestion($index)" class="btn btn-default delete" data-original-title="Delete Question" title="Delete Question"><i class="fa fa-minus"></i></a>
+                <a data-toggle="tooltip" ng-click="addOption($index)" class="btn btn-default add" data-original-title="" title=""><i class="fa fa-plus"></i></a>
+              </div>
+            </div>
+            <div class="questions-table-row">
+              <div class="questions-table-cell">&nbsp;</div>
+              <div class="options-table" ng-repeat="option in question.optiondtoLs track by $index">
+                <div class="options-table-cell options-label">Option {{$index+1}}</div>
+                <div class="options-table-cell">
+                  <textarea class="form-control" placeholder="Description" ng-model="option.detail"></textarea>
+                </div>
+                <div class="options-table-cell actions">
+                  <a data-toggle="tooltip" ng-click="deleteOption($parent.$index,$index)" class="btn btn-default delete" title=""><i class="fa fa-minus"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center actions">
+            <div class="button-wrap">
+              <div style="width:10%;float:left;">&nbsp;</div>
+              <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="save(survey)">Save</button>
+              <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+              <div class="add-questions-btn">Add Questions<br/>
+                <div class="btn-questions" ng-click="addQuestion()"><i class="fa fa-3x fa-plus-circle"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+
+    <!-- End div .col-sm-4 --> 
+  </div>
+
+
+
+
+  <!-- End div .row --> 
+
+  <!-- Footer -->
+  <footer> &copy; <a href="http://www.wfs.aero/">WORLDWIDE FLIGHT SERVICES </a></footer>
+  <!-- End Footer --> 
+
+</div>
+<!-- ============================================================== --> 
+<!-- END YOUR CONTENT HERE --> 
+<!-- ============================================================== --> 
+
+</div>
+<!-- END CONTENT -->
+<div class="md-overlay"></div>
 </div>
 </div>
 <!-- End div .container --> 
