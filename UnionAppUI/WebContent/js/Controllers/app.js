@@ -1,5 +1,4 @@
-var app = angular.module('unionApp', ['ngRoute','ngTouch','ngResource','ngSanitize','ngLoadingSpinner','720kb.datepicker','file-model'
-,'ui.bootstrap']);
+var app = angular.module('unionApp', ['ngRoute','ngTouch','ngResource','ngSanitize','ngLoadingSpinner','720kb.datepicker','file-model','ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html"]);
 
 
 app.config(['$routeProvider','$locationProvider','$httpProvider',function($routeProvider, $locationProvider, $httpProvider) {
@@ -86,6 +85,12 @@ app.config(['$routeProvider','$locationProvider','$httpProvider',function($route
                                       {
                                         controller:'newSummaryController',
                                         templateUrl:'templates/newSummary.html'
+
+                                      })
+                                        .when('/newSurvey',
+                                      {
+                                        controller:'newSurveyController',
+                                        templateUrl:'templates/newSurvey.html'
 
                                       })
                                         .when('/editSummary',

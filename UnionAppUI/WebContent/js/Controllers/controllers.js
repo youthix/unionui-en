@@ -124,10 +124,8 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
 	  };
 
     $scope.aprroveUser = function(userData){
-       console.log(userData);
-       console.log($rootScope.adminDetails);
         dataSharingService.addEditData(userData);
-        $location.path('/miniContactProfile');
+        $location.path('/miniContactProfile').search({approveUser:true});
     };
     
     function drawGraph(){

@@ -18,7 +18,7 @@
   <div class="right content-page"> 
     
     <!-- BEGIN CONTENT HEADER -->
-    <div class="header content rows-content-header"> 
+    <div class="header content rows-content-header dashboard"> 
       
       <!-- Button mobile view to collapse sidebar menu -->
       <button class="button-menu-mobile show-sidebar"> <i class="fa fa-bars"></i> </button>
@@ -66,18 +66,18 @@
     
     <!-- START YOUR CONTENT HERE --> 
     <!-- ============================================================== -->
-    <div ng-show="showWaitingUsers === false" class="body content rows scroll-y"> 
+    <div ng-show="showWaitingUsers === false" class="body content rows dashboard-body scroll-y"> 
      <div class="box-info">
       <div class="row">
         <div class="col-sm-8"> 
           <!-- Website statistic -->
           <h2 class="dashboard-header">App Users</h2>
-          <canvas id="appUsers"></canvas>
+          <canvas class="app-user-chart" id="appUsers"></canvas>
         </div>
         <div class="col-sm-4"> 
           <!-- Website statistic -->
           <h2 class="dashboard-header">Space In Use</h2>
-          <canvas id="usedSpace"></canvas>
+          <canvas  class="used-space-chart" id="usedSpace"></canvas>
           <div class="doughnut-inner text-center">
             <p>{{spaceInfo.usedSpacePercent}}</p>
             <span>In Use</span>
@@ -94,8 +94,8 @@
       <div class="row">
         <div class="col-sm-12">
           <h2 class="dashboard-header">App Activities</h2>
-          <div class="table-responsive custom-table">
-            <table data-sortable="" class="table" data-sortable-initialized="true">
+          <div class="table-responsive custom-table app-activity-table-header">
+            <table class="table" data-sortable-initialized="true">
               <thead>
                 <tr>
                   <th>Module</th>
@@ -105,6 +105,11 @@
                   <th>Date</th>
                 </tr>
               </thead>
+            </table>
+          </div>
+
+          <div class="table-responsive custom-table app-activity-table-body">
+            <table class="table" data-sortable-initialized="true">
               <tbody>
                 <tr ng-repeat="actionLog in allActionLogs">
                   <td>{{actionLog.module}}</td>

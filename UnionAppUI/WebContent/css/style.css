@@ -3841,15 +3841,15 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 }
 .doughnut-inner {
     position: absolute;
-    top: 35%;
+    top: 33%;
     left: 30%;
     right: 30%;
 }
 .doughnut-inner span {
-    font-size: 24px;
+    font-size: 20px;
 }
 .doughnut-inner p {
-   font-size: 40px;
+   font-size: 35px;
    color:#7CDAC7
 }
 .memory-statistics  {
@@ -3899,4 +3899,112 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 }
 .prev-button{
     float:left;
+}
+
+.app-activity-table-body{
+    overflow-y: scroll;
+    max-height: 250px; 
+}
+.app-activity-table-header{
+    padding-right: 20px;
+}
+.app-activity-table-header table thead tr th,
+.app-activity-table-body table tbody tr td{
+    width: 20%;
+}
+.survey-table{
+    display: table;
+}
+.survey-table-cell{
+    display: table-cell;
+}
+.start-date{
+    float:left;
+}
+.end-date{
+    float:right;
+}
+.start-date tbody tr td,
+.end-date tbody tr td{
+    vertical-align: middle;
+}
+.survey-form{
+    width:800px;
+    margin:0 auto;
+}
+.survey-subject, .survey-description{
+    padding:0px 15px;
+}
+.button-wrap .add-questions-btn{
+    float: right;
+
+}
+.button-wrap{
+    padding: 15px;
+}
+.button-wrap button{
+    margin-top: 20px;
+}
+.button-wrap .add-questions-btn .btn-questions{
+    background-color: #ffffff;
+    color: #009c24;
+    padding: 0px;
+    margin: 0px 50px;
+    border: 2px solid #9aac99;
+    border-radius: 50%;
+    font-size: 11px;
+    width: 36px;
+    margin-top:5px;
+    cursor: pointer;
+}
+.questions-table-row{
+    display: table-row;
+}
+.questions-table, .options-table{
+    display: table;
+    width: 100%;
+}
+.questions-table-cell, .options-table-cell{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.questions-label, .questions-action, .options-label, .options-action{
+    width:10%;
+}
+.questions-detail{
+    width:80%;
+}
+a.btn.btn-default.add{
+    background: #009c24;
+    border-color: #009c24;
+}
+
+.app-user-chart{
+    width: 80% !important;
+    height: 70% !important;
+    margin: 0 auto;
+}
+.used-space-chart{
+    width: 55% !important;
+    height: 55% !important;
+    margin: 0 auto;
+}
+.add-questions-hidden{
+    visibility: hidden;
+}
+.add-questions-visible{
+    visibility: visible;
+}
+.btn-save-survey{
+    background-color: #1b4481 !important;
+}
+.error{
+    color:red;
+}
+.header.rows-content-header.dashboard {
+    height: 65px;
+}
+.body.content.rows.dashboard-body {
+    top:65px;
 }

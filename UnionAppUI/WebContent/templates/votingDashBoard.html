@@ -77,21 +77,37 @@
         <div class="col-sm-12"> 
           <!-- Website statistic -->
           <div class="box-info">
-			<div class="table-responsive text-center">
-			   <table data-sortable="" class="table" data-sortable-initialized="true">
-				  <tbody>
-					 <tr ng-repeat="sur in surveyList">
-						<td><h3 class="mgn-top-7" ng-click="questionList(sur)">{{sur.subject}}</h3></td>
-						
-					 </tr>
-                     
-				  </tbody>
-			   </table>
-			</div>
+			<div class="table-responsive text-center" ng-repeat="survey in surveyList">
+         <table data-sortable="" class="table" data-sortable-initialized="true">
+          <thead>
+           <tr>           
+            <th>Deadline</th> 
+            <th>Subject</th>           
+            <th>Edit&nbsp;<span ng-show="survey.status == 'offline' ">Offline&nbsp;</span><span ng-show="survey.status == 'online' ">Live&nbsp;</span>Delete</th>
+            <th></th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>              
+             <td class="mid-td">{{survey.deadlineDays}} Days {{survey.deadlineHours}} Hours</td>
+             <td class="larger-td">{{survey.subject}}</td>
+             <td class="actions">
+                <a data-toggle="tooltip"  ng-click="editSurvey(survey)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
+                <a data-toggle="tooltip" ng-show="survey.status == 'offline' " ng-click="statusUpdate('offline',survey)" class="btn btn-default live"><i class="fa"></i></a>
+                <a data-toggle="tooltip" ng-show="survey.status == 'online' " ng-click="statusUpdate('online',survey)" class="btn btn-default offline"><i class="fa"></i></a>
+                <a data-toggle="tooltip" ng-click="deleteSurvey(survey)"  class="btn btn-default delete"><i class="fa fa-minus"></i></a>
+            </td> 
+            <td class="actions attachments" ng-if= "survey.attachmentlist.listSize != '0' ">
+               <i class="fa fa-link"></i>
+             </td>
+           </tr>
+           </tbody>
+         </table>
+      </div>
 			
 			
 			<div class="text-center">
-				<button type="button" class="btn btn-wfs" ng-click="addNew()"><i class="fa fa-plus"></i>Add New Survey</button>
+				<button type="button" class="btn btn-wfs" ng-click="addNewSurvey()"><i class="fa fa-plus"></i>Add New Survey</button>
 			</div>
           </div>
           <!-- End div .box-info --> 
