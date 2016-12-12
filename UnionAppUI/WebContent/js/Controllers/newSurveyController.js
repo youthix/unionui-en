@@ -82,9 +82,10 @@ $scope.save = function(survey){
    "surveyListObj": {"surveydtoLs": []
     }
   };
-  requestObject.surveyListObj.surveydtoLs.push(survey);
-  
+  var surveyData = angular.merge({}, $scope.defaultSurvey, survey)
+  requestObject.surveyListObj.surveydtoLs.push(surveyData);
   services.createNewSurvey(requestObject).then(function(data){
+
     var status = data.resStatus;
     if (status.code == "00" &&  status.msg =="SUCCESS") {
       $location.path('/voting');                     
@@ -106,8 +107,8 @@ $scope.addQuestions = function(){
 }
   
   $scope.questionList=function(survey){
-    
-    dataSharingService.addEditData(survey);
+    var surveyData = angular.merge({}, $scope.defaultSurvey, survey)
+    dataSharingService.addEditData(surveyData);
     $location.path('/surveyQuestions');
   }
 }]);

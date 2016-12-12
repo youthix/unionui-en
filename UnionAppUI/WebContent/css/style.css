@@ -4008,3 +4008,9 @@ a.btn.btn-default.add{
 .body.content.rows.dashboard-body {
     top:65px;
 }
+.tooltip-delete{
+    color:#d9534f;
+}
+.tooltip-add{
+    color: #009c24;
+}

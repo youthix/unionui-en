@@ -45,52 +45,108 @@ app.controller('votingController',['$scope','$location','services','constant','d
 
 $scope.currentPage = 1;
 $scope.activeMenu ="Voting";
-var requestObject ={
-	"bid": constant.bid,
-	"pageno":$scope.currentPage,
-	"userListObj": {
-		"ul":[{
-			"usNa":$rootScope.userName
-		}]},
-		"criteria":{
-			"criteria": "FALSE"
-		}
+$scope.statusUpdate = function(surveyStatus,surveyData){
+	console.log(surveyData)
+	updateSurveyStatus = function(){
+		var status;
+		if (surveyStatus == "offline") {
+			status = "online";
+		}else if(surveyStatus =="online"){
+			status = "offline";
+		}  
+		/*var requestObject =
+		{
+			"bid": constant.bid,
+			"suggestionIdeaListObj": 
+			{
+				"suggestionideadtoLs": 
+				[
+				{
+					"subject":ideaData.subject,
+					"detail": ideaData.detail,
+					"suggideadate":ideaData.suggideadate,
+					"suggideatime":"00:00:00",
+					"creator":$rootScope.userName,
+					"status":status,
+					"suggideaid":ideaData.suggideaid
+				}
+				]
+			}
+		};
+		services.updateIdea(requestObject).then(function(data){
+
+			console.log("Data is:" + JSON.stringify(data));
+			var status = data.resStatus;
+			if (status.code == "00" &&  status.msg =="SUCCESS") {
+				gettingData();                 
+			}
+			else
+			{
+				alert("Service :"+ status.msg);
+			}
+		});*/
+
+	};
+	updateSurveyStatus();
 };
-services.getAllSurvey(requestObject).then(function(data){
-	var status = data.resStatus;
-	if (status.code == "00" &&  status.msg =="SUCCESS") {
-		$scope.surveyList = data.surveyListObj.surveydtoLs;
-		$scope.surveyList.map(function(survey){
-			var startDate = getDateObj(survey.createdate, survey.createtime).getTime();
-			var endDate = getDateObj(survey.enddate, survey.endtime).getTime();
-			/*var startDate =  new Date("12/1/2016 12:00:00");
-			var endDate = new Date("12/13/2016 24:00:00");*/
-			var hourDiff = endDate - startDate; //in ms
-			var minDiff = hourDiff / 60 / 1000; //in minutes
-			var hDiff = hourDiff / 3600 / 1000; //in hours
-			var humanReadable = {};
-			var hours = Math.floor(hDiff);
-			var minutes = minDiff - 60 * hours;
-			survey.deadlineDays = Math.floor(hours/24);
-			survey.deadlineHours = hours%24;
-			return survey;
-		})
-		$scope.totalPagesCount = data.totalPage;
-		$scope.totalPages=[];
-		for(i =1; i<=$scope.totalPagesCount ; i ++){
-			console.log(i);
-			$scope.totalPages.push(i);
+function gettingData(){
+	var requestObject ={
+		"bid": constant.bid,
+		"pageno":$scope.currentPage,
+		"userListObj": {
+			"ul":[{
+				"usNa":$rootScope.userName
+			}]},
+			"criteria":{
+				"criteria": "FALSE"
+			}
+	};
+	services.getAllSurvey(requestObject).then(function(data){
+		var status = data.resStatus;
+		if (status.code == "00" &&  status.msg =="SUCCESS") {
+			$scope.surveyList = data.surveyListObj.surveydtoLs;
+			$scope.surveyList.map(function(survey){
+				//var startDate = getDateObj(survey.createdate, survey.createtime).getTime();
+				var todayDate = new Date().getTime();
+				var endDate = getDateObj(survey.enddate, survey.endtime).getTime();
+				var hourDiff = endDate - todayDate; //in ms
+				var minDiff = hourDiff / 60 / 1000; //in minutes
+				var hDiff = hourDiff / 3600 / 1000; //in hours
+				var humanReadable = {};
+				var hours = Math.floor(hDiff);
+				var minutes = minDiff - 60 * hours;
+				survey.deadlineDays = Math.floor(hours/24);
+				survey.deadlineHours = hours%24;
+				console.log(survey)
+				return survey;
+			})
+			$scope.totalPagesCount = data.totalPage;
+			$scope.totalPages=[];
+			for(i =1; i<=$scope.totalPagesCount ; i ++){
+				console.log(i);
+				$scope.totalPages.push(i);
+			}
+		}else{
+			alert("Service :"+ status.msg);
 		}
-	}else{
-		alert("Service :"+ status.msg);
-	}
-});
+	});
+}
+$scope.pageNumber = function(pageno){
+
+  $scope.currentPage = pageno;
+  gettingData();
+
+};
+gettingData();
  function getDateObj(dateStr,timeStr){
  	var date = new Date();
- 	var timeStr =timeStr!== null && timeStr !== undefined? timeStr: "";
+ 	var timeStr = timeStr!== null && timeStr !== undefined ? timeStr: "00:00:00";
+ 	
  	if(dateStr !== null && dateStr !== undefined){
- 		var date = new Date(dateStr.replace(/-/g,'/')+" "+timeStr);
- 	}
+ 		var timeParts = timeStr.split(':');
+		var dateParts = dateStr.split("-");
+		var date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0], timeParts[0],timeParts[1],timeParts[2]); // month is 0-based
+	}
  	return date;
  }
 
@@ -192,14 +248,12 @@ app.controller('questionController',['$scope','$location','services','constant',
 	
 	$scope.cancel = function(){
 		
-		if($scope.surveyData.questiondtoLs === undefined)
-			$scope.surveyData.questiondtoLs = [];
-		$scope.surveyData.questiondtoLs = $scope.questionList;
+		$scope.surveyData.questiondtoLs = [];
 		dataSharingService.addEditData($scope.surveyData);
 		$location.path("/newSurvey").search({"addNewSurvey":false});
 	}
 	
-	$scope.save = function(survey){
+	$scope.save = function(){
 		$scope.surveyData.questiondtoLs = $scope.questionList;
 		var requestObject = {
 			"bid": constant.bid,
@@ -211,7 +265,6 @@ app.controller('questionController',['$scope','$location','services','constant',
 		services.createNewSurvey(requestObject).then(function(data){
 			var status = data.resStatus;
 			if (status.code == "00" &&  status.msg =="SUCCESS") {
-	      		//allMeeitngsRequest();  
 	      		$location.path('/voting');                     
 	  		}
 	  		else{
@@ -219,19 +272,24 @@ app.controller('questionController',['$scope','$location','services','constant',
 	  		}
 		});
 	};
-	$scope.saveQuestion=function(){
-		
-	}
+	
 	$scope.addQuestion = function(){
 		$scope.questionList.push(getDefaultQuestion());
 	}
-	$scope.addOption = function(i){
+	$scope.addOption = function(i,$event){
 		$scope.questionList[i].optiondtoLs.push(getDefaultOption());
+		$ele = $($event.target);
+		$ele.tooltip("hide");
 	}
-	$scope.deleteQuestion = function(index){
+	$scope.deleteQuestion = function(index,$event){
+		console.log($event.target);
+		$ele = $($event.target);
+		$ele.tooltip("hide");
 		$scope.questionList.splice(index,1);
 	}
-	$scope.deleteOption = function(questionIndex,optionIndex){
+	$scope.deleteOption = function(questionIndex,optionIndex,$event){
 		$scope.questionList[questionIndex].optiondtoLs.splice(optionIndex,1);
+		$ele = $($event.target);
+		$ele.tooltip("hide");
 	}
 }]);

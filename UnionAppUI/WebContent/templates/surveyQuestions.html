@@ -89,8 +89,8 @@
                 <textarea rows="3" class="form-control" placeholder="Description" ng-model="question.detail"></textarea>
               </div>
               <div class="questions-table-cell actions">
-                <a data-toggle="tooltip" ng-click="deleteQuestion($index)" class="btn btn-default delete" data-original-title="Delete Question" title="Delete Question"><i class="fa fa-minus"></i></a>
-                <a data-toggle="tooltip" ng-click="addOption($index)" class="btn btn-default add" data-original-title="" title=""><i class="fa fa-plus"></i></a>
+                <i data-toggle="tooltip" ng-click="deleteQuestion($index,$event)" class="fa fa-3x fa-minus-circle tooltip-delete" data-original-title="Delete Question" title="Delete Question"></i>
+                <i data-toggle="tooltip" ng-click="addOption($index,$event)" class="fa fa-3x fa-plus-circle tooltip-add" data-original-title="Add Options" title="Add Options"></i>
               </div>
             </div>
             <div class="questions-table-row">
@@ -101,7 +101,7 @@
                   <textarea class="form-control" placeholder="Description" ng-model="option.detail"></textarea>
                 </div>
                 <div class="options-table-cell actions">
-                  <a data-toggle="tooltip" ng-click="deleteOption($parent.$index,$index)" class="btn btn-default delete" title=""><i class="fa fa-minus"></i></a>
+                  <i data-toggle="tooltip" ng-click="deleteOption($parent.$index,$index,$event)" class="fa fa-3x fa-minus-circle tooltip-delete" data-original-title="Delete Question" title="Delete Question"></i>
                 </div>
               </div>
             </div>

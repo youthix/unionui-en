@@ -84,7 +84,6 @@
             <th>Deadline</th> 
             <th>Subject</th>           
             <th>Edit&nbsp;<span ng-show="survey.status == 'offline' ">Offline&nbsp;</span><span ng-show="survey.status == 'online' ">Live&nbsp;</span>Delete</th>
-            <th></th>
            </tr>
           </thead>
           <tbody>
@@ -97,9 +96,6 @@
                 <a data-toggle="tooltip" ng-show="survey.status == 'online' " ng-click="statusUpdate('online',survey)" class="btn btn-default offline"><i class="fa"></i></a>
                 <a data-toggle="tooltip" ng-click="deleteSurvey(survey)"  class="btn btn-default delete"><i class="fa fa-minus"></i></a>
             </td> 
-            <td class="actions attachments" ng-if= "survey.attachmentlist.listSize != '0' ">
-               <i class="fa fa-link"></i>
-             </td>
            </tr>
            </tbody>
          </table>
@@ -116,7 +112,18 @@
         <!-- End div .col-sm-4 --> 
       </div>
       <!-- End div .row --> 
-      
+      <div class="pagin_div">
+        <ul class="pagination pagn">
+      <!-- <li>
+        <button ng-disabled="currentPage == 1"
+          ng-click="currentPage=currentPage-1">Previous</button>
+        </li> -->
+          <li ng-repeat="page in totalPages"><span><a ng-click="pageNumber(page)">{{page}}</span></a></li>
+        <!--  <li><button
+          ng-disabled=""
+          ng-click="currentPage=currentPage+1">Next</button></li> -->
+        </ul>
+      </div>
       <!-- Footer -->
       <footer> &copy; <a href="http://www.wfs.aero/">WORLDWIDE FLIGHT SERVICES </a></footer>
       <!-- End Footer --> 
