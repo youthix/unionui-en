@@ -39,56 +39,59 @@ app.controller('votingController',['$scope','$location','services','constant','d
     $scope.AdminUserDasgBoard = function(){
         $location.path('/adminUser');
     };
-
+    if ($rootScope.userName == undefined || $rootScope.userName == null) {
+         $location.path('/login');
+    }
 /*-------------------------------------*/
 
 
 $scope.currentPage = 1;
 $scope.activeMenu ="Voting";
 $scope.statusUpdate = function(surveyStatus,surveyData){
-	console.log(surveyData)
-	updateSurveyStatus = function(){
-		var status;
-		if (surveyStatus == "offline") {
-			status = "online";
-		}else if(surveyStatus =="online"){
-			status = "offline";
-		}  
-		/*var requestObject =
-		{
-			"bid": constant.bid,
-			"suggestionIdeaListObj": 
-			{
-				"suggestionideadtoLs": 
-				[
-				{
-					"subject":ideaData.subject,
-					"detail": ideaData.detail,
-					"suggideadate":ideaData.suggideadate,
-					"suggideatime":"00:00:00",
-					"creator":$rootScope.userName,
-					"status":status,
-					"suggideaid":ideaData.suggideaid
-				}
-				]
-			}
-		};
-		services.updateIdea(requestObject).then(function(data){
-
-			console.log("Data is:" + JSON.stringify(data));
-			var status = data.resStatus;
-			if (status.code == "00" &&  status.msg =="SUCCESS") {
-				gettingData();                 
-			}
-			else
-			{
-				alert("Service :"+ status.msg);
-			}
-		});*/
-
+	
+	var status;
+	if (surveyStatus == "offline") {
+		surveyData.status = "online";
+	}else if(surveyStatus =="online"){
+		surveyData.status = "offline";
+	} 
+	var requestObject = {
+		"bid": constant.bid,
+		"surveyListObj": {
+			"surveydtoLs": [
+			]
+		}
 	};
-	updateSurveyStatus();
+	var surveyData = angular.copy(surveyData);
+	delete surveyData.deadlineDays;
+	delete surveyData.deadlineHours;
+	
+	requestObject.surveyListObj.surveydtoLs.push(surveyData);
+
+	services.updateSurvey(requestObject).then(function(data){
+		console.log("Data is:" + JSON.stringify(data));
+		var status = data.resStatus;
+		if (status.code == "00" &&  status.msg =="SUCCESS") {
+			gettingData();                 
+		}
+		else{
+			alert("Service :"+ status.msg);
+		}
+	});
+
+	
 };
+function getDateObj(dateStr,timeStr){
+ 	var date = new Date();
+ 	var timeStr = timeStr!== null && timeStr !== undefined ? timeStr: "00:00:00";
+ 	
+ 	if(dateStr !== null && dateStr !== undefined){
+ 		var timeParts = timeStr.split(':');
+		var dateParts = dateStr.split("-");
+		var date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0], timeParts[0],timeParts[1],timeParts[2]); // month is 0-based
+	}
+ 	return date;
+ }
 function gettingData(){
 	var requestObject ={
 		"bid": constant.bid,
@@ -117,7 +120,6 @@ function gettingData(){
 				var minutes = minDiff - 60 * hours;
 				survey.deadlineDays = Math.floor(hours/24);
 				survey.deadlineHours = hours%24;
-				console.log(survey)
 				return survey;
 			})
 			$scope.totalPagesCount = data.totalPage;
@@ -138,17 +140,8 @@ $scope.pageNumber = function(pageno){
 
 };
 gettingData();
- function getDateObj(dateStr,timeStr){
- 	var date = new Date();
- 	var timeStr = timeStr!== null && timeStr !== undefined ? timeStr: "00:00:00";
- 	
- 	if(dateStr !== null && dateStr !== undefined){
- 		var timeParts = timeStr.split(':');
-		var dateParts = dateStr.split("-");
-		var date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0], timeParts[0],timeParts[1],timeParts[2]); // month is 0-based
-	}
- 	return date;
- }
+
+ 
 
 	$rootScope.surveyData={};
 	$scope.questionList=function(ques){
@@ -156,7 +149,15 @@ gettingData();
 		$location.path('/surveyQuestions');
 	}
 	$scope.addNewSurvey = function(){
-		$location.path("/newSurvey").search({"addNewSurvey":true})
+		$location.path("/survey").search({"addNewSurvey":true});
+	}
+	$scope.viewSurvey = function(index){
+		dataSharingService.addEditData($scope.surveyList[index]);
+		$location.path("/survey").search({"viewSurvey":true});
+	}
+	$scope.editSurvey = function(index){
+		dataSharingService.addEditData($scope.surveyList[index]);
+		$location.path("/survey").search({"editSurvey":true});
 	}
 }]);
 app.controller('questionController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {
@@ -237,23 +238,61 @@ app.controller('questionController',['$scope','$location','services','constant',
       }
       return defaultOption;
    	};
-   	$scope.surveyData = dataSharingService.getEditData()[0] !== undefined? dataSharingService.getEditData()[0]: {} ;
    	$scope.questionList = [];
+   	$scope.editSurvey = false;
+	$scope.viewSurvey = false;
+	$scope.addNewSurvey = false;
+	if($route.current.params.addNewSurvey) {
+	  $scope.addNewSurvey = true;
+	  $scope.editSurvey = false;
+	  $scope.viewSurvey = false;
+	}else if($route.current.params.editSurvey){
+	  $scope.editSurvey = true;
+	  $scope.viewSurvey = false;
+	  $scope.addNewSurvey = false;
+	}
+	else if($route.current.params.viewSurvey){
+	  $scope.viewSurvey = true;
+	  $scope.editSurvey = false;
+	  $scope.addNewSurvey = false;
+	}
+   	$scope.surveyData = dataSharingService.getEditData()[0] !== undefined? dataSharingService.getEditData()[0]: {} ;
+   	
 	if($scope.surveyData.hasOwnProperty("questiondtoLs")){
 		$scope.surveyData.questiondtoLs.length>0? $scope.questionList = $scope.surveyData.questiondtoLs : $scope.questionList.push(getDefaultQuestion());;
 	}
 	else{
 		$scope.questionList.push(getDefaultQuestion());
 	}
-	
 	$scope.cancel = function(){
 		
 		$scope.surveyData.questiondtoLs = [];
 		dataSharingService.addEditData($scope.surveyData);
-		$location.path("/newSurvey").search({"addNewSurvey":false});
+		var searchParam = {};
+		if($scope.editSurvey){
+	       searchParam.editSurvey = true;
+	    }else if($scope.addNewSurvey){
+	      searchParam.addNewSurvey = true;
+	    }else if($scope.viewSurvey){
+	      searchParam.viewSurvey = true;
+	    }
+	    $location.path('/survey').search(searchParam);
+		
+	}
+	$scope.back = function(){
+		dataSharingService.addEditData($scope.surveyData);
+		var searchParam = {};
+		if($scope.editSurvey){
+	       searchParam.editSurvey = true;
+	    }else if($scope.addNewSurvey){
+	      searchParam.addNewSurvey = true;
+	    }else if($scope.viewSurvey){
+	      searchParam.viewSurvey = true;
+	    }
+	    $location.path('/survey').search(searchParam);
 	}
 	
-	$scope.save = function(){
+	$scope.saveUpdate = function(){
 		$scope.surveyData.questiondtoLs = $scope.questionList;
 		var requestObject = {
 			"bid": constant.bid,
@@ -261,16 +300,33 @@ app.controller('questionController',['$scope','$location','services','constant',
 				"surveydtoLs": []
 			}
 		};
+		delete $scope.surveyData.deadlineDays;
+		delete $scope.surveyData.deadlineHours;
 		requestObject.surveyListObj.surveydtoLs.push($scope.surveyData);
-		services.createNewSurvey(requestObject).then(function(data){
-			var status = data.resStatus;
-			if (status.code == "00" &&  status.msg =="SUCCESS") {
-	      		$location.path('/voting');                     
-	  		}
-	  		else{
-	  			alert("Service :"+ status.msg);
-	  		}
-		});
+		if($scope.editSurvey){
+		    services.updateSurvey(requestObject).then(function(data){
+
+		      var status = data.resStatus;
+		      if (status.code == "00" &&  status.msg =="SUCCESS") {
+		        $location.path('/voting');                     
+		      }
+		      else{
+		        alert("Service :"+ status.msg);
+		      }
+		    });
+		  }
+		  else if($scope.addNewSurvey){
+		    services.createNewSurvey(requestObject).then(function(data){
+
+		      var status = data.resStatus;
+		      if (status.code == "00" &&  status.msg =="SUCCESS") {
+		        $location.path('/voting');                     
+		      }
+		      else{
+		        alert("Service :"+ status.msg);
+		      }
+		    });
+		  }
 	};
 	
 	$scope.addQuestion = function(){
@@ -282,7 +338,6 @@ app.controller('questionController',['$scope','$location','services','constant',
 		$ele.tooltip("hide");
 	}
 	$scope.deleteQuestion = function(index,$event){
-		console.log($event.target);
 		$ele = $($event.target);
 		$ele.tooltip("hide");
 		$scope.questionList.splice(index,1);

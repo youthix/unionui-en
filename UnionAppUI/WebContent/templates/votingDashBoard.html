@@ -79,21 +79,28 @@
           <div class="box-info">
 			<div class="table-responsive text-center" ng-repeat="survey in surveyList">
          <table data-sortable="" class="table" data-sortable-initialized="true">
-          <thead>
+          <thead ng-click="viewSurvey($index)">
            <tr>           
             <th>Deadline</th> 
             <th>Subject</th>           
-            <th>Edit&nbsp;<span ng-show="survey.status == 'offline' ">Offline&nbsp;</span><span ng-show="survey.status == 'online' ">Live&nbsp;</span>Delete</th>
+            <th><span ng-hide="survey.status == 'online' ">Edit</span>&nbsp;<span ng-show="survey.status == 'offline' ">Offline&nbsp;</span><span ng-show="survey.status == 'online' ">Live&nbsp;</span>Delete</th>
            </tr>
           </thead>
           <tbody>
            <tr>              
-             <td class="mid-td">{{survey.deadlineDays}} Days {{survey.deadlineHours}} Hours</td>
+             <td class="mid-td">
+              <div ng-show="survey.deadlineDays > 0 || survey.deadlineHours > 0">
+                <span ng-show="survey.deadlineDays > 0">{{survey.deadlineDays}} Days</span>&nbsp;<span ng-show="survey.deadlineHours">{{survey.deadlineHours}} Hours</span> 
+              </div>
+              <div ng-show="survey.deadlineDays < 0 && survey.deadlineHours < 0">
+                Survey Expired
+              </div>
+              </td>
              <td class="larger-td">{{survey.subject}}</td>
              <td class="actions">
-                <a data-toggle="tooltip"  ng-click="editSurvey(survey)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
-                <a data-toggle="tooltip" ng-show="survey.status == 'offline' " ng-click="statusUpdate('offline',survey)" class="btn btn-default live"><i class="fa"></i></a>
-                <a data-toggle="tooltip" ng-show="survey.status == 'online' " ng-click="statusUpdate('online',survey)" class="btn btn-default offline"><i class="fa"></i></a>
+                <a data-toggle="tooltip" ng-hide="survey.status == 'online' "  ng-click="editSurvey($index)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
+                <a data-toggle="tooltip" ng-show="survey.status == 'offline' " ng-click="statusUpdate('offline',survey)" class="btn btn-default offline"><i class="fa"></i></a>
+                <a data-toggle="tooltip" ng-show="survey.status == 'online' " ng-click="statusUpdate('online',survey)" class="btn btn-default live"><i class="fa"></i></a>
                 <a data-toggle="tooltip" ng-click="deleteSurvey(survey)"  class="btn btn-default delete"><i class="fa fa-minus"></i></a>
             </td> 
            </tr>

@@ -87,10 +87,10 @@ app.config(['$routeProvider','$locationProvider','$httpProvider',function($route
                                         templateUrl:'templates/newSummary.html'
 
                                       })
-                                        .when('/newSurvey',
+                                        .when('/survey',
                                       {
-                                        controller:'newSurveyController',
-                                        templateUrl:'templates/newSurvey.html'
+                                        controller:'surveyController',
+                                        templateUrl:'templates/survey.html'
 
                                       })
                                         .when('/editSummary',

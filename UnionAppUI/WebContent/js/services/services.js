@@ -483,6 +483,19 @@ app.service('services', function ($http, $q) {
 		});
 
 		return deferred.promise;
+    };
+
+    this.updateSurvey = function (getData) {
+		var deferred = $q.defer();
+		$http.post(	serviceUrl +"updatesurvey", getData, {'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+		return deferred.promise;
     }; 
 
     }
