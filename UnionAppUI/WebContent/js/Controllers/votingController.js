@@ -1,6 +1,6 @@
 app.controller('votingController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {
  //  alert("newsLetterController");
-
+	$scope.fotterTitle = constant.footer_title;
 /*-------------------------------------*/
  $scope.MeetingDashboard = function(){
         
@@ -105,8 +105,7 @@ services.getAllSurvey(requestObject).then(function(data){
 }]);
 app.controller('questionController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {
 	$scope.activeMenu ="voting";
-
-
+	$scope.fotterTitle = constant.footer_title;
 
    $scope.MeetingDashboard = function(){
        

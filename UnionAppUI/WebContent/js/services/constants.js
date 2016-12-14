@@ -8,7 +8,7 @@ app.service('constant', function () {
 	this.password_placeHolder ="password";
 	this.forget_password = "Forgot Password";
 	this.login_button = "Login";
-	this.footer_title = "powered by unik-apps.com"
+	this.footer_title = "Powered by unik-apps.com"
 	this.title = "WFS KLUBBEN ADMIN PANEL";
 
 	// Meeting Dashboard Page 

@@ -10,6 +10,7 @@ $scope.actions = constant.Actions;
 $scope.edit = constant.Edit;
 $scope.live = constant.Live;
 $scope.offline = constant.Offline;
+$scope.fotterTitle = constant.footer_title;
 $scope.delete = constant.Delete;
 $scope.add_new_meeting = constant.addNewMeeting;
 $scope.next_meeting = constant.Next_Meeting;
@@ -300,7 +301,7 @@ app.controller('newpayRateController',['$scope','$location','services','constant
 
 
  $scope.activeMenu ="Pay Rate";
-
+ $scope.fotterTitle = constant.footer_title;
 
 
    $scope.MeetingDashboard = function(){
@@ -517,7 +518,7 @@ $scope.cancel = function(){
 app.controller('editpayRateController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
 
-
+	$scope.fotterTitle = constant.footer_title;
 
    $scope.MeetingDashboard = function(){
        

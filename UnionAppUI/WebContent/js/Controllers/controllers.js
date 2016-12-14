@@ -72,7 +72,8 @@ app.controller('loginController',['$scope','$location','services','constant','$r
 
 app.controller('dashBoardController',['$scope','$location','$rootScope','dataSharingService','constant','services', function ($scope,$location,$rootScope,dataSharingService,constant,services) {
       
-
+	$scope.fotterTitle = constant.footer_title;
+	
       if ($rootScope.userName == undefined || $rootScope.userName == null) {
          $location.path('/login');
       }
@@ -346,6 +347,7 @@ $scope.edit = constant.Edit;
 $scope.live = constant.Live;
 $scope.offline = constant.Offline;
 $scope.delete = constant.Delete;
+$scope.fotterTitle = constant.footer_title;
 $scope.add_new_meeting = constant.addNewMeeting;
 $scope.next_meeting = constant.Next_Meeting;
 $scope.currentPage = 1;
@@ -608,6 +610,7 @@ app.controller('newMeetingController',['$scope','$location','services','constant
     $scope.edit = constant.Edit;
     $scope.live = constant.Live;
     $scope.offline = constant.Offline;
+    $scope.fotterTitle = constant.footer_title;
     $scope.delete = constant.Delete;
     //$scope.add_new_button = constant.addNewButton;
     $scope.next_meeting = constant.Next_Meeting;
@@ -772,7 +775,7 @@ app.controller('forgotPasswordController',['$scope','$location','services','cons
 
 app.controller('editMeetingController',['$scope','$location','services','constant','$rootScope','dataSharingService', function ($scope,$location,services,constant,$rootScope,dataSharingService) {
   // alert("newMeetingController");
-
+  $scope.fotterTitle = constant.footer_title;
    if ($rootScope.userName == undefined || $rootScope.userName == null) {
          $location.path('/login');
       }
@@ -912,6 +915,7 @@ app.controller('editMeetingController',['$scope','$location','services','constan
 }]);
 app.controller('newActivitieController',['$scope','$location','services','constant','$rootScope','dataSharingService', function ($scope,$location,services,constant,$rootScope,dataSharingService) {
   // alert("newMeetingController");
+	$scope.fotterTitle = constant.footer_title;
    if ($rootScope.userName == undefined || $rootScope.userName == null) {
          $location.path('/login');
       }
@@ -920,6 +924,7 @@ app.controller('newActivitieController',['$scope','$location','services','consta
     $scope.date = constant.Date;
     $scope.time = constant.Time;
     $scope.place = constant.Place;
+    
     //$scope.comming = constant.Comming;
     //$scope.not_coming = constant.NotComming;
     //$scope.did_not_answer = constant.did_not_answer;
@@ -1056,6 +1061,8 @@ app.controller('newActivitieController',['$scope','$location','services','consta
 app.controller('activitiesDashboardController',['$scope','$location','services','constant','$rootScope','dataSharingService','$route', function ($scope,$location,services,constant,$rootScope,dataSharingService,$route) {
   // alert("newMeetingController");
   $scope.date = constant.Date;
+  
+  $scope.fotterTitle = constant.footer_title;
 $scope.time = constant.Time;
 $scope.place = constant.Place;
 $scope.comming = constant.Comming;
@@ -1296,6 +1303,7 @@ app.controller('editActivitieController',['$scope','$location','services','const
     $scope.date = constant.Date;
     $scope.time = constant.Time;
     $scope.place = constant.Place;
+    $scope.fotterTitle = constant.footer_title;
     //$scope.comming = constant.Comming;
     //$scope.not_coming = constant.NotComming;
     //$scope.did_not_answer = constant.did_not_answer;

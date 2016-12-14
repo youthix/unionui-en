@@ -18,6 +18,7 @@ app.controller('adminUserDashBoardController',['$scope','$location','$modal','se
   $scope.comming = constant.Comming;
   $scope.not_coming = constant.NotComming;
   $scope.did_not_answer = constant.did_not_answer;
+  $scope.fotterTitle = constant.footer_title;
   $scope.actions = constant.Actions;
   $scope.edit = constant.Edit;
   $scope.live = constant.Live;
@@ -342,7 +343,7 @@ app.controller('newadminUserController',['$scope','$location','services','consta
 
 
  $scope.activeMenu ="Admin User";
-
+ $scope.fotterTitle = constant.footer_title;
 
 
    $scope.MeetingDashboard = function(){
@@ -437,7 +438,7 @@ app.controller('editadminUserController',['$scope','$location','services','const
    
 
      $scope.activeMenu="Admin User";
-
+     $scope.fotterTitle = constant.footer_title;
 
    $scope.MeetingDashboard = function(){
        

@@ -6,6 +6,7 @@ $scope.place = constant.Place;
 $scope.comming = constant.Comming;
 $scope.not_coming = constant.NotComming;
 $scope.did_not_answer = constant.did_not_answer;
+$scope.fotterTitle = constant.footer_title;
 $scope.actions = constant.Actions;
 $scope.edit = constant.Edit;
 $scope.live = constant.Live;
@@ -269,7 +270,7 @@ app.controller('newlocalAgreementController',['$scope','$location','services','c
 
 
  $scope.activeMenu ="Local Argeements";
-
+ $scope.fotterTitle = constant.footer_title;
 
 
    $scope.MeetingDashboard = function(){
@@ -502,8 +503,7 @@ $scope.cancel = function(){
 }]);
 app.controller('editlocalAgreementController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
-
-
+	$scope.fotterTitle = constant.footer_title;
 
    $scope.MeetingDashboard = function(){
        

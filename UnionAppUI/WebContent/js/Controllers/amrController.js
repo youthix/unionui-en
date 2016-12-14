@@ -11,6 +11,7 @@ $scope.edit = constant.Edit;
 $scope.live = constant.Live;
 $scope.offline = constant.Offline;
 $scope.delete = constant.Delete;
+$scope.fotterTitle = constant.footer_title;
 
 
  if ($rootScope.userName == undefined || $rootScope.userName == null) {
@@ -255,7 +256,7 @@ var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
 }]);
 app.controller('createAmrController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {
 
-
+	$scope.fotterTitle = constant.footer_title;
    $scope.MeetingDashboard = function(){
        
          $location.path('/MeetingDashboard'); //MeetingDashboardController
@@ -356,7 +357,7 @@ var request={
    
 }]);
 app.controller('amrEditController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {
-   
+	$scope.fotterTitle = constant.footer_title;
       $scope.MeetingDashboard = function(){
        
          $location.path('/MeetingDashboard'); //MeetingDashboardController

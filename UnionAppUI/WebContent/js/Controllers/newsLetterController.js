@@ -3,7 +3,7 @@ app.controller('newsLetterController',['$scope','$location','services','constant
 
 
 
-
+$scope.fotterTitle = constant.footer_title;
 $scope.date = constant.Date;
 $scope.time = constant.Time;
 $scope.place = constant.Place;
@@ -269,7 +269,7 @@ updateNewsStatus = function(){
 }]);
 app.controller('createNewsLetterController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
 
-
+	$scope.fotterTitle = constant.footer_title;
    $scope.MeetingDashboard = function(){
        
          $location.path('/MeetingDashboard'); //MeetingDashboardController
@@ -400,7 +400,7 @@ $scope.files =[];
 
 //alert("createNewsLetterController");
 $scope.date = constant.Date;
-
+$scope.fotterTitle = constant.footer_title;
 $scope.saveNewsLetter = function(newNews){
 
 
@@ -489,7 +489,7 @@ $scope.saveNewsLetter = function(newNews){
    
 }]);
 app.controller('newsLetterEditController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
-   
+	$scope.fotterTitle = constant.footer_title;
       $scope.MeetingDashboard = function(){
        
          $location.path('/MeetingDashboard'); //MeetingDashboardController

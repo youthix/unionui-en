@@ -11,6 +11,7 @@ $scope.edit = constant.Edit;
 $scope.live = constant.Live;
 $scope.offline = constant.Offline;
 $scope.delete = constant.Delete;
+$scope.fotterTitle = constant.footer_title;
 $scope.add_new_meeting = constant.addNewMeeting;
 $scope.next_meeting = constant.Next_Meeting;
 $scope.currentPage = 1;

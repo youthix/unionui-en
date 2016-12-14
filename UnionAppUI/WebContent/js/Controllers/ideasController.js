@@ -5,6 +5,7 @@ app.controller('ideaDashBoardController',['$scope','$location','services','const
 $scope.date = constant.Date;
 $scope.time = constant.Time;
 $scope.place = constant.Place;
+$scope.fotterTitle = constant.footer_title;
 $scope.comming = constant.Comming;
 $scope.not_coming = constant.NotComming;
 $scope.did_not_answer = constant.did_not_answer;
@@ -274,6 +275,7 @@ app.controller('newIdeaController',['$scope','$location','services','constant','
 
 
  $scope.activeMenu ="Suggestions and Ideas";
+ $scope.fotterTitle = constant.footer_title;
 
 
 
@@ -368,7 +370,7 @@ $scope.cancel = function(){
 }]);
 app.controller('editIdeaController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
-   
+	$scope.fotterTitle = constant.footer_title;
 
    $scope.MeetingDashboard = function(){
        

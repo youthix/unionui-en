@@ -3,7 +3,7 @@ app.controller('newSurveyController',['$scope','$timeout','$location','services'
 
  $scope.activeMenu ="voting";
 
-
+ $scope.fotterTitle = constant.footer_title;
 
    $scope.MeetingDashboard = function(){
        

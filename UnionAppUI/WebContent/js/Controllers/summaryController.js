@@ -14,6 +14,7 @@ $scope.delete = constant.Delete;
 $scope.add_new_meeting = constant.addNewMeeting;
 $scope.next_meeting = constant.Next_Meeting;
 $scope.currentPage = 1;
+$scope.fotterTitle = constant.footer_title;
  //$scope.activeMenu ="News Letter";
 
  $scope.activeMenu ="Summary";
@@ -268,9 +269,8 @@ app.controller('newSummaryController',['$scope','$location','services','constant
 
 
  $scope.activeMenu ="Summary";
-
-
-
+ $scope.fotterTitle = constant.footer_title;
+ 
    $scope.MeetingDashboard = function(){
        
          $location.path('/MeetingDashboard'); //MeetingDashboardController
@@ -361,8 +361,7 @@ $scope.cancel = function(){
 }]);
 app.controller('editSummaryController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
-
-
+	$scope.fotterTitle = constant.footer_title;
 
    $scope.MeetingDashboard = function(){
        
