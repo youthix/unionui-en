@@ -797,6 +797,15 @@ var catData ={"catname":$scope.profileData.category};
 					  console.log("Uploading image");
 					  $scope.saveProfilePic(data);
 				 }
+				 else{
+					 if($rootScope.comingFromDashboard==true)
+						{
+							$scope.fetchAdminDetails(data.userListObj.ul[0].emId);
+							$location.path('/dashBoard');
+						}
+						else
+		               $location.path('/ContactList'); 
+				 }
 				                
              }else{
                 alert("Service Error:"+ status.msg);
