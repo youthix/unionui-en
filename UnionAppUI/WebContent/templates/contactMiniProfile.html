@@ -133,17 +133,38 @@
 						<td><input type="text" ng-model="profileData.ln" ng-disabled="disabled"></td>
 					 </tr>
 					 <tr>
+						<td>Gender</td>
+						<td>
+                        	<select ng-model="profileData.gen" ng-disabled="disabled">
+                            <option value="M" ng-selected="profileData.gen=='M'">Male</option>
+                            <option value="F" ng-selected="profileData.gen=='F'">Female</option>
+                            </select>
+                        </td>
+					 </tr>
+					 <tr>
 						<td>Address</td>
 						<td><input type="text" ng-model="profileData.add" ng-disabled="disabled"></td>
 					 </tr>
 					 <tr>
+						<td>City</td>
+						<td><input type="text" ng-model="profileData.city" ng-disabled="disabled"></td>
+					 </tr>
+					 <tr>
+						<td>Zip Code</td>
+						<td><input type="text" ng-model="profileData.zipcode" ng-disabled="disabled"></td>
+					 </tr>
+					 <tr>
+						<td>Age</td>
+						<td><input type="text" ng-model="profileData.age" ng-disabled="disabled"></td>
+					 </tr>
+					 <!--<tr>
 						<td>Post Nr.</td>
 						<td><input type="text" ng-model="profileData.ln" ng-disabled="disabled"></td>
 					 </tr>
-					 <tr>
+					  <tr>
 						<td>By</td>
 						<td><input type="text" ng-model="profileData.usNa" ng-disabled="disabled"></td>
-					 </tr>
+					 </tr> -->
 					 <tr>
 						<td>Tlf Nr.</td>
 						<td><input type="text" ng-model="profileData.city" ng-disabled="disabled"></td>
