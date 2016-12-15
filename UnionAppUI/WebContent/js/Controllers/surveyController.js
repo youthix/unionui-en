@@ -2,6 +2,7 @@ app.controller('surveyController',['$scope','$timeout','$location','services','c
 
 
  $scope.activeMenu ="voting";
+ $scope.fotterTitle = constant.footer_title;
 
 
 
