@@ -3810,6 +3810,12 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 .table-responsive.text-center td.larger-td {
     width: 45%;
 }
+.table-responsive.text-center td.large-td {
+    width: 40%;
+}
+.table-responsive.text-center td.smaller-td {
+    width: 20%;
+}
 
 .sortorder:after {
   content: '\25b2';   // BLACK UP-POINTING TRIANGLE
@@ -3975,6 +3981,16 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 .questions-detail{
     width:80%;
 }
+.questions-result,.option-result{
+    text-align: left;
+    margin-bottom:10px;
+    background-color: #eee; 
+}
+.option-result-percent{
+    width:28%;
+    text-align: left;
+    padding: 10px;
+}
 a.btn.btn-default.add{
     background: #009c24;
     border-color: #009c24;
@@ -3989,6 +4005,32 @@ a.btn.btn-default.add{
     width: 55% !important;
     height: 55% !important;
     margin: 0 auto;
+    
+}
+.survey-results-chart{
+    width: 38% !important;
+    height: 55% !important;
+    margin: 0 auto;
+    
+}
+.survey-results{
+    width: 50% !important;
+    height: 50% !important;
+    margin: 0 auto;
+    text-align: center;
+}
+.survey-results p{
+    font-size: 20px;
+}
+.survey-results-chart-wrapper{
+    position: relative;
+}
+.survey-results-chart-wrapper p{
+    font-size: 45px;
+}
+.response-count{
+    margin-top:20px;
+    font-size: 20px;
 }
 .add-questions-hidden{
     visibility: hidden;

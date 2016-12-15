@@ -54,7 +54,9 @@ $scope.statusUpdate = function(surveyStatus,surveyData){
 		surveyData.status = "online";
 	}else if(surveyStatus =="online"){
 		surveyData.status = "offline";
-	} 
+	}else if(surveyStatus == "delete"){
+		surveyData.status = "delete";
+	}
 	var requestObject = {
 		"bid": constant.bid,
 		"surveyListObj": {
@@ -62,12 +64,12 @@ $scope.statusUpdate = function(surveyStatus,surveyData){
 			]
 		}
 	};
-	var surveyData = angular.copy(surveyData);
-	delete surveyData.deadlineDays;
-	delete surveyData.deadlineHours;
+	var updateSurveyData = angular.copy(surveyData);
+	delete updateSurveyData.deadlineDays;
+	delete updateSurveyData.deadlineHours;
 	
-	requestObject.surveyListObj.surveydtoLs.push(surveyData);
-
+	requestObject.surveyListObj.surveydtoLs.push(updateSurveyData);
+	
 	services.updateSurvey(requestObject).then(function(data){
 		console.log("Data is:" + JSON.stringify(data));
 		var status = data.resStatus;
@@ -158,6 +160,10 @@ gettingData();
 	$scope.editSurvey = function(index){
 		dataSharingService.addEditData($scope.surveyList[index]);
 		$location.path("/survey").search({"editSurvey":true});
+	}
+	$scope.showSurveyResults = function(index){
+		dataSharingService.addEditData($scope.surveyList[index]);
+		$location.path("/surveyResults");
 	}
 }]);
 app.controller('questionController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {

@@ -93,6 +93,18 @@ app.config(['$routeProvider','$locationProvider','$httpProvider',function($route
                                         templateUrl:'templates/survey.html'
 
                                       })
+                                        .when('/surveyQuestions',
+                                      {
+                                        controller:'questionController',
+                                        templateUrl:'templates/surveyQuestions.html'
+
+                                      })
+                                        .when('/surveyResults',
+                                      {
+                                        controller:'surveyResultsController',
+                                        templateUrl:'templates/surveyResults.html'
+
+                                      })
                                         .when('/editSummary',
                                       {
                                         controller:'editSummaryController',
@@ -222,11 +234,6 @@ app.config(['$routeProvider','$locationProvider','$httpProvider',function($route
                                       {
                                         controller:'votingController',
                                         templateUrl:'templates/votingDashBoard.html'
-
-                                      }).when('/surveyQuestions',
-                                      {
-                                        controller:'questionController',
-                                        templateUrl:'templates/surveyQuestions.html'
 
                                       })
                                     .otherwise({
