@@ -162,7 +162,8 @@
                   <tr>
                     <td>Gender</td>
                     <td>
-                      {{allPendingUsers[currUserIndex].gen}}
+                      <span ng-show="allPendingUsers[currUserIndex].gen=='M'">Male</span>
+                      <span ng-show="allPendingUsers[currUserIndex].gen=='F'">Female</span>
                     </td>
                   </tr>
                   <tr>
