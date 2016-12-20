@@ -11,8 +11,77 @@ app.controller('mainController',['$scope','$location', function ($scope,$locatio
    
 
 }]);
+app.controller('resetPasswordController',['$scope','$modalInstance','services','constant', function ($scope, $modalInstance,services,constant) {
+  $scope.resetSuccessfull = false;
+  $scope.resetFailed = false;
+  $scope.showForm = true;
+  $scope.resetPassword ={
+      userName:"",
+      oldPassword:"",
+      newPassword:"",
+      confirmPassword:""
+    }
+  var emptyPassword = /^$|\s+/;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  $scope.ok = function () {
+    if(!emailPattern.test($scope.resetPassword.userName) || $scope.resetPassword.userName === undefined){
+      $scope.invalidUserName = true;
+    }
+    if(emptyPassword.test($scope.resetPassword.oldPassword) || $scope.resetPassword.oldPassword === undefined){
+      $scope.invalidOldPassword = true;
+    }
+    if(emptyPassword.test($scope.resetPassword.newPassword)  || $scope.resetPassword.newPassword === undefined){
+      $scope.invalidNewPassword = true;
+    }
+    if(emptyPassword.test($scope.resetPassword.confirmPassword)  || $scope.resetPassword.confirmPassword === undefined){
+      $scope.invalidConfirmPassword = true;
+    }
+    else if($scope.resetPassword.newPassword !== $scope.resetPassword.confirmPassword){
+      $scope.invalidConfirmPassword = false;
+      $scope.passwordNotMatching = true;
+    }
+    if($scope.invalidUserName || $scope.invalidOldPassword || $scope.invalidNewPassword || $scope.invalidConfirmPassword || $scope.invalidConfirmPassword || $scope.passwordNotMatching){
+      console.log("Form error")
+    }
+    else{
+      var requestObject = {
+        "bid": constant.bid,
+        "userListObj": {
+          "ul": [{
+            "usNa": $scope.resetPassword.userName,
+            "pwd": $scope.resetPassword.oldPassword,
+            "newpwd": $scope.resetPassword.newPassword
+          }]
+        },
+        "criteria":{
+          "criteria": "TRUE",
+          "updateUserCriteriaObj": {
+            "name":"pwd"
+          }
+        }
+      };
+      services.updatePassword(requestObject).then(function(data){
+        var status = data.resStatus;
+        $scope.showForm = false;
+        if (status.code == "00" &&  status.msg =="SUCCESS") {
+          $scope.resetSuccessfull = true
+        }
+        else{
+          console.log("reset failed")
+          $scope.resetFailed = true
+        }
+      })
+    }
 
-app.controller('loginController',['$scope','$location','services','constant','$rootScope', function ($scope,$location,services,constant,$rootScope) {
+    
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+}]);
+
+app.controller('loginController',['$scope','$location','services','constant','$rootScope','$modal', function ($scope,$location,services,constant,$rootScope,$modal) {
 	//alert("login loginController");
   
     $scope.title = constant.title;
@@ -20,6 +89,7 @@ app.controller('loginController',['$scope','$location','services','constant','$r
     $scope.email = constant.email_placeHolder;
     $scope.password = constant.password_placeHolder;
     $scope.forget_password = constant.forget_password;
+    $scope.reset_password = constant.reset_password;
     $scope.login_button = constant.login_button;
     $scope.fotterTitle = constant.footer_title;
 
@@ -29,16 +99,16 @@ app.controller('loginController',['$scope','$location','services','constant','$r
          $scope.loading = true;
         
         var loginUserData = {
-    "bid": constant.bid,
-    "userListObj": {
-        "ul": [
-            {
-                "pwd": userData.Password,
-                "usNa":userData.Username
+            "bid": constant.bid,
+            "userListObj": {
+                "ul": [
+                    {
+                        "pwd": userData.Password,
+                        "usNa":userData.Username
+                    }
+                ]
             }
-        ]
-    }
-};
+        };
 
         console.log("userData:" + JSON.stringify(userData));
         services.login(loginUserData).then(function(data) {
@@ -66,6 +136,20 @@ app.controller('loginController',['$scope','$location','services','constant','$r
 
     $scope.forgotPassword = function () {
        $location.path('/forgotPassword');
+    };
+    
+    $scope.openResetPasswordModal = function () {
+      
+      var modalInstance = $modal.open({
+        templateUrl: 'resetPassword.html',
+        controller: 'resetPasswordController'
+      });
+
+      /*modalInstance.result.then(function (resetPasswordObj) {
+        console.log("Password Reset s")  
+      }, function () {
+        console.log('Modal dismissed');
+      });*/
     };
 
 }]);
