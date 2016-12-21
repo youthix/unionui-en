@@ -1,6 +1,19 @@
 app.service('constant', function () {
 
 	this.bid ="123";
+	
+	//Menu
+	this.dashboard="OVERSIGT";
+	this.voting="AFSTEMNING";
+	this.meeting="NÆSTE MØDE";
+	this.newsletter="NYHEDS BREV";
+	this.activities="AKTIVITETER";
+	this.contactlist="KONTAKT LISTE";
+	this.suggestionidea="FORSLAG OG IDE";
+	this.summary="REFERAT";
+	this.agreements="LOKAL AFTALER";
+	this.payrate="LØN SATS";
+	this.adminuser="ADMINISTRERER BRUGER";
 
 	// login page
 

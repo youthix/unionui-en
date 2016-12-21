@@ -157,6 +157,17 @@ app.controller('loginController',['$scope','$location','services','constant','$r
 app.controller('dashBoardController',['$scope','$location','$rootScope','dataSharingService','constant','services', function ($scope,$location,$rootScope,dataSharingService,constant,services) {
       
 	$scope.fotterTitle = constant.footer_title;
+	$scope.dashboard =constant.dashboard;
+	$scope.voting =constant.voting;
+	$scope.meeting =constant.meeting;
+	$scope.newsletter =constant.newsletter;
+	$scope.activities =constant.activities;
+	$scope.contactlist =constant.contactlist;
+	$scope.suggestionidea =constant.suggestionidea;
+	$scope.summary =constant.summary;
+	$scope.agreements =constant.agreements;
+	$scope.payrate =constant.payrate;
+	$scope.adminuser =constant.adminuser;
 	
       if ($rootScope.userName == undefined || $rootScope.userName == null) {
          $location.path('/login');
