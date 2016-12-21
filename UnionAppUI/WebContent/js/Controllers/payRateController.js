@@ -609,7 +609,7 @@ $scope.files =[];
 
                         var attachmentObject ={
                                   'attachmentTitle':$scope.documentTitle,
-                                  'featureType': "newsletter",
+                                  'featureType': "payrate",
                                   'attachmentName':$scope.file.name,
                                   'attachmentType': $scope.selctedOption,
                                   'file': newVal,
@@ -776,7 +776,7 @@ $scope.files =[];
 };
 
 
-       $scope.close = function(id){
+       /*$scope.close = function(id){
   
        $scope.payRate.attachmentlist.attachmentdtoLs.splice(id,1);
        $scope.fileNames.splice(id,1);
@@ -784,6 +784,39 @@ $scope.files =[];
 
          //console.log("attachmentList" + JSON.stringify($scope.nl));
          console.log("fileNames:" + JSON.stringify($scope.fileNames));
+
+      };*/
+      $scope.close = function(id){
+        var deletedAttachment = $scope.payRate.attachmentlist.attachmentdtoLs.splice(id,1)[0];
+       var fileName = deletedAttachment.url.split('/').pop();
+       var attachmentType = deletedAttachment.type ==="doc"?"document":deletedAttachment.type;
+
+      if(!deletedAttachment.hasOwnProperty("attachmentTitle")){
+
+        var requestObject = {
+          "bid": constant.bid,
+          "deleteFileObj": {
+            "featureType": "payrate",
+            "featureId": $scope.payRate.payid ,
+            "fileName": fileName ,
+            "attachmentType": attachmentType 
+          }
+        }
+        services.deleteFile(requestObject).then(function(data){
+                                                    
+                console.log("Data is:" + JSON.stringify(data));
+                var status = data.resStatus;
+                if (status.code == "00" &&  status.msg =="SUCCESS") {
+                 //newsLetterListCall();                     
+             }
+                else
+            {
+                alert("Service :"+ status.msg);
+            }
+        });
+
+      }
+
 
       };
 
