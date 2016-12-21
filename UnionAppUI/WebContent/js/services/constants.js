@@ -3,7 +3,7 @@ app.service('constant', function () {
 	this.bid ="123";
 	
 	//Menu
-	this.dashboard="OVERSIGT";
+	/*this.dashboard="OVERSIGT";
 	this.voting="AFSTEMNING";
 	this.meeting="NÆSTE MØDE";
 	this.newsletter="NYHEDS BREV";
@@ -13,7 +13,19 @@ app.service('constant', function () {
 	this.summary="REFERAT";
 	this.agreements="LOKAL AFTALER";
 	this.payrate="LØN SATS";
-	this.adminuser="ADMINISTRERER BRUGER";
+	this.adminuser="ADMINISTRERER BRUGER";*/
+	
+	this.dashboard="DASHBOARD";
+	this.voting="VOTING";
+	this.meeting="MEETING";
+	this.newsletter="NEWS LETTER";
+	this.activities="ACTIVITIES";
+	this.contactlist="CONTACT LIST";
+	this.suggestionidea="SUGGESTION AND IDEA";
+	this.summary="SUMMARY";
+	this.agreements="LOCAL AGREEMENT";
+	this.payrate="PAY RATE";
+	this.adminuser="ADMIN USER";
 
 	// login page
 
