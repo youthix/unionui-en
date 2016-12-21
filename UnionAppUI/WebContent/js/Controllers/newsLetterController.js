@@ -546,6 +546,7 @@ app.controller('newsLetterEditController',['$scope','$location','services','cons
  attachmentList =$scope.nl.attachmentlist.attachmentdtoLs;
 
  $scope.detail = $scope.nl.detail;
+ $scope.featureId = $scope.nl.nlid;
 
 $scope.listOptions = ["Image","Document"];
 $scope.selctedOption = "Document";
@@ -741,10 +742,36 @@ $scope.files =[];
     };
 
        $scope.close = function(id){
-  
-       $scope.nl.attachmentlist.attachmentdtoLs.splice(id,1);
-       $scope.fileNames.splice(id,1);
-       attachmentList.splice(id,1);
+       var deletedAttachment = $scope.nl.attachmentlist.attachmentdtoLs.splice(id,1)[0];
+       var fileName = deletedAttachment.url.split('/').pop();
+       var attachmentType = deletedAttachment.type ==="doc"?"document":deletedAttachment.type;
+
+      if(!deletedAttachment.hasOwnProperty("attachmentTitle")){
+        var requestObject = {
+          "bid": constant.bid,
+          "deleteFileObj": {
+            "featureType": "newsletter",
+            "featureId": $scope.featureId,
+            "fileName": fileName ,
+            "attachmentType": attachmentType 
+          }
+        }
+        services.deleteFile(requestObject).then(function(data){
+                                                    
+                console.log("Data is:" + JSON.stringify(data));
+                var status = data.resStatus;
+                if (status.code == "00" &&  status.msg =="SUCCESS") {
+                 //newsLetterListCall();                     
+             }
+                else
+            {
+                alert("Service :"+ status.msg);
+            }
+        });
+
+      }
+       ///$scope.fileNames.splice(id,1);
+       //attachmentList.splice(id,1);
 
          console.log("attachmentList" + JSON.stringify($scope.nl));
          console.log("fileNames:" + JSON.stringify($scope.fileNames));
