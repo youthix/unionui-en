@@ -756,13 +756,39 @@ $scope.files =[];
 };
 
 
-       $scope.close = function(id){
-  
-       $scope.agreement.attachmentlist.attachmentdtoLs.splice(id,1);
-       $scope.fileNames.splice(id,1);
-       attachmentList.splice(id,1);
+    $scope.close = function(id){
+       var deletedAttachment = $scope.agreement.attachmentlist.attachmentdtoLs.splice(id,1)[0];
+       var fileName = deletedAttachment.url.split('/').pop();
+       var attachmentType = deletedAttachment.type ==="doc"?"document":deletedAttachment.type;
 
-        // console.log("attachmentList" + JSON.stringify($scope.nl));
+      if(!deletedAttachment.hasOwnProperty("attachmentTitle")){
+        var requestObject = {
+          "bid": constant.bid,
+          "deleteFileObj": {
+            "featureType": "agreement",
+            "featureId": $scope.agreement.armid,
+            "fileName": fileName ,
+            "attachmentType": attachmentType 
+          }
+        }
+        services.deleteFile(requestObject).then(function(data){
+                                                    
+                console.log("Data is:" + JSON.stringify(data));
+                var status = data.resStatus;
+                if (status.code == "00" &&  status.msg =="SUCCESS") {
+                 //newsLetterListCall();                     
+             }
+                else
+            {
+                alert("Service :"+ status.msg);
+            }
+        });
+
+      }
+       ///$scope.fileNames.splice(id,1);
+       //attachmentList.splice(id,1);
+
+         console.log("attachmentList" + JSON.stringify($scope.nl));
          console.log("fileNames:" + JSON.stringify($scope.fileNames));
 
       };
