@@ -785,11 +785,7 @@ $scope.files =[];
         });
 
       }
-       ///$scope.fileNames.splice(id,1);
-       //attachmentList.splice(id,1);
 
-         console.log("attachmentList" + JSON.stringify($scope.nl));
-         console.log("fileNames:" + JSON.stringify($scope.fileNames));
 
       };
 
