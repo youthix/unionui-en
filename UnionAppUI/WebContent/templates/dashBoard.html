@@ -112,7 +112,7 @@
             <table class="table" data-sortable-initialized="true">
               <tbody>
                 <tr ng-repeat="actionLog in allActionLogs">
-                  <td>{{actionLog.module}}</td>
+                  <td><a href="" class="module-link" ng-click = "goto(actionLog.module)">{{actionLog.module}}</a></td>
                   <td>{{actionLog.subject}}</td>
                   <td>{{actionLog.action}}</td>
                   <td>{{actionLog.creator}}</td>
