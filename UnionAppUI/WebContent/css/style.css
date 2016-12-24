@@ -4056,3 +4056,7 @@ a.btn.btn-default.add{
 .tooltip-add{
     color: #009c24;
 }
+.module-link{
+    text-decoration: underline;
+    text-transform: uppercase;
+}

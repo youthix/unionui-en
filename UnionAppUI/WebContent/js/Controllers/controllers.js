@@ -212,6 +212,24 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
     $scope.AdminUserDasgBoard = function(){
         $location.path('/adminUser');
     };
+
+
+    var moduleList = {
+      "meeting":'/MeetingDashboard',
+      "activity":'/activitiesList',
+      "neewsletter":'/newsLetterList',
+      "summary":'/summary',
+      "suggestionidea":'/ideas',
+      "agreement":'/localAgreements',
+      "payrate":'/payRate',
+      "amr":'/amr',
+      "survey":"/voting",
+    }
+
+    $scope.goto = function(module){
+      $location.path(moduleList[module]);
+    }
+    
     
     $rootScope.detailAdmin = function(){
         dataSharingService.addEditData($rootScope.adminDetails);
