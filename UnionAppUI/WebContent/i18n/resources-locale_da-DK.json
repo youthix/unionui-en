@@ -1,0 +1,22 @@
+[
+  {
+    "key":"_Email_",
+    "value":"E-mail"
+  },
+  {
+    "key":"_Password_",
+    "value":"adgangskode"
+  },
+  {
+    "key":"_Reset_",
+    "value":"Nulstil"
+  },
+  {
+    "key":"_Login_",
+    "value":"Log på"
+  },
+  {
+    "key":"_Forgot_Password_",
+    "value": "Glemt kodeord"
+  }
+]

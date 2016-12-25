@@ -1,7 +1,8 @@
-var app = angular.module('unionApp', ['ngRoute','ngTouch','ngResource','ngSanitize','ngLoadingSpinner','720kb.datepicker','file-model','ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html"]);
+var app = angular.module('unionApp', ['ngRoute','ngTouch','ngResource','ngSanitize','ngLoadingSpinner','720kb.datepicker','file-model','ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html","localization"]);
 
 
 app.config(['$routeProvider','$locationProvider','$httpProvider',function($routeProvider, $locationProvider, $httpProvider) {
+  
 
                       $routeProvider.when('/login',
                                       {
