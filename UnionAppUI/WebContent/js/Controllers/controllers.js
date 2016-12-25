@@ -1,5 +1,5 @@
 
-app.controller('mainController',['$scope','$location', function ($scope,$location) {
+app.controller('mainController',['$scope','localize','$location', function ($scope,localize,$location) {
 	//alert("login loginController");
    
    $scope.headerVisable = true;
@@ -9,7 +9,7 @@ app.controller('mainController',['$scope','$location', function ($scope,$locatio
        $location.path('/amr');
     };
    
-
+    localize.setLanguage("da-DK");
 }]);
 app.controller('resetPasswordController',['$scope','$modalInstance','services','constant', function ($scope, $modalInstance,services,constant) {
   $scope.resetSuccessfull = false;
@@ -81,9 +81,9 @@ app.controller('resetPasswordController',['$scope','$modalInstance','services','
   };
 }]);
 
-app.controller('loginController',['$scope','$location','services','constant','$rootScope','$modal', function ($scope,$location,services,constant,$rootScope,$modal) {
+app.controller('loginController',['$scope','localize','$location','services','constant','$rootScope','$modal', function ($scope,localize,$location,services,constant,$rootScope,$modal) {
 	//alert("login loginController");
-  
+    
     $scope.title = constant.title;
 
     $scope.email = constant.email_placeHolder;

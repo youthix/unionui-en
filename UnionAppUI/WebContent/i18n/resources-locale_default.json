@@ -1,0 +1,23 @@
+[
+  {
+    "key":"_Email_",
+    "value":"Email"
+  },
+  {
+    "key":"_Password_",
+    "value":"Password"
+  },
+  {
+    "key":"_Reset_",
+    "value":"Reset App"
+  },
+  {
+    "key":"_Login_",
+    "value":"Login"
+  },
+  {
+    "key":"_Forgot_Password_",
+    "value":"Forgot Password"
+  }
+
+]
