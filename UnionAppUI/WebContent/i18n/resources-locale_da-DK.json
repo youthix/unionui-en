@@ -18,5 +18,53 @@
   {
     "key":"_Forgot_Password_",
     "value": "Glemt kodeord"
-  }
+  },
+ {
+   "key": "_DASHBOARD_",
+   "value": "Oversigt"
+ },
+ {
+   "key": "_Voting_",
+   "value": "Afstemning"
+ },
+ {
+   "key": "_Meeting_",
+   "value": "Næste møde"
+ },
+ {
+   "key": "_News_letter_",
+   "value": "Nyheds brev"
+ },
+ {
+   "key": "_Activities_",
+   "value": "Aktiviteter"
+ },
+ {
+   "key": "_Contact_list_",
+   "value": "Kontakt liste"
+ },
+ {
+   "key": "_Suggestions_And_Ideas_",
+   "value": "Forslag og ide"
+ },
+ {
+   "key": "_Summary_",
+   "value": "Referat"
+ },
+ {
+   "key": "_AMR_",
+   "value": "AMR"
+ },
+ {
+   "key": "_Local_Agreements_",
+   "value": "Lokal Aftaler"
+ },
+ {
+   "key": "_Pay_Rate_",
+   "value": "Løn Sats"
+ },
+ {
+   "key": "_Admin_User_",
+   "value": "Administrerer Bruger"
+ }
 ]

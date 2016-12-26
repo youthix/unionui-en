@@ -18,6 +18,54 @@
   {
     "key":"_Forgot_Password_",
     "value":"Forgot Password"
-  }
+  },
+  {
+   "key": "_Dashboard_",
+   "value": "Dashboard"
+ },
+ {
+   "key": "_Voting_ ",
+   "value": "Voting"
+ },
+ {
+   "key": "_Meeting_",
+   "value": "Meeting"
+ },
+ {
+   "key": "_News_Letter_",
+   "value": "News Letter"
+ },
+ {
+   "key": "_Activities_",
+   "value": "Activities"
+ },
+ {
+   "key": "_Contact_List_ ",
+   "value": "Contact List "
+ },
+ {
+   "key": "_Suggestions_And_Ideas_",
+   "value": "Suggestions And Ideas"
+ },
+ {
+   "key": "_Summary_",
+   "value": "Summary"
+ },
+ {
+   "key": "_AMR_",
+   "value": "AMR"
+ },
+ {
+   "key": "_Local_Agreements_",
+   "value": "Local Agreements"
+ },
+ {
+   "key": "_Pay_Rate_",
+   "value": "Pay Rate"
+ },
+ {
+   "key": "_Admin_User_",
+   "value": "Admin User"
+ }
 
 ]
