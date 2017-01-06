@@ -446,7 +446,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
 }]);
 
 
-app.controller('MeetingDashboardController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('MeetingDashboardController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
    //alert("MeetingDashboardController");
 
 $scope.date = constant.Date;
@@ -699,7 +699,7 @@ updateMeetingStatus = function(){
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            updateMeetingStatus();
         } else{
-                alert("Sorry,You can't Update Past Date for Meetings!");
+                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Meetings"));
                 return;
         }
 
@@ -886,7 +886,7 @@ app.controller('forgotPasswordController',['$scope','$location','services','cons
    
 }]); 
 
-app.controller('editMeetingController',['$scope','$location','services','constant','$rootScope','dataSharingService', function ($scope,$location,services,constant,$rootScope,dataSharingService) {
+app.controller('editMeetingController',['$scope','$location','$filter','services','constant','$rootScope','dataSharingService', function ($scope,$location,$filter,services,constant,$rootScope,dataSharingService) {
   // alert("newMeetingController");
   $scope.fotterTitle = constant.footer_title;
    if ($rootScope.userName == undefined || $rootScope.userName == null) {
@@ -1015,7 +1015,7 @@ app.controller('editMeetingController',['$scope','$location','services','constan
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            editDataSaveCall();
         } else{
-                alert("Sorry,You can't Update Past Date for Meetings!");
+                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Meetings"));
                 return;
         }
     };
@@ -1026,7 +1026,7 @@ app.controller('editMeetingController',['$scope','$location','services','constan
 
    
 }]);
-app.controller('newActivitieController',['$scope','$location','services','constant','$rootScope','dataSharingService', function ($scope,$location,services,constant,$rootScope,dataSharingService) {
+app.controller('newActivitieController',['$scope','$location','$filter','services','constant','$rootScope','dataSharingService', function ($scope,$location,$filter,services,constant,$rootScope,dataSharingService) {
   // alert("newMeetingController");
 	$scope.fotterTitle = constant.footer_title;
    if ($rootScope.userName == undefined || $rootScope.userName == null) {
@@ -1159,7 +1159,7 @@ app.controller('newActivitieController',['$scope','$location','services','consta
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            saveActivitieCall();
         } else{
-                alert("Sorry,You can't Update Past Date for Actvities!");
+                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Actvities"));
                 return;
         }
        
@@ -1171,7 +1171,7 @@ app.controller('newActivitieController',['$scope','$location','services','consta
 
    
 }]);
-app.controller('activitiesDashboardController',['$scope','$location','services','constant','$rootScope','dataSharingService','$route', function ($scope,$location,services,constant,$rootScope,dataSharingService,$route) {
+app.controller('activitiesDashboardController',['$scope','$location','$filter','services','constant','$rootScope','dataSharingService','$route', function ($scope,$location,$filter,services,constant,$rootScope,dataSharingService,$route) {
   // alert("newMeetingController");
   $scope.date = constant.Date;
   
@@ -1400,7 +1400,7 @@ var requestObject   = {
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            updateActivityStatus();
         } else{
-                alert("Sorry,You can't Update Past Date for Activities!");
+                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Activities"));
                 return;
         }
 
@@ -1410,7 +1410,7 @@ var requestObject   = {
 
    
 }]);
-app.controller('editActivitieController',['$scope','$location','services','constant','$rootScope','dataSharingService', function ($scope,$location,services,constant,$rootScope,dataSharingService) {
+app.controller('editActivitieController',['$scope','$location','$filter','services','constant','$rootScope','dataSharingService', function ($scope,$location,$filter,services,constant,$rootScope,dataSharingService) {
   // alert("newMeetingController");
   
     $scope.date = constant.Date;
@@ -1530,7 +1530,7 @@ app.controller('editActivitieController',['$scope','$location','services','const
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            updateActivitieCall();
         } else{
-                alert("Sorry,You can't Update Past Date for Activities!");
+                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Activities"));
                 return;
         }
     };

@@ -38,46 +38,46 @@
 <!-- END PAGE --> 
 <script type="text/ng-template" id="resetPassword.html">
         <div class="modal-header admin-modal-header">
-            <h3 class="modal-title">Reset Password</h3>
+            <h3 class="modal-title">{{"Reset Password"|i18n}}</h3>
         </div>
         <div class="modal-body">
           <form name="resetPasswordForm" ng-show="showForm">
             <div class="form-group">
-              <label for="userName">Email:</label>
-              <input type="text" class="form-control" id="userName" ng-model = "resetPassword.userName" ng-required=true placeholder="{{email}}" ng-focus="invalidUserName=false">
-              <span class="error" ng-show="invalidUserName">Email is not valid.</span>
+              <label for="userName">{{"Email"|i18n}}:</label>
+              <input type="text" class="form-control" id="userName" ng-model = "resetPassword.userName" ng-required=true placeholder="{{'Email'|i18n}}" ng-focus="invalidUserName=false">
+              <span class="error" ng-show="invalidUserName">{{"Email is not valid"|i18n}}.</span>
             </div>
             <div class="form-group">
-              <label for="oldPassword">Old Password:</label>
+              <label for="oldPassword">{{"Old Password"|i18n}}:</label>
               <input type="password" class="form-control" id="oldPassword" ng-required=true ng-model="resetPassword.oldPassword" ng-focus="invalidOldPassword=false">
-              <span class="error" ng-show="invalidOldPassword">Empty Password and space are not allowed.</span>
+              <span class="error" ng-show="invalidOldPassword">{{"Empty Password and space are not allowed"|i18n}}.</span>
             </div>
             <div class="form-group">
-              <label for="newPassword">New Password:</label>
+              <label for="newPassword">{{"New Password"|i18n}}:</label>
               <input type="password" class="form-control" name="newPassword" id="newPassword" ng-required=true ng-model="resetPassword.newPassword" ng-focus="invalidNewPassword=false">
-              <span class="error" ng-show="invalidNewPassword">Empty Password and space are not allowed.</span>
+              <span class="error" ng-show="invalidNewPassword">{{"Empty Password and space are not allowed"|i18n}}.</span>
             </div><div class="form-group">
-              <label for="confirmPassword">Confirm Password:</label>
+              <label for="confirmPassword">{{"Confirm Password"|i18n}}:</label>
               <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" ng-required=true ng-model="resetPassword.confirmPassword" ng-focus="invalidConfirmPassword=false;passwordNotMatching=false">
-              <span class="error" ng-show="invalidConfirmPassword">Empty Password and space are not allowed.</span>
-              <span class="error" ng-show="passwordNotMatching">Password should match.</span>
+              <span class="error" ng-show="invalidConfirmPassword">{{"Empty Password and space are not allowed"|i18n}}.</span>
+              <span class="error" ng-show="passwordNotMatching">{{"Password should match"|i18n}}.</span>
             </div>
           </form>
           <div ng-show="resetSuccessfull">
-            Password Reset Successfull.
+            {{"Password Reset Successfull"|i18n}}.
           </div>
           <div ng-show="resetFailed">
-            Password Reset Failed. Please try again.
+            {{"Password Reset Failed. Please try again."|i18n}}
           </div>
         </div>
         <div class="modal-footer">
           <div ng-show="showForm">
             <button class="btn btn-primary" ng-click="ok(resetPassword)">OK</button>
             
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-warning" ng-click="cancel()">{{"Cancel"|i18n}}</button>
           </div>
           <div ng-show="resetFailed || resetSuccessfull">
-            <button class="btn btn-primary" ng-click="cancel()">Close</button>
+            <button class="btn btn-primary" ng-click="cancel()">{{"Close"|i18n}}</button>
           </div>
         </div>
 </script>

@@ -136,13 +136,13 @@
 </div>
 <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header admin-modal-header">
-            <h3 class="modal-title">Change User Role</h3>
+            <h3 class="modal-title">{{"Change User Role"|i18n}}</h3>
         </div>
         <div class="modal-body">
-            <span>Are you sure you want to convert "{{item.fn}} {{item.ln}}" from <span ng-if="item.role=='N'">Normal</span> <span ng-if="item.role=='A' || item.role=='S'">Admin</span> role to <span ng-if="item.role=='A' || item.role=='S'">Normal</span> <span ng-if="item.role=='N'">Admin</span> role</span>
+            <span>{{"Are you sure you want to convert"|i18n}} "{{item.fn}} {{item.ln}}" {{"from"|i18n}} <span ng-if="item.role=='N'">{{"Normal"|i18n}}</span> <span ng-if="item.role=='A' || item.role=='S'">{{"Admin"|i18n}}</span> {{"Role"|i18n}} {{"to"|i18n}} <span ng-if="item.role=='A' || item.role=='S'">{{"Normal"|i18n}}</span> <span ng-if="item.role=='N'">{{"Admin"|i18n}}</span> {{"Role"|i18n}}</span>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-warning" ng-click="cancel()">{{"Cancel"|i18n}}</button>
         </div>
 </script>

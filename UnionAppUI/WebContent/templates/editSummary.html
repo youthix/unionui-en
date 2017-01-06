@@ -66,7 +66,7 @@
       <!-- END NAVBAR CONTENT--> 
 
       <div class="media user-field">
-          <div class="media-body welcome pull-left">Edit Summary
+          <div class="media-body welcome pull-left">{{"Edit Summary"|i18n}}
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -93,9 +93,9 @@
                   <div class="col-sm-10">
                     <div class="row">
                        <div class="col-xs-3">
-                        <label class="control-label text-center">Date</label>
+                        <label class="control-label text-center">{{"Date"|i18n}}</label>
                          <datepicker date-format="dd-MM-yyyy" disabled-dates="[todayData]">
-                          <input ng-model="summary.sumdate" type="text"  placeholder="dd-MM-yyyy" />
+                          <input ng-model="summary.sumdate" type="text"  placeholder="{{'DD-MM-YYYY'|i18n}}" />
                         </datepicker>
                        </div>
 
@@ -103,13 +103,13 @@
 
                     <div class="row">
                       <div class="col-xs-9">
-                      <label class="control-label text-left">Subject</label><br>
-                         <input type="text" class="form-control" placeholder="Subject" ng-model="summary.subject">
+                      <label class="control-label text-left">{{"Subject"|i18n}}</label><br>
+                         <input type="text" class="form-control" placeholder="{{'Subject'|i18n}}" ng-model="summary.subject">
                       </div>
                     </div>
                       <div class="row"> 
                       <div class="col-xs-9">
-                      <label class="control-label text-left">Description</label><br>
+                      <label class="control-label text-left">{{"Description"|i18n}}</label><br>
                         <textarea name="textarea" id="jqte-test2" ng-model="summary.detail"></textarea>
                       </div>
                     </div>
@@ -132,8 +132,8 @@
 
              <div class="text-center actions">
           <div class="button-wrap">
-            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="saveSummary(summary)">Save</button>
-           <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="saveSummary(summary)">{{"Save"|i18n}}</button>
+           <button type="submit" class="btn btn-primary" ng-click="cancel()">{{"Cancel"|i18n}}</button>
         </div>
       </div>
 

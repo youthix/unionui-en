@@ -96,7 +96,7 @@
                         <td>{{"Start Date"|i18n}}</td>
                         <td>
                           <datepicker  date-format="dd-MM-yyyy">
-                            <input ng-model="survey.createdate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="dd-mm-yyyy" />
+                            <input ng-model="survey.createdate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="{{'DD-MM-YYYY'|i18n}}" />
                           </datepicker>
                         </td>
                       </tr>
@@ -118,7 +118,7 @@
                         <td>{{"End Date"|i18n}}</td>
                         <td>
                           <datepicker  date-format="dd-MM-yyyy">
-                            <input ng-model="survey.enddate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="dd-mm-yyyy" />
+                            <input ng-model="survey.enddate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="{{'DD-MM-YYYY'|i18n}}" />
                           </datepicker>
                         </td>
                       </tr>
@@ -136,12 +136,12 @@
 
               <div class="row survey-subject">
                 <div class="col-xs-12">
-                   <input type="text" class="form-control" ng-required="true" placeholder="Subject" ng-disabled="viewSurvey" ng-model="survey.subject">
+                   <input type="text" class="form-control" ng-required="true" placeholder="{{'Subject'|i18n}}" ng-disabled="viewSurvey" ng-model="survey.subject">
                 </div>
               </div>
               <div class="row survey-description">
                 <div class="col-xs-12">
-                  <textarea rows="13" class="form-control" ng-required="true" placeholder="Description" ng-disabled="viewSurvey" ng-model="survey.detail"></textarea>
+                  <textarea rows="13" class="form-control" ng-required="true" placeholder="{{'Description'|i18n}}" ng-disabled="viewSurvey" ng-model="survey.detail"></textarea>
                 </div>
               </div>
               <div class="text-center actions">

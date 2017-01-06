@@ -512,7 +512,7 @@ app.controller('editContactController',['$scope','$location','services','constan
 
 }]);
 
-app.controller('miniContactController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('miniContactController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
    
 
 if ($rootScope.userName == undefined || $rootScope.userName == null) {
@@ -640,7 +640,7 @@ $scope.validateExtension=function(oForm) {
           if (newVal != undefined && newVal != null){
             
         	  if(!$scope.validateExtension(newVal)){
-              	alert("Invalid file extension! Only images with .png,.jpg,.jpeg extensions/formats are supported !");
+              	alert($filter("i18n")("Invalid file extension! Only images with .png,.jpg,.jpeg extensions/formats are supported !"));
               	return false;
               }  
         	  

@@ -17,7 +17,7 @@ $scope.next_meeting = constant.Next_Meeting;
 $scope.currentPage = 1;
  //$scope.activeMenu ="News Letter";
 
- $scope.activeMenu ="Local Argeements";
+ $scope.activeMenu ="Local Agreements";
 
  if ($rootScope.userName == undefined || $rootScope.userName == null) {
          $location.path('/login');
@@ -266,10 +266,10 @@ updateMeetingStatus = function(){
    
 }]);
 
-app.controller('newlocalAgreementController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('newlocalAgreementController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
 
 
- $scope.activeMenu ="Local Argeements";
+ $scope.activeMenu ="Local Agreements";
  $scope.fotterTitle = constant.footer_title;
 
 
@@ -321,8 +321,8 @@ app.controller('newlocalAgreementController',['$scope','$location','services','c
   var attachmentList =[];
   $scope.fileNames =[];
 
-$scope.listOptions = ["Image","Document"];
-$scope.selctedOption = "Document";
+$scope.listOptions = [$filter("i18n")("Image"),$filter("i18n")("Document")];
+$scope.selctedOption = $filter("i18n")("Document");
 $scope.file = null;
 $scope.files =[];
       $scope.$watch('file', function (newVal) {
@@ -372,7 +372,7 @@ $scope.files =[];
                 }
                 
                 if (!blnValid) {
-                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    alert($filter("i18n")("Sorry")+", " + sFileName + $filter("i18n")(" is invalid, allowed extensions are: ") + _validFileExtensions.join(", "));
                     $scope.documentTitle = null;
                     return false;
                 }
@@ -501,7 +501,7 @@ $scope.cancel = function(){
 
    
 }]);
-app.controller('editlocalAgreementController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('editlocalAgreementController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
    
 	$scope.fotterTitle = constant.footer_title;
 
@@ -547,7 +547,7 @@ app.controller('editlocalAgreementController',['$scope','$location','services','
 
 
     
-    $scope.activeMenu ="Local Argeements";
+    $scope.activeMenu ="Local Agreements";
 
     $scope.agreement = dataSharingService.getEditData()[0];
 
@@ -565,8 +565,8 @@ app.controller('editlocalAgreementController',['$scope','$location','services','
 
 
 
-$scope.listOptions = ["Image","Document"];
-$scope.selctedOption = "Document";
+$scope.listOptions = [$filter("i18n")("Image"),$filter("i18n")("Document")];
+$scope.selctedOption = $filter("i18n")("Document");
 
 $scope.file = null;
 $scope.files =[];
@@ -616,7 +616,7 @@ $scope.files =[];
                 }
                 
                 if (!blnValid) {
-                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    alert($filter("i18n")("Sorry")+", " + sFileName +  $filter("i18n")(" is invalid, allowed extensions are: ") + _validFileExtensions.join(", "));
                     $scope.documentTitle = null;
                     return false;
                 }

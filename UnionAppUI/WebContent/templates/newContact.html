@@ -62,7 +62,7 @@
       <!-- END NAVBAR CONTENT--> 
 	  
 	<div class="media user-field">
-          <div class="media-body welcome pull-left"> Contact List
+          <div class="media-body welcome pull-left"> {{"Contact List"|i18n}}
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -83,14 +83,14 @@
           <!-- Website statistic -->
           <div class="box-info">
 			<div class="col-md-9 table-responsive custom-table">
-			<div class="header">{{category}} Board</div>
+			<div class="header">{{category}} {{"Board"|i18n}}</div>
 			   <table data-sortable="" class="table" data-sortable-initialized="true">
 				  <thead>
 					 <tr>
-						<th>Name</th>
-						<th>Phone Number</th>
-            <th>Board Function</th>
-						<th>Action</th>
+						<th>{{"Name"|i18n}}</th>
+						<th>{{"Phone Number"|i18n}}</th>
+            <th>{{"Board Function"|i18n}}</th>
+						<th>{{"Actions"|i18n}}</th>
 					 </tr>
 				  </thead>
 				  <tbody>
@@ -99,7 +99,7 @@
 						<td ng-click="detailContactListData(eachContact)">{{eachContact.conNu}}</td>
             <td ng-click="detailContactListData(eachContact)">{{eachContact.fn}}</td>
 						<td class="actions smaller-td">
-              <i data-toggle="tooltip" ng-click="deleteContact(eachContact.emId,$index,$event)" class="fa fa-3x fa-minus-circle tooltip-delete" data-original-title="Delete Contact" title="Delete Contact"></i>
+              <i data-toggle="tooltip" ng-click="deleteContact(eachContact.emId,$index,$event)" class="fa fa-3x fa-minus-circle tooltip-delete" data-original-title="{{'Delete Contact'|i18n}}" title="{{'Delete Contact'|i18n}}"></i>
             </td>
            </tr>
 					<!--  <tr ng-click="detailContactListData()">
@@ -122,7 +122,7 @@
                <div class="col-md-12 spacer-20"></div>
 			<div class="text-center">
              <div class="col-xs-12">
-            	<button type="button" class="btn btn-wfs" ng-click="ContactList()">Cancel</button>
+            	<button type="button" class="btn btn-wfs" ng-click="ContactList()">{{"Cancel"|i18n}}</button>
                 
 		 		<!--<button type="button" class="btn btn-wfs" ng-click="newProfile()"><i class="fa fa-plus"></i>Add Contact</button>-->
 			</div>

@@ -6,7 +6,7 @@ angular.module('localization', [])
     .factory('localize', ['$http', '$rootScope', '$window', '$filter', function ($http, $rootScope, $window, $filter) {
         var localize = {
             // use the $window service to get the language of the user's browser
-            language:'default',
+            language:'da-DK',
             // array to hold the localized resource string entries
             dictionary:[],
             // location of the resource file
@@ -71,7 +71,6 @@ angular.module('localization', [])
             getLocalizedString: function(value) {
                 // default the result to an empty string
                 var result = '';
-                 
                 // make sure the dictionary has valid data
                 if ((localize.dictionary !== []) && (localize.dictionary.length > 0)) {
                     // use the filter service to only return those entries which match the value
