@@ -297,7 +297,7 @@ updateMeetingStatus = function(){
    
 }]);
 
-app.controller('newpayRateController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('newpayRateController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
 
 
  $scope.activeMenu ="Pay Rate";
@@ -353,8 +353,8 @@ app.controller('newpayRateController',['$scope','$location','services','constant
   var attachmentList =[];
   $scope.fileNames =[];
 
-$scope.listOptions = ["Image","Document"];
-$scope.selctedOption = "Document";
+$scope.listOptions = [$filter("i18n")("Image"),$filter("i18n")("Document")];
+$scope.selctedOption = $filter("i18n")("Document");
 $scope.file = null;
 $scope.files =[];
       $scope.$watch('file', function (newVal) {
@@ -404,7 +404,7 @@ $scope.files =[];
                 }
                 
                 if (!blnValid) {
-                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    alert($filter("i18n")("Sorry")+", " + sFileName +  $filter("i18n")(" is invalid, allowed extensions are: ") + _validFileExtensions.join(", "));
                     $scope.documentTitle = null;
                     return false;
                 }
@@ -515,7 +515,7 @@ $scope.cancel = function(){
 
    
 }]);
-app.controller('editpayRateController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('editpayRateController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
    
 
 	$scope.fotterTitle = constant.footer_title;
@@ -577,8 +577,8 @@ app.controller('editpayRateController',['$scope','$location','services','constan
 
 
 
-$scope.listOptions = ["Image","Document"];
-$scope.selctedOption = "Document";
+$scope.listOptions = [$filter("i18n")("Image"),$filter("i18n")("Document")];
+$scope.selctedOption = $filter("i18n")("Document");
 
 $scope.file = null;
 $scope.files =[];
@@ -628,7 +628,7 @@ $scope.files =[];
                 }
                 
                 if (!blnValid) {
-                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    alert($filter("i18n")("Sorry")+", "  + sFileName +  $filter("i18n")(" is invalid, allowed extensions are: ") + _validFileExtensions.join(", "));
                     $scope.documentTitle = null;
                     return false;
                 }

@@ -4,6 +4,14 @@
     "value":"E-mail"
   },
   {
+    "key":"Submit",
+    "value":"Indsende"
+  },
+  {
+    "key":"Enter Your Email ID",
+    "value":"Indtast din e-mail-id"
+  },
+  {
     "key":"Password",
     "value":"adgangskode"
   },
@@ -36,6 +44,30 @@
    "value": "Nyheds brev"
  },
  {
+   "key": "Create Newsletter",
+   "value": "Opret nyhedsbrev"
+ },
+ {
+   "key": "Document Title",
+   "value": "Dokument Titel"
+ },
+ {
+   "key": "Document",
+   "value": "Dokument"
+ },
+ {
+   "key": "Attachment Type",
+   "value": "Attachment Type"
+ },
+ {
+   "key": "Edit News",
+   "value": "Edit Nyheder"
+ },
+ {
+   "key": "Here you can add more files with this file types",
+   "value": "Her kan du tilføje flere filer med dette fil typer"
+ },
+ {
    "key": "Activities",
    "value": "Aktiviteter"
  },
@@ -64,12 +96,20 @@
    "value": "Kontakt liste"
  },
  {
-   "key": "Suggestions And Ideas",
+   "key": "Suggestions and Ideas",
    "value": "Forslag og ide"
  },
  {
-   "key": "Summary",
-   "value": "Referat"
+   "key": "Create Suggestions and Ideas",
+   "value": "Opret Forslag og ide"
+ },
+ {
+   "key": "New Suggestions and Ideas",
+   "value": "Ny Forslag og ide"
+ },
+ {
+   "key": "Edit Suggestions and Ideas",
+   "value": "Redigere Forslag og ide"
  },
  {
    "key": "AMR",
@@ -80,8 +120,16 @@
    "value": "Lokal Aftaler"
  },
  {
-   "key": "Pay Rate",
-   "value": "Løn Sats"
+   "key": "New Local Agreement",
+   "value": "Ny Lokal Aftaler"
+ },
+ {
+   "key": "Edit Agreement",
+   "value": "Redigere Aftaler"
+ },
+ {
+   "key": "Create Local Agreement",
+   "value": "Opret Lokal Aftaler"
  },
  {
    "key": "Admin User",
@@ -249,7 +297,7 @@
  },
  {
    "key": "Voting",
-   "value": "Afstemning "
+   "value": "Afstemning"
  },
  {
    "key": "Deadline",
@@ -266,6 +314,22 @@
  {
    "key": "View Questions",
    "value": "Vis spørgsmål"
+ },
+ {
+   "key": "Delete Question",
+   "value": "Slet Spørgsmål"
+ },
+ {
+   "key": "Delete Contact",
+   "value": "Slet Kontakt"
+ },
+ {
+   "key": "Delete Option",
+   "value": "Slet Option"
+ },
+ {
+   "key": "Add Options",
+   "value": "Tilføj Options"
  },
  {
    "key": "View Results",
@@ -289,7 +353,7 @@
  },
  {
    "key": "Result Deadline Survey Expired",
-   "value": "Afstemning Er Slut "
+   "value": "Afstemning Er Slut"
  },
  {
    "key": "Details",
@@ -317,7 +381,7 @@
  },
  {
    "key": "Survey",
-   "value": "Afstemning "
+   "value": "Afstemning"
  },
  {
    "key": "Start Date",
@@ -341,11 +405,11 @@
  },
  {
    "key": "Description",
-   "value": "Beskrivelse "
+   "value": "Beskrivelse"
  },
  {
    "key": "Update",
-   "value": "Opdatere "
+   "value": "Opdatere"
  },
  {
    "key": "Cancel",
@@ -385,11 +449,11 @@
  },
  {
    "key": "Did Not Answer",
-   "value": "Har Ikke Svaret "
+   "value": "Har Ikke Svaret"
  },
  {
    "key": "Actions",
-   "value": "Handling "
+   "value": "Handling"
  },
  {
    "key": "Add New Meeting",
@@ -405,7 +469,7 @@
  },
  {
    "key": "Save Meeting",
-   "value": "Gem Mødet "
+   "value": "Gem Mødet"
  },
  {
    "key": "Cancel",
@@ -423,6 +487,10 @@
    "key": "News Letter",
    "value": "Nyheds Brev"
  },
+  {
+   "key": "New Newsletter",
+   "value": "Ny Nyhedsbrev"
+ },
  {
    "key": "Date",
    "value": "Dato"
@@ -436,16 +504,40 @@
    "value": "Handling"
  },
  {
+   "key": "Image",
+   "value": "Billede"
+ },
+ {
+   "key": "Upload Image",
+   "value": "Upload billede"
+ },
+ {
+   "key": "Choose File",
+   "value": "Vælg fil"
+ },
+ {
    "key": "Create News Letter",
    "value": "Oprette Et Nyt Nyheds Brev"
+ },
+ {
+   "key": "Change User Role",
+   "value": "Skift Bruger Rolle"
+ },
+ {
+   "key": "Are you sure you want to convert",
+   "value": "Er du sikker på du vil konvertere"
  },
  {
    "key": "New Activity",
    "value": "Ny Aktivitet"
  },
  {
+   "key": "Edit Activity",
+   "value": "Redigere Aktivitet"
+ },
+ {
    "key": "Add New Activity",
-   "value": "Tilføj Nyt Aktivitet "
+   "value": "Tilføj Nyt Aktivitet"
  },
  {
    "key": "Time",
@@ -484,6 +576,10 @@
    "value": "Bestyrelses Funktion"
  },
  {
+   "key": "Board",
+   "value": "Bestyrelses"
+ },
+ {
    "key": "Category Name",
    "value": "Kategori"
  },
@@ -505,7 +601,7 @@
  },
  {
    "key": "Actions",
-   "value": "Handling "
+   "value": "Handling"
  },
  {
    "key": "Cresta Suggestions And Ideas",
@@ -520,6 +616,14 @@
    "value": "Referat"
  },
  {
+   "key": "New Summary",
+   "value": "Ny Referat"
+ },
+ {
+   "key": "Edit Summary",
+   "value": "Redigere Referat"
+ },
+ {
    "key": "Subject",
    "value": "Emne"
  },
@@ -532,24 +636,40 @@
    "value": "Opret Nyt"
  },
  {
-   "key": "Create Amr",
+   "key": "Create AMR",
    "value": "Opret Nyt"
  },
  {
-   "key": "Amr List",
-   "value": "Amr Liste "
+   "key": "AMR List",
+   "value": "AMR Liste"
  },
  {
-   "key": "Edit Amr",
-   "value": "Redigere "
+   "key": "Edit AMR",
+   "value": "Redigere AMR"
+ },
+ {
+   "key": "New AMR",
+   "value": "Ny AMR"
  },
  {
    "key": "Local Agreements",
-   "value": "Lokale Aftaler "
+   "value": "Lokale Aftaler"
  },
  {
    "key": "Pay Rate",
    "value": "Løn Sats"
+ },
+ {
+   "key": "New Pay Rate",
+   "value": "Ny Løn Sats"
+ },
+ {
+   "key": "Edit Pay Rate",
+   "value": "Redigere Løn Sats"
+ },
+ {
+   "key": "Create Pay Rate",
+   "value": "Opret Løn Sats"
  },
  {
    "key": "Admin User",
@@ -574,6 +694,70 @@
  {
    "key": "Normal",
    "value": "Normal"
+ },
+ {
+   "key": "from",
+   "value": "fra"
+ },
+ {
+   "key": "to",
+   "value": "til"
+ },
+ {
+   "key": "Reset Password",
+   "value": "Nulstille kodeord"
+ },
+ {
+   "key": "Email is not valid",
+   "value": "E-mail er ikke gyldig"
+ },
+ {
+   "key": "Old Password",
+   "value": "Gammelt kodeord"
+ },
+ {
+   "key": "New Password",
+   "value": "Nyt kodeord"
+ },
+ {
+   "key": "Confirm Password",
+   "value": "Bekræft kodeord"
+ },
+ {
+   "key": "Empty Password and space are not allowed",
+   "value": "Tøm adgangskode og rum er ikke tilladt"
+ },
+ {
+   "key": "Password should match",
+   "value": "Adgangskode skal matche"
+ },
+ {
+   "key": "Password Reset Successfull",
+   "value": "Nulstil adgangskode succesfuld"
+ },
+ {
+   "key": "Password Reset Failed. Please try again.",
+   "value": "Nulstil adgangskode mislykkedes. Prøv igen."
+ },
+ {
+   "key": "Close",
+   "value": "Tæt"
+ },
+ {
+   "key": "Sorry,You can't Update Past Date for",
+   "value": "Beklager, Du kan ikke opdatere Past Dato for"
+ },
+ {
+   "key": "Sorry",
+   "value": "Beklager"
+ },
+ {
+   "key": " is invalid, allowed extensions are ",
+   "value": " er ugyldig, tilladte udvidelser er "
+ },
+ {
+   "key": "Invalid file extension! Only images with .png,.jpg,.jpeg extensions/formats are supported !",
+   "value": "Ugyldig filtype! Kun billeder med .png, .jpg, .jpeg udvidelser / formater understøttes!"
  }
 
 ]

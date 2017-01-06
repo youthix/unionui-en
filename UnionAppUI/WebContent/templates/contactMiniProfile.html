@@ -108,8 +108,9 @@
 
       <i class="media-object img-circle fa fa-user" ng-if="!profileData.imageurl" ng-show="defualtImage" alt="Avatar"></i>
 
-      <input name="avatar" file-model='file' type="file" class="file-loading"  ng-show="showButtonFile">
-
+      <label for="avatar" ng-show="showButtonFile" class="btn" style="margin-top:15px;">{{"Upload Image"|i18n}}
+        <input name="avatar" id="avatar" file-model='file' type="file" class="file-loading" style="display: none;" >
+      </label>
       </div>
       </form>
 				<div class="col-md-12 spacer-20"></div>
@@ -195,7 +196,7 @@
 			   <table data-sortable="" class="table" data-sortable-initialized="true">
 				  <tbody>
 					<tr>
-						<td><a href="#">Register</a></td><td><a href="#">Save</a></td>
+						<td><a href="#">Register</a></td><td><a href="#">{{"Save"|i18n}}</a></td>
 					</tr>
 				  </tbody>
 			   </table>

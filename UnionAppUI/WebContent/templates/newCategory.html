@@ -59,7 +59,7 @@
       <!-- END NAVBAR CONTENT--> 
     
   <div class="media user-field">
-          <div class="media-body welcome pull-left"> Contact List
+          <div class="media-body welcome pull-left"> {{"Contact List"|i18n}}
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -82,14 +82,14 @@
 
           <div class="row">
                       <div class="col-xs-9">
-                      <label>Category Name:</label>
-                         <input type="text" class="form-control" placeholder="Category Name" ng-model="catname">
+                      <label>{{"Category Name"|i18n}}:</label>
+                         <input type="text" class="form-control" placeholder="{{'Category Name'|i18n}}" ng-model="catname">
                       </div>
                       <div class="col-xs-12">
                             
-                            	<button type="button" class="btn btn-wfs" ng-click="ContactList()">Cancel</button>
+                            	<button type="button" class="btn btn-wfs" ng-click="ContactList()">{{"Cancel"|i18n}}</button>
                            
-                            	<button type="button" class="btn btn-wfs" ng-click="saveCategory()"><i class="fa fa-plus"></i>Save Category</button>
+                            	<button type="button" class="btn btn-wfs" ng-click="saveCategory()"><i class="fa fa-plus"></i>{{"Save Category"|i18n}}</button>
                             
                		</div>       
                     </div>

@@ -10,7 +10,7 @@ app.controller('ModalInstanceCtrl',['$scope','$modalInstance','item', function (
     $modalInstance.dismiss('cancel');
   };
 }]);
-app.controller('adminUserDashBoardController',['$scope','$location','$modal','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$modal,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('adminUserDashBoardController',['$scope','$location','$filter','$modal','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,$modal,services,constant,dataSharingService,$rootScope,$route) {
   //  alert("newsLetterController");
   $scope.date = constant.Date;
   $scope.time = constant.Time;
@@ -266,7 +266,7 @@ $scope.statusUpdate = function(summaryStatus,summaryData){
   if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
     updateMeetingStatus();
   } else{
-    alert("Sorry,You can't Update Past Date for Summary!");
+    alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Summary"));
     return;
   }
 
@@ -434,7 +434,7 @@ $scope.cancel = function(){
 
    
 }]);
-app.controller('editadminUserController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('editadminUserController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
    
 
      $scope.activeMenu="Admin User";
@@ -548,7 +548,7 @@ app.controller('editadminUserController',['$scope','$location','services','const
            //updateMeetingStatus();
            updateNewsStatus();
         } else{
-                alert("Sorry,You can't Update Past Date for Summary!");
+                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Summary"));
                 return;
         }
 

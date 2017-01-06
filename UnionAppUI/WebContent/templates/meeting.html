@@ -62,7 +62,7 @@
       <!-- END NAVBAR CONTENT--> 
 
           <div class="media user-field">
-          <div class="media-body welcome pull-left">{{next_meeting}} 
+          <div class="media-body welcome pull-left">{{"Next Meeting"|i18n}} 
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -87,13 +87,13 @@
 			   <table data-sortable="" class="table" data-sortable-initialized="true">
 				  <thead>
 					 <tr>
-						<th>{{date}}</th>
-						<th>{{time}}</th>
-						<th>{{place}}</th>
-						<th>{{comming}}</th>
-						<th>{{not_coming}}</th>
-						<th>{{did_not_answer}}</th>
-						<th width="190px">{{actions}}</th>
+						<th>{{"Date"|i18n}}</th>
+						<th>{{"Time"|i18n}}</th>
+						<th>{{"Place"|i18n}}</th>
+						<th>{{"Comming"|i18n}}</th>
+						<th>{{"Not Comming"|i18n}}</th>
+						<th>{{"Did Not Answer"|i18n}}</th>
+						<th width="190px">{{"Actions"|i18n}}</th>
 					 </tr>
 				  </thead>
 				  <tbody>
@@ -123,8 +123,8 @@
 			   <table data-sortable="" class="table" data-sortable-initialized="true">
 				  <thead>
 					 <tr>
-						<th>Date</th>
-						<th>Time</th>
+						<th>{{"Date"|i18n}}</th>
+						<th>{{"Time"|i18n}}</th>
 						<th>Place</th>
 						<th>Comming</th>
 						<th>Not Comming</th>
@@ -157,7 +157,7 @@
 			   </table>
 			</div> -->
 			<div class="text-center">
-			<button type="button" class="btn btn-wfs" ng-click="newMeeting()"><i class="fa fa-plus"></i>{{add_new_meeting}}</button>
+			<button type="button" class="btn btn-wfs" ng-click="newMeeting()"><i class="fa fa-plus"></i>{{add_new_meeting|i18n}}</button>
 			</div>
           </div>
           <!-- End div .box-info --> 

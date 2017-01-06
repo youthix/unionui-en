@@ -93,13 +93,13 @@
 				<div class="col-sm-10">
 					<div class="row">
 				 		<div class="col-xs-3">
-							<label class="col-sm-12 control-label text-center">{{date}}</label>
+							<label class="col-sm-12 control-label text-center">{{"Date"|i18n}}</label>
                 <input type="text" class="form-control datepicker-input" data-mask="9999-99-99" placeholder="yyyy-mm-dd" ng-model="meeting.meetdate">
 						</div> 
 
 						<div class="col-xs-3">
-							<label class="col-sm-12 control-label text-center">{{time}}</label>
-							<!-- <input type="text" class="form-control" placeholder="{{time}}" ng-model="meeting.meettime"> -->
+							<label class="col-sm-12 control-label text-center">{{"Time"|i18n}}</label>
+							<!-- <input type="text" class="form-control" placeholder="{{'Time'|i18n}}" ng-model="meeting.meettime"> -->
 
               <input id="timepicker1" type="text" name="timepicker1" class="form-control"  ng-model="meeting.meettime">
             
@@ -108,14 +108,14 @@
   
 						</div>
 						<div class="col-xs-3">
-							<label class="col-sm-12 control-label text-center">{{place}}</label>
-							<input type="text" class="form-control" placeholder="{{place}}" ng-model="meeting.venue">
+							<label class="col-sm-12 control-label text-center">{{"Place"|i18n}}</label>
+							<input type="text" class="form-control" placeholder="{{'Place'|i18n}}" ng-model="meeting.venue">
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-xs-9">
-							<input type="text" class="form-control" placeholder="{{subject}}" ng-model="meeting.subject">
+							<input type="text" class="form-control" placeholder="{{'Subject'|i18n}}" ng-model="meeting.subject">
 						</div>
 					</div>
 					

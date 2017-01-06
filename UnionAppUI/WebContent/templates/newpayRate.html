@@ -66,7 +66,7 @@
       <!-- END NAVBAR CONTENT--> 
 
           <div class="media user-field">
-          <div class="media-body welcome pull-left">New Pay Rate
+          <div class="media-body welcome pull-left">{{"New Pay Rate"|i18n}}
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -93,9 +93,9 @@
                   <div class="col-sm-10">
                     <div class="row">
                        <div class="col-xs-3">
-                        <label class="control-label text-center">Date</label>
+                        <label class="control-label text-center">{{"Date"|i18n}}</label>
                          <datepicker date-format="dd-MM-yyyy" disabled-dates="[todayData]">
-                          <input ng-model="payRate.paydate" type="text"  placeholder="dd-MM-yyyy" />
+                          <input ng-model="payRate.paydate" type="text"  placeholder="{{'DD-MM-YYYY'|i18n}}" />
                         </datepicker>
                        </div>
 
@@ -103,12 +103,12 @@
 
                     <div class="row">
                       <div class="col-xs-9">
-                         <input type="text" class="form-control" placeholder="Subject" ng-model="payRate.subject">
+                         <input type="text" class="form-control" placeholder="{{'Subject'|i18n}}" ng-model="payRate.subject">
                       </div>
                     </div>
                       <div class="row">
                       <div class="col-xs-9">                        
-						<textarea name="textarea" id="jqte-test7">Description</textarea>
+						<textarea name="textarea" id="jqte-test7">{{"Description"|i18n}}</textarea>
                       <!--  <textarea id="txtEditor" name="txtEditorContent"></textarea> -->
                       </div>
                     </div>
@@ -120,23 +120,19 @@
                     <div class="row">
 
                     <div class="col-xs-9 alert alert-info">
-                      <h4><b>As Attachments</b></h4>
-
-                             <h5>You can Upload Multiple Files. </h5> 
-
-                             <h5>Supported File Formats are .jpg, .jpg, .jpeg, .png,.txt, .pdf, .doc, .docx, .xls, .xlsx </h5> 
+                             <h5>{{"Here you can add more files with this file types"|i18n}} .jpg, .jpg, .jpeg, .png,.txt, .pdf, .doc, .docx, .xls, .xlsx </h5> 
                          </div>
                       
                     </div>
 
                       <div class="row">
                           <div class="col-xs-3">
-                              <label class="col-sm-12 control-label text-center">Document Title</label>
+                              <label class="col-sm-12 control-label text-center">{{"Document Title"|i18n}}</label>
                                  <input type="text" class="form-control" ng-model="documentTitle">
                          </div>
 
                         <div class="col-xs-3">
-                                 <label class="col-sm-12 control-label text-center">Attachment Type</label>              
+                                 <label class="col-sm-12 control-label text-center">{{"Attachment Type"|i18n}}</label>              
                                   <!--  <select class="form-control">
                                       <option>PDF</option>
                                       <option>EXCEL</option>
@@ -149,7 +145,9 @@
 
             <div class="col-xs-3">
               <label class="col-sm-12 control-label text-center">&nbsp;</label>
-              <input type="file" file-model='file' class="form-control"> 
+              <label for="newPayRate" class="btn"> {{"Choose File"|i18n}}
+                <input type="file" file-model='file' id="newPayRate" class="form-control" style="display: none;">
+              </label> 
             <!--   <h5>{{fileNameIs}}</h5> -->
 
             </div>
@@ -186,8 +184,8 @@
 
              <div class="text-center actions">
           <div class="button-wrap">
-            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="save(payRate)">Save</button>
-           <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+            <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="save(payRate)">{{"Save"|i18n}}</button>
+           <button type="submit" class="btn btn-primary" ng-click="cancel()">{{"Cancel"|i18n}}</button>
         </div>
       </div>
 
