@@ -568,8 +568,12 @@
    "value": "Tlf.Nr."
  },
  {
-   "key": "Board Function",
-   "value": "Funktion"
+   "key": "Admin",
+   "value": "Administrerer"
+ },
+ {
+   "key": "Normal",
+   "value": "Normal"
  }
 
 ]

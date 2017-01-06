@@ -66,6 +66,14 @@
  {
    "key": "Admin User",
    "value": "Admin User"
+ },
+ {
+   "key": "Admin",
+   "value": "Administrerer"
+ },
+ {
+   "key": "Normal",
+   "value": "Normal"
  }
 
 ]

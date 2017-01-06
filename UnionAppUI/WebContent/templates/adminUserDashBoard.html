@@ -62,7 +62,7 @@
       <!-- END NAVBAR CONTENT--> 
 	  
 	<div class="media user-field">
-          <div class="media-body welcome pull-left"> Admin Users
+          <div class="media-body welcome pull-left"> {{'Admin User'| i18n }}
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
@@ -86,18 +86,18 @@
 			   <table data-sortable="" class="table" data-sortable-initialized="true">
 				  <thead>
 					 <tr>
-						<th ng-click="sortBy('fn')">Name <span class="sortorder" ng-show="propertyName==='fn'" ng-class="{reverse: reverse}"></span></th>
-						<th ng-click="sortBy('role')">Role <span class="sortorder" ng-show="propertyName==='role'" ng-class="{reverse: reverse}"></span></th>
-						<th>Phone Number </th>
-						<th ng-click="sortBy('title')">Board Function <span class="sortorder" ng-show="propertyName==='title'" ng-class="{reverse: reverse}"></th>
+						<th ng-click="sortBy('fn')">{{'Name'| i18n }} <span class="sortorder" ng-show="propertyName==='fn'" ng-class="{reverse: reverse}"></span></th>
+						<th ng-click="sortBy('role')">{{'Role'| i18n }} <span class="sortorder" ng-show="propertyName==='role'" ng-class="{reverse: reverse}"></span></th>
+						<th>{{'Phone Number'| i18n }} </th>
+						<th ng-click="sortBy('title')">{{'Board Function'| i18n }} <span class="sortorder" ng-show="propertyName==='title'" ng-class="{reverse: reverse}"></th>
 					 </tr>
 				  </thead>
 				  <tbody>
 					 <tr ng-show="user.status === 'A'" ng-repeat="user in allAdminUsers | orderBy:propertyName:reverse">
 						<td>{{user.fn}} {{user.ln}}</td>
             <td class="actions adminuser">
-              <a ng-click="open(user)" ng-if="user.role === 'N'" data-toggle="tooltip" title="" class="btn btn-default offline deleted" data-original-title="Normal"><i class="fa"></i></a>
-              <a ng-click="open(user)" ng-if="user.role === 'A' || user.role === 'S'"data-toggle="tooltip" title="" class="btn btn-default live online" data-original-title="Admin"><i class="fa"></i></a>
+              <a ng-click="open(user)" ng-if="user.role === 'N'" data-toggle="tooltip" title="" class="btn btn-default offline deleted" data-original-title="{{'Normal'| i18n }}"><i class="fa"></i></a>
+              <a ng-click="open(user)" ng-if="user.role === 'A' || user.role === 'S'"data-toggle="tooltip" title="" class="btn btn-default live online" data-original-title="{{'Admin'| i18n }}"><i class="fa"></i></a>
             </td>
             <td>{{user.conNu}}</td>
             <td>{{user.title}}</td>
