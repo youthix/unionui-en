@@ -752,6 +752,10 @@
    "value": "Beklager"
  },
  {
+   "key": "Your total space usage has reached it's limit. Please contact your administrator.",
+   "value": "Din samlede forbrug plads har nået sin grænse. Kontakt din administrator."
+ },
+ {
    "key": " is invalid, allowed extensions are ",
    "value": " er ugyldig, tilladte udvidelser er "
  },

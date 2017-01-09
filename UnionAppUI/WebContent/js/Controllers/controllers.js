@@ -11,6 +11,12 @@ app.controller('mainController',['$scope','localize','$location', function ($sco
    
     localize.setLanguage("da-DK");
 }]);
+app.controller('restrictUserController',['$scope','$location','$modalInstance', function ($scope,$location,$modalInstance) {
+  $scope.ok = function(){
+    $modalInstance.close();
+  }
+
+}]);
 app.controller('resetPasswordController',['$scope','$modalInstance','services','constant', function ($scope, $modalInstance,services,constant) {
   $scope.resetSuccessfull = false;
   $scope.resetFailed = false;
@@ -154,7 +160,7 @@ app.controller('loginController',['$scope','localize','$location','services','co
 
 }]);
 
-app.controller('dashBoardController',['$scope','$location','$rootScope','dataSharingService','constant','services', function ($scope,$location,$rootScope,dataSharingService,constant,services) {
+app.controller('dashBoardController',['$scope','$location','$rootScope','dataSharingService','constant','services','$modal', function ($scope,$location,$rootScope,dataSharingService,constant,services,$modal) {
       
 	$scope.fotterTitle = constant.footer_title;
 	$scope.dashboard =constant.dashboard;
@@ -302,6 +308,18 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
           }
         }
       });
+      if(spaceInfo.remspace === 0){
+        
+        var modalInstance = $modal.open({
+          templateUrl: 'restrictUser.html',
+          controller: 'restrictUserController'
+        });
+        modalInstance.result.then(function () {
+          $location.path('/login'); 
+        }, function () {
+          $location.path('/login');
+        });
+      }
     }
     drawVisitorInfoGraph = function(vDateArr,vCountArr) {
       var barChartData = {

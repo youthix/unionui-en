@@ -232,3 +232,14 @@
       <!-- End Footer --> 
 <!-- End div .container --> 
 <!-- END PAGE --> 
+<script type="text/ng-template" id="restrictUser.html">
+        <div class="modal-header admin-modal-header">
+            <h3 class="modal-title">{{"Space In Use"|i18n}}</h3>
+        </div>
+        <div class="modal-body">
+            <span>{{"Your total space usage has reached it's limit. Please contact your administrator."|i18n}}</span>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+        </div>
+</script>
