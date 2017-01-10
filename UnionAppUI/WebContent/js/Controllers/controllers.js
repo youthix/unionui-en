@@ -436,7 +436,12 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
     $scope.currUserIndex = 0; 
     $scope.showWaitingUsers = false;
     $scope.showPendingUsers = function(){
-      $scope.showWaitingUsers = $scope.showWaitingUsers? false:true;
+      if($scope.allPendingUsers !== undefined && $scope.allPendingUsers.length > 0 ){
+        $scope.showWaitingUsers = $scope.showWaitingUsers? false:true;
+      }
+      else{
+        $scope.showWaitingUsers = false;
+      }
     }
     $scope.nextUser = function(){
       $scope.currUserIndex+=1;
