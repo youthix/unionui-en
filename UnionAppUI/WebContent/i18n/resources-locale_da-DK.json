@@ -80,8 +80,24 @@
    "value": "Dage"
  },
  {
+   "key": "Day",
+   "value": "Dag"
+ },
+ {
    "key": "Hours",
    "value": "Timer"
+ },
+ {
+   "key": "Hour",
+   "value": "Time"
+ },
+ {
+   "key": "Minutes",
+   "value": "Min."
+ },
+ {
+   "key": "Seconds",
+   "value": "Sec."
  },
  {
    "key": "Result",
@@ -145,7 +161,7 @@
  },
  {
    "key": "App Activities",
-   "value": "Apps Aktiviteter"
+   "value": "APPS AKTIVITETER"
  },
  {
    "key": "MON",
@@ -337,7 +353,7 @@
  },
  {
    "key": "Survey Expired",
-   "value": "Valget Er Udløbet"
+   "value": "Valget er slut"
  },
  {
    "key": "Add New Survey",
@@ -417,7 +433,7 @@
  },
  {
    "key": "Add Questions",
-   "value": "Tilføj Nyt Spørgsmål"
+   "value": "Tilføj et nyt spørgsmål"
  },
  {
    "key": "Back",
@@ -762,6 +778,14 @@
  {
    "key": "Invalid file extension! Only images with .png,.jpg,.jpeg extensions/formats are supported !",
    "value": "Ugyldig filtype! Kun billeder med .png, .jpg, .jpeg udvidelser / formater understøttes!"
+ },
+ {
+   "key": "Number of votes",
+   "value": "Antal stemmer"
+ },
+ {
+   "key": "Votes",
+   "value": "stemmer"
  }
 
 ]

@@ -91,15 +91,24 @@
            <tr>              
              <td class="smaller-td">
               <div ng-show="survey.deadlineDays > 0 || survey.deadlineHours > 0">
-                <span ng-show="survey.deadlineDays > 0">{{survey.deadlineDays}} {{"Days"|i18n}}</span>&nbsp;<span ng-show="survey.deadlineHours">{{survey.deadlineHours}} {{"Hours"|i18n}}</span> 
+                <span ng-show="survey.deadlineDays > 0">
+                  {{survey.deadlineDays}} 
+                  <span ng-if="survey.deadlineDays > 1">{{"Days"|i18n}}</span>
+                  <span ng-if="survey.deadlineDays == 1">{{"Day"|i18n}}</span>
+                </span>&nbsp;
+                <span ng-show="survey.deadlineHours">
+                  {{survey.deadlineHours}} 
+                  <span ng-if="survey.deadlineHours > 1">{{"Hours"|i18n}}</span>
+                  <span ng-if="survey.deadlineHours == 1">{{"Hour"|i18n}}</span>
+                </span> 
               </div>
-              <div ng-show="survey.deadlineDays < 0 && survey.deadlineHours < 0">
+              <div ng-show="survey.deadlineDays <= 0 && survey.deadlineHours <= 0">
                 {{"Survey Expired"|i18n}}
               </div>
               </td>
              <td class="large-td">{{survey.subject}}</td>
              <td class="actions smaller-td">
-              <span ng-hide="survey.deadlineDays < 0 && survey.deadlineHours < 0">
+              <span ng-hide="survey.deadlineDays <= 0 && survey.deadlineHours <= 0">
                 <a data-toggle="tooltip" ng-hide="survey.status == 'online' "  ng-click="editSurvey($index)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
                 <a data-toggle="tooltip" ng-show="survey.status == 'online' " ng-click="statusUpdate('offline',survey)" class="btn btn-default offline" ><i class="fa"></i></a>
                 <a data-toggle="tooltip" ng-show="survey.status == 'offline' " ng-click="statusUpdate('online',survey)" class="btn btn-default live" ><i class="fa"></i></a>

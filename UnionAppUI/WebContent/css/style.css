@@ -3856,7 +3856,7 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
     font-size: 20px;
 }
 .doughnut-inner p {
-   font-size: 35px;
+   font-size: 30px;
    color:#7CDAC7
 }
 .memory-statistics  {
@@ -3918,6 +3918,7 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 .app-activity-table-header table thead tr th,
 .app-activity-table-body table tbody tr td{
     width: 20%;
+    text-align: center;
 }
 .survey-table{
     display: table;
@@ -4001,11 +4002,13 @@ a.btn.btn-default.add{
     width: 80% !important;
     height: 70% !important;
     margin: 0 auto;
+    padding-top:20px;
 }
 .used-space-chart{
-    width: 55% !important;
-    height: 55% !important;
+    width: 50% !important;
+    height: 50% !important;
     margin: 0 auto;
+    padding-top:20px;
     
 }
 .survey-results-chart{
@@ -4048,15 +4051,25 @@ a.btn.btn-default.add{
 .header.rows-content-header.dashboard {
     height: 65px;
 }
+.body.content.rows.dashboard-body h2 {
+    margin-bottom: 0px;
+}
+.body.content.rows.dashboard-body .box-info {
+    padding-top:0px;
+    padding-bottom: 0px;
+}
 .body.content.rows.dashboard-body {
+    padding-top:0px;
     top:65px;
 }
 .tooltip-delete{
     cursor:pointer;
     color:#d9534f;
+    font-size: 2.5em !important;
 }
 .tooltip-add{
     color: #009c24;
+    font-size: 2.5em !important;
 }
 .module-link{
     text-decoration: underline;

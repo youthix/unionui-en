@@ -62,7 +62,7 @@
 <!-- END NAVBAR CONTENT--> 
 
 <div class="media user-field">
-  <div class="media-body welcome pull-left">{{surveyData.subject}} {{"Questions Detail"|i18n}}
+  <div class="media-body welcome pull-left">{{"Questions Detail"|i18n}}
     <!-- End div .media-body --> 
   </div>
   <!-- End div .media --> 
@@ -80,14 +80,15 @@
         
     <div class="row" ng-hide = "details">
       <div class="survey-results">
-        <p>{{"Result"|i18n}}</p>
-        <p>{{"Deadline"|i18n}}</p>
+        <p>{{surveyData.subject}}</p>
+        <p>{{'Number of votes'|i18n}}</p>
+        <!-- <p>{{"Deadline"|i18n}}</p>
         <p ng-show="surveyData.deadlineDays > 0 || surveyData.deadlineHours > 0">
           <span ng-show="surveyData.deadlineDays > 0">{{surveyData.deadlineDays}} {{"Days"|i18n}}</span>&nbsp;<span ng-show="surveyData.deadlineHours">{{surveyData.deadlineHours}} {{"Hours"|i18n}}</span> 
         </p>
         <p ng-show="surveyData.deadlineDays < 0 && surveyData.deadlineHours < 0">
           {{"Survey Expired"|i18n}}
-        </p>
+        </p> -->
         <div class="survey-results-chart-wrapper">
           <canvas class="survey-results-chart" id="surveyResults"></canvas>
           <div class="doughnut-inner text-center">
@@ -113,12 +114,12 @@
             <div class="questions-table-row">
               <div class="questions-table-cell">&nbsp;</div>
               <div class="options-table" ng-repeat="option in question.optiondtoLs track by $index">
-                <div class="options-table-cell options-label">{{"Option"|i18n}} {{$index+1}}</div>
+                <div class="options-table-cell options-label" style="text-align: right; padding-right:20px;">{{$index+1}}</div>
                 <div class="options-table-cell">
                   <div class="form-control option-result">{{option.detail}}</div>
                 </div>
                 <div class="options-table-cell option-result-percent">
-                  {{(option.responsecount/surveyTotalUsers)*100}}%.
+                  <span ng-show="option.responsecount > 0 && surveyTotalUsers > 0">{{(option.responsecount/surveyTotalUsers)*100}}% ({{option.responsecount}}) {{"Votes" | i18n}}.</span>
                 </div>
               </div>
             </div>
