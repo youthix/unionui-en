@@ -95,7 +95,7 @@
             <p>{{surveyResponseCount}}</p>
           </div>
         </div>
-        <div class="response-count" ng-hide="surveyData.deadlineDays < 0 && surveyData.deadlineHours < 0">
+        <div class="response-count" ng-show="!invalidResponsePercent && (surveyData.deadlineDays > 0 || surveyData.deadlineHours > 0)">
           {{"Completed"|i18n}}<br>{{responsePercent}}%
         </div>
       </div>

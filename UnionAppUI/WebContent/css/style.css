@@ -4070,6 +4070,7 @@ a.btn.btn-default.add{
 .tooltip-add{
     color: #009c24;
     font-size: 2.5em !important;
+    vertical-align: bottom;
 }
 .module-link{
     text-decoration: underline;

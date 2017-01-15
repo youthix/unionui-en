@@ -99,7 +99,7 @@
 						<td ng-click="detailContactListData(eachContact)">{{eachContact.conNu}}</td>
             <td ng-click="detailContactListData(eachContact)">{{eachContact.fn}}</td>
 						<td class="actions smaller-td">
-              <i data-toggle="tooltip" ng-click="deleteContact(eachContact.emId,$index,$event)" class="fa fa-3x fa-minus-circle tooltip-delete" data-original-title="{{'Delete Contact'|i18n}}" title="{{'Delete Contact'|i18n}}"></i>
+              <a data-toggle="tooltip" ng-click="deleteContact(eachContact.emId,$index,$event)"  class="btn btn-default delete" data-original-title="{{'Delete Contact'|i18n}}" title="{{'Delete Contact'|i18n}}"><i class="fa fa-minus" ng-click="deleteContact(eachContact.emId,$index,$event)"></i></a>
             </td>
            </tr>
 					<!--  <tr ng-click="detailContactListData()">

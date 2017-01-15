@@ -926,7 +926,9 @@ $scope.addNewContact = function(){
 };
 $scope.deleteContact = function (email,contactIndex,$event) {
   $ele = $($event.target);
-    $ele.tooltip("hide");
+  $parentEle = $($event.target).parent();
+  $ele.tooltip("hide");
+  $parentEle.tooltip("hide");
   var requestObject = {
     "bid": constant.bid,
     "userListObj": {"ul": [   {

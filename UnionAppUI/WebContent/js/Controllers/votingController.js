@@ -49,14 +49,7 @@ $scope.currentPage = 1;
 $scope.activeMenu ="Voting";
 $scope.statusUpdate = function(surveyStatus,surveyData){
 	
-	var status;
-	if (surveyStatus == "offline") {
-		surveyData.status = "online";
-	}else if(surveyStatus =="online"){
-		surveyData.status = "offline";
-	}else if(surveyStatus == "delete"){
-		surveyData.status = "delete";
-	}
+	surveyData.status = surveyStatus;
 	var requestObject = {
 		"bid": constant.bid,
 		"surveyListObj": {
@@ -67,7 +60,6 @@ $scope.statusUpdate = function(surveyStatus,surveyData){
 	var updateSurveyData = angular.copy(surveyData);
 	delete updateSurveyData.deadlineDays;
 	delete updateSurveyData.deadlineHours;
-	
 	requestObject.surveyListObj.surveydtoLs.push(updateSurveyData);
 	
 	services.updateSurvey(requestObject).then(function(data){
@@ -344,12 +336,16 @@ app.controller('questionController',['$scope','$location','services','constant',
 	}
 	$scope.deleteQuestion = function(index,$event){
 		$ele = $($event.target);
+		$parentEle = $($event.target).parent();
 		$ele.tooltip("hide");
+		$parentEle.tooltip("hide");
 		$scope.questionList.splice(index,1);
 	}
 	$scope.deleteOption = function(questionIndex,optionIndex,$event){
 		$scope.questionList[questionIndex].optiondtoLs.splice(optionIndex,1);
 		$ele = $($event.target);
+		$parentEle = $($event.target).parent();
 		$ele.tooltip("hide");
+		$parentEle.tooltip("hide");
 	}
 }]);
