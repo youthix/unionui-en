@@ -84,7 +84,7 @@
             <th>{{"Deadline"|i18n}}</th> 
             <th>{{"Subject"|i18n}}</th>           
             <th>{{"Actions"|i18n}}</th>
-            <th><span  ng-show="survey.status==='online' || (survey.deadlineDays < 0 && survey.deadlineHours < 0)">{{"View Results"|i18n}}</span></th>
+            <th><span  ng-show="survey.status==='online' || (survey.deadlineDays <= 0 && survey.deadlineHours <= 0)">{{"View Results"|i18n}}</span></th>
            </tr>
           </thead>
           <tbody>
@@ -116,7 +116,7 @@
                 <a data-toggle="tooltip" ng-click="statusUpdate('delete',survey)"  class="btn btn-default delete" ><i class="fa fa-minus" ></i></a>
             </td> 
             <td class="actions smaller-td">
-              <span  ng-show="survey.status==='online' || (survey.deadlineDays < 0 && survey.deadlineHours < 0)">
+              <span  ng-show="survey.status==='online' || (survey.deadlineDays <= 0 && survey.deadlineHours <= 0)">
                 <a data-toggle="tooltip" ng-click="showSurveyResults($index)"  class="btn btn-default white" ><i class="fa fa-eye" aria-hidden="true"></i></a>
               </span>
             </td>

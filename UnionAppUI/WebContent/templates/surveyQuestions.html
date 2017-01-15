@@ -89,7 +89,7 @@
                 <textarea rows="3" class="form-control" placeholder="{{'Description'|i18n}}" ng-disabled="viewSurvey" ng-model="question.detail"></textarea>
               </div>
               <div class="questions-table-cell actions" ng-hide="viewSurvey">
-                <i data-toggle="tooltip" ng-click="deleteQuestion($index,$event)" class="fa fa-3x fa-minus-circle tooltip-delete" data-original-title="{{'Delete Question'|i18n}}" title="{{'Delete Question'|i18n}}"></i>
+                <a data-toggle="tooltip" ng-click="deleteQuestion($index,$event)"  class="btn btn-default delete" data-original-title="{{'Delete Question'|i18n}}" title="{{'Delete Question'|i18n}}"><i ng-click="deleteQuestion($index,$event)" class="fa fa-minus" ></i></a>
                 <i data-toggle="tooltip" ng-click="addOption($index,$event)" class="fa fa-3x fa-plus-circle tooltip-add" data-original-title="{{'Add Options'|i18n}}" title="{{'Add Options'|i18n}}"></i>
               </div>
             </div>
@@ -101,7 +101,7 @@
                   <textarea class="form-control" placeholder="{{'Description'|i18n}}" ng-disabled="viewSurvey" ng-model="option.detail"></textarea>
                 </div>
                 <div class="options-table-cell actions" ng-hide="viewSurvey">
-                  <i data-toggle="tooltip" ng-click="deleteOption($parent.$index,$index,$event)" class="fa fa-3x fa-minus-circle tooltip-delete" data-original-title="{{'Delete Question'|i18n}}" title="{{'Delete Question'|i18n}}"></i>
+                  <a data-toggle="tooltip" ng-click="deleteOption($parent.$index,$index,$event)"  class="btn btn-default delete" data-original-title="{{'Delete Question'|i18n}}" title="{{'Delete Question'|i18n}}"><i class="fa fa-minus" ng-click="deleteOption($parent.$index,$index,$event)"></i></a>
                 </div>
               </div>
             </div>

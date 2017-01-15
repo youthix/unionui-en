@@ -59,6 +59,7 @@ app.controller('surveyResultsController',['$scope','$timeout','$location','servi
     if($scope.surveyResponseCount){
       drawResultsGraph($scope.surveyData.responsecount,$scope.surveyData.totalusercount);
       $scope.responsePercent = ($scope.surveyData.responsecount/$scope.surveyData.totalusercount)*100;
+      $scope.invalidResponsePercent = isNaN($scope.responsePercent) || $scope.responsePercent === Infinity || $scope.responsePercent === undefined;
     }
   },10)
   
