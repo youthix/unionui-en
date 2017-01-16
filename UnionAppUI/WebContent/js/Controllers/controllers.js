@@ -221,18 +221,19 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
 
 
     var moduleList = {
-      "meeting":'/MeetingDashboard',
-      "activity":'/activitiesList',
-      "neewsletter":'/newsLetterList',
-      "summary":'/summary',
-      "suggestionidea":'/ideas',
-      "agreement":'/localAgreements',
-      "payrate":'/payRate',
+      "møde":'/MeetingDashboard',
+      "aktivitet":'/activitiesList',
+      "nyhedsbrev":'/newsLetterList',
+      "referat":'/summary',
+      "forslag og ideer":'/ideas',
+      "aftaler":'/localAgreements',
+      "lønsats":'/payRate',
       "amr":'/amr',
-      "survey":"/voting",
+      "afstemmning":"/voting",
     }
 
     $scope.goto = function(module){
+      var module = module.toLowerCase();
       $location.path(moduleList[module]);
     }
     
