@@ -96,7 +96,7 @@
           </div>
         </div>
         <div class="response-count" ng-show="!invalidResponsePercent && (surveyData.deadlineDays > 0 || surveyData.deadlineHours > 0)">
-          {{"Completed"|i18n}}<br>{{responsePercent}}%
+          {{"Completed"|i18n}}<br>{{responsePercent| number:2}}%
         </div>
       </div>
     </div>
@@ -119,7 +119,7 @@
                   <div class="form-control option-result">{{option.detail}}</div>
                 </div>
                 <div class="options-table-cell option-result-percent">
-                  <span ng-show="option.responsecount > 0 && surveyTotalUsers > 0">{{(option.responsecount/surveyTotalUsers)*100}}% ({{option.responsecount}}) {{"Votes" | i18n}}.</span>
+                  <span ng-show="option.responsecount > 0 && surveyTotalUsers > 0">{{(option.responsecount/surveyTotalUsers)*100 |number:2}}% ({{option.responsecount}}) {{"Votes" | i18n}}.</span>
                 </div>
               </div>
             </div>
