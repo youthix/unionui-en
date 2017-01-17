@@ -96,7 +96,7 @@
             <div class="questions-table-row">
               <div class="questions-table-cell">&nbsp;</div>
               <div class="options-table" ng-repeat="option in question.optiondtoLs track by $index">
-                <div class="options-table-cell options-label">{{"Option"|i18n}} {{$index+1}}</div>
+                <div class="options-table-cell options-label">{{$index+1}}</div>
                 <div class="options-table-cell">
                   <textarea class="form-control" placeholder="{{'Description'|i18n}}" ng-disabled="viewSurvey" ng-model="option.detail"></textarea>
                 </div>

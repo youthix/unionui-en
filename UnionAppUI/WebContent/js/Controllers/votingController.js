@@ -212,15 +212,15 @@ app.controller('questionController',['$scope','$location','services','constant',
 	  "detail": null,
 	  "questionid": null,
 	  "optiondtoLs":[{
-	    "detail": "Yes",
+	    "detail": "",
 	    "responseid": null,
-	    "responsecount": "5",
+	    "responsecount": 0,
 	    "optionid": null
 	  },
 	  {
-	    "detail": "No",
+	    "detail": "",
 	    "responseid": null,
-	    "responsecount": null,
+	    "responsecount": 0,
 	    "optionid": null
 	  }]
 	}

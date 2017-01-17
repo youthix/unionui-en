@@ -40,10 +40,6 @@
    "value": "Næste møde"
  },
  {
-   "key": "News letter",
-   "value": "Nyheds brev"
- },
- {
    "key": "Create Newsletter",
    "value": "Opret nyhedsbrev"
  },
@@ -73,7 +69,7 @@
  },
  {
    "key": "New",
-   "value": "Ny"
+   "value": "Nyt"
  },
  {
    "key": "Days",
@@ -108,11 +104,7 @@
    "value": "Afsluttet"
  },
  {
-   "key": "Contact list",
-   "value": "Kontakt liste"
- },
- {
-   "key": "Suggestions and Ideas",
+   "key": "Suggestions And Ideas",
    "value": "Forslag og ide"
  },
  {
@@ -133,7 +125,7 @@
  },
  {
    "key": "Local Agreements",
-   "value": "Lokal Aftaler"
+   "value": "Lokalaftaler"
  },
  {
    "key": "New Local Agreement",
@@ -148,20 +140,16 @@
    "value": "Opret Lokal Aftaler"
  },
  {
-   "key": "Admin User",
-   "value": "Administrerer Bruger"
- },
- {
    "key": "App Users",
-   "value": "Bruger Oversigt"
+   "value": "Bruger oversigt"
  },
  {
    "key": "Space In Use",
-   "value": "Plads I Brug"
+   "value": "Plads i brug"
  },
  {
    "key": "App Activities",
-   "value": "APPS AKTIVITETER"
+   "value": "APPS Aktiviteter"
  },
  {
    "key": "MON",
@@ -501,7 +489,7 @@
  },
   {
    "key": "News Letter",
-   "value": "Nyheds Brev"
+   "value": "Nyhedsbrev"
  },
   {
    "key": "New Newsletter",
@@ -573,7 +561,7 @@
  },
  {
    "key": "Contact List",
-   "value": "Kontakt Liste"
+   "value": "Kontaktliste"
  },
  {
    "key": "Add New Category",
@@ -606,10 +594,6 @@
  {
    "key": "Profil",
    "value": "Profil"
- },
- {
-   "key": "Suggestions And Ideas",
-   "value": "Forslag Og Ideer"
  },
  {
    "key": "Date",
@@ -668,12 +652,8 @@
    "value": "Ny AMR"
  },
  {
-   "key": "Local Agreements",
-   "value": "Lokale Aftaler"
- },
- {
    "key": "Pay Rate",
-   "value": "Løn Sats"
+   "value": "Lønsats"
  },
  {
    "key": "New Pay Rate",
@@ -689,7 +669,7 @@
  },
  {
    "key": "Admin User",
-   "value": "Administrator Bruger"
+   "value": "Bruger administrator"
  },
  {
    "key": "Name",
@@ -786,6 +766,10 @@
  {
    "key": "Votes",
    "value": "stemmer"
+ },
+ {
+   "key": "Sorry,You can't Create Past Date Meetings!",
+   "value": "Undskyld, du kan ikke oprette Tidligere Dato Møder!"
  }
 
 ]

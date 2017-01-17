@@ -734,7 +734,7 @@ updateMeetingStatus = function(){
    
 }]);
 
-app.controller('newMeetingController',['$scope','$location','services','constant','$rootScope', function ($scope,$location,services,constant,$rootScope) {
+app.controller('newMeetingController',['$scope','$location','$filter','services','constant','$rootScope', function ($scope,$location,$filter,services,constant,$rootScope) {
   // alert("newMeetingController");
   
     $scope.date = constant.Date;
@@ -861,7 +861,7 @@ app.controller('newMeetingController',['$scope','$location','services','constant
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            saveMeetingCall();
         } else{
-                alert("Sorry,You can't Create Past Date Meetings!");
+                alert($filter("i18n")("Sorry,You can't Create Past Date Meetings!"));
                 return;
         }
          
