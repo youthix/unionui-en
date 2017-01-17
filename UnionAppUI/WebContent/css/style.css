@@ -3980,6 +3980,9 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 .questions-label, .questions-action, .options-label, .options-action{
     width:12%;
 }
+.options-label{
+    text-align: right; padding-right:20px;
+}
 .questions-detail{
     width:80%;
 }
@@ -4074,5 +4077,5 @@ a.btn.btn-default.add{
 }
 .module-link{
     text-decoration: underline;
-    text-transform: uppercase;
+    
 }
