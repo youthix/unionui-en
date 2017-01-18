@@ -770,6 +770,10 @@
  {
    "key": "Sorry,You can't Create Past Date Meetings!",
    "value": "Undskyld, du kan ikke oprette Tidligere Dato Møder!"
+ },
+ {
+   "key": "End date and time should be greater than start date and time.",
+   "value": "Slutdato og tid bør være større end startdato og tid."
  }
 
 ]

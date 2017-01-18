@@ -95,6 +95,31 @@ function getSurveyFromSharingService(){
     $scope.survey = dataSharingService.getEditData()[0] !== undefined? dataSharingService.getEditData()[0]: $scope.defaultSurvey ;
   },0);
 }
+function getDateObj(dateStr,timeStr){
+  var date = null;
+  var timeStr = timeStr!== null && timeStr !== undefined ? timeStr: "00:00:00";
+  
+  if(dateStr !== null && dateStr !== undefined){
+    var timeParts = timeStr.split(':');
+    var dateParts = dateStr.split("-");
+    date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0], timeParts[0],timeParts[1],timeParts[2]); // month is 0-based
+  }
+  return date;
+ }
+ $scope.correctDate = undefined;
+$scope.checkDate = function () {
+  var startDate = getDateObj($scope.survey.createdate,$scope.survey.createtime);
+  var endDate = getDateObj($scope.survey.enddate,$scope.survey.endtime);
+  if(startDate == null || endDate == null){
+    return;
+  }
+  if(startDate.getTime() < endDate.getTime()){
+    $scope.correctDate = true;
+  }
+  else{
+    $scope.correctDate = false;
+  }
+}
 $scope.saveUpdate = function(survey){
   $scope.detail = angular.element('#jqte-test3').val();
   var requestObject = {
@@ -136,7 +161,7 @@ $scope.cancel = function(){
    $location.path('/voting').search({"addNewSurvey":false}); 
 };
 
-  $scope.survey = 
+  $scope.survey = undefined;
 $scope.showQuestions = false;
 $scope.addQuestions = function(){
   $scope.showQuestions = true;
