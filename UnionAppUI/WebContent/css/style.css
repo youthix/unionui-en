@@ -3929,6 +3929,12 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 .start-date{
     float:left;
 }
+.end-date input[type="text"] {
+    width: 200px !important;
+}
+.end-date .incorrect-date{
+    width: 200px !important;
+}
 .end-date{
     float:right;
 }

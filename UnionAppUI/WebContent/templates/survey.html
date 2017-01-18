@@ -96,14 +96,14 @@
                         <td>{{"Start Date"|i18n}}</td>
                         <td>
                           <datepicker  date-format="dd-MM-yyyy">
-                            <input ng-model="survey.createdate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="{{'DD-MM-YYYY'|i18n}}" />
+                            <input ng-model="survey.createdate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="{{'DD-MM-YYYY'|i18n}}" ng-change = "checkDate()"/>
                           </datepicker>
                         </td>
                       </tr>
                       <tr>
                         <td>{{"Start Time"|i18n}}</td>
                         <td>
-                          <input data-id="timepickerId" type="text" class="form-control" ng-required="true"  placeholder="00:00:00" ng-disabled="viewSurvey" ng-model="survey.createtime" name="createtime" ng-pattern="/^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/">
+                          <input data-id="timepickerId" type="text" class="form-control" ng-required="true"  placeholder="00:00:00" ng-disabled="viewSurvey" ng-model="survey.createtime" name="createtime" ng-pattern="/^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/" ng-change = "checkDate()">
                           <span class="error" ng-show="myForm.createtime.$error.pattern">{{"Not a valid time!"|i18n}}</span>
 
                         </td>
@@ -118,16 +118,21 @@
                         <td>{{"End Date"|i18n}}</td>
                         <td>
                           <datepicker  date-format="dd-MM-yyyy">
-                            <input ng-model="survey.enddate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="{{'DD-MM-YYYY'|i18n}}" />
+                            <input ng-model="survey.enddate" type="text" ng-required="true" readonly="true" ng-disabled="viewSurvey" placeholder="{{'DD-MM-YYYY'|i18n}}"  ng-change = "checkDate()" />
                           </datepicker>
+                          
                         </td>
                       </tr>
                       <tr>
                         <td>{{"End Time"|i18n}}</td>
                         <td>
-                          <input data-id="timepickerId" type="text" class="form-control" ng-required="true" ng-disabled="viewSurvey" placeholder="00:00:00" ng-pattern="/^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/" name="endtime" ng-model="survey.endtime">
+                          <input data-id="timepickerId" type="text" class="form-control" ng-required="true" ng-disabled="viewSurvey" placeholder="00:00:00" ng-pattern="/^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/" name="endtime" ng-model="survey.endtime" ng-change = "checkDate()">
                           <span class="error" ng-show="myForm.endtime.$error.pattern">{{"Not a valid time!"|i18n}}</span>
                         </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td class="error incorrect-date" ng-show="correctDate == false">{{"End date and time should be greater than start date and time."|i18n}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -147,7 +152,7 @@
               <div class="text-center actions">
                 <div class="button-wrap"  ng-hide="viewSurvey">
                   <div style="width:20%;float:left;">&nbsp;</div>
-                   <button type="submit" class="btn btn-default btn-save-survey" ng-disabled="myForm.$invalid || myForm.input.$error" ng-click="saveUpdate(survey)"><span ng-show="editSurvey" ng-hide="addNewSurvey">{{"Update"|i18n}}</span><span ng-hide="editSurvey" ng-show="addNewSurvey">{{"Save"|i18n}}</span></button>
+                   <button type="submit" class="btn btn-default btn-save-survey" ng-disabled="myForm.$invalid || myForm.input.$error || correctDate == false" ng-click="saveUpdate(survey)"><span ng-show="editSurvey" ng-hide="addNewSurvey">{{"Update"|i18n}}</span><span ng-hide="editSurvey" ng-show="addNewSurvey">{{"Save"|i18n}}</span></button>
                   <button type="submit" class="btn btn-primary" ng-click="cancel()">{{"Cancel"|i18n}}</button>
                   <div class="add-questions-btn" ng-class="{'add-questions-hidden':myForm.$invalid || myForm.input.$error,'add-questions-visible':!(myForm.$invalid || myForm.input.$error)}">{{"Add Questions"|i18n}}<br/>
                     <div class="btn-questions" ng-click="questionList(survey)"  ><i class="fa fa-3x fa-plus-circle"></i></div>
