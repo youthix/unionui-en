@@ -229,7 +229,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
       "aftaler":'/localAgreements',
       "lønsats":'/payRate',
       "amr":'/amr',
-      "afstemmning":"/voting",
+      "afstemning":"/voting",
     }
 
     $scope.goto = function(module){
