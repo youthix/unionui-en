@@ -52,19 +52,19 @@ app.controller('surveyController',['$scope','$timeout','$location','services','c
 
 
   $scope.defaultSurvey = {
-    "subject": null,
-    "createdate": null,
-    "createtime": null,
-    "enddate": null,
-    "endtime": null,
-    "detail": null,
+    "subject": "",
+    "createdate": "",
+    "createtime": "",
+    "enddate": "",
+    "endtime": "",
+    "detail": "",
     "creator": $rootScope.userName,
     "status": "offline",
-    "responseid": null,
-    "responsecount": null,
-    "totalusercount": null,
-    "userresponsestatus": null,
-    "surveyid": null,
+    "responseid": "",
+    "responsecount": 0,
+    "totalusercount": 0,
+    "userresponsestatus": "",
+    "surveyid": "",
     "questiondtoLs": []
   }
 $scope.editSurvey = false;
@@ -130,6 +130,7 @@ $scope.saveUpdate = function(survey){
   var surveyData = angular.merge({}, $scope.defaultSurvey, survey)
   delete surveyData.deadlineDays;
     delete surveyData.deadlineHours;
+    delete surveyData.isExpired;
   requestObject.surveyListObj.surveydtoLs.push(surveyData);
   if($scope.editSurvey){
     services.updateSurvey(requestObject).then(function(data){
