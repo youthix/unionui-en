@@ -602,7 +602,7 @@ $scope.currentPage = 1;
 
     $scope.deleteMeeting = function (meetingData) {
 
-     if (confirm('Are you sure you want to delete Meeting?')) {
+     if (confirm($filter("i18n")('Are you sure you want to delete Meeting?'))) {
 
 
                // alert("Service need to intigreate.");

@@ -196,20 +196,12 @@
    "value": "Emne"
  },
  {
-   "key": "Subject",
-   "value": "Beskrivelse"
- },
- {
    "key": "Action",
    "value": "Handling"
  },
  {
    "key": "Action By",
-   "value": "Tilføjet Af"
- },
- {
-   "key": "Date",
-   "value": "Dato"
+   "value": "Tilføjet af"
  },
  {
    "key": "Account Setting",
@@ -276,14 +268,6 @@
    "value": "Ikke godkendt"
  },
  {
-   "key": "Save",
-   "value": "Gem"
- },
- {
-   "key": "Cancel",
-   "value": "Annuller"
- },
- {
    "key": "Male",
    "value": "Mand"
  },
@@ -306,14 +290,6 @@
  {
    "key": "Deadline",
    "value": "Tidsfrist"
- },
- {
-   "key": "Subject",
-   "value": "Emne"
- },
- {
-   "key": "Actions",
-   "value": "Handling"
  },
  {
    "key": "View Questions",
@@ -353,7 +329,7 @@
  },
  {
    "key": "Questions Detail",
-   "value": "Detaljeret Resultat"
+   "value": "Detaljeret resultat"
  },
  {
    "key": "Result Deadline Survey Expired",
@@ -404,10 +380,6 @@
    "value": "Slut Tid"
  },
  {
-   "key": "Subject",
-   "value": "Emne"
- },
- {
    "key": "Description",
    "value": "Beskrivelse"
  },
@@ -429,11 +401,7 @@
  },
  {
    "key": "Next Meeting",
-   "value": "Næste Møde"
- },
- {
-   "key": "Date",
-   "value": "Dato"
+   "value": "Næste møde"
  },
  {
    "key": "Time",
@@ -449,23 +417,15 @@
  },
  {
    "key": "Not Comming",
-   "value": "Kommer Ikke"
+   "value": "Kommer ikke"
  },
  {
    "key": "Did Not Answer",
    "value": "Har ikke svaret"
  },
  {
-   "key": "Actions",
-   "value": "Handling"
- },
- {
    "key": "Add New Meeting",
    "value": "Tilføj et nyt møde"
- },
- {
-   "key": "Subject",
-   "value": "Emne"
  },
  {
    "key": "Description",
@@ -473,11 +433,7 @@
  },
  {
    "key": "Save Meeting",
-   "value": "Gem Mødet"
- },
- {
-   "key": "Cancel",
-   "value": "Annullere"
+   "value": "Gem"
  },
  {
    "key": "DD-MM-YYYY",
@@ -494,18 +450,6 @@
   {
    "key": "New Newsletter",
    "value": "Nyt Nyhedsbrev"
- },
- {
-   "key": "Date",
-   "value": "Dato"
- },
- {
-   "key": "Subject",
-   "value": "Emne"
- },
- {
-   "key": "Actions",
-   "value": "Handling"
  },
  {
    "key": "Image",
@@ -568,10 +512,6 @@
    "value": "Tilføj et nyt kategor"
  },
  {
-   "key": "Name",
-   "value": "Navn"
- },
- {
    "key": "Board Function",
    "value": "Bestyrelses funktion"
  },
@@ -586,10 +526,6 @@
  {
    "key": "Save Category",
    "value": "Gem"
- },
- {
-   "key": "Profil",
-   "value": "Profil"
  },
  {
    "key": "Date",
@@ -622,10 +558,6 @@
  {
    "key": "Subject",
    "value": "Emne"
- },
- {
-   "key": "Actions",
-   "value": "Actions"
  },
  {
    "key": "Create Summary",
@@ -765,11 +697,15 @@
  },
  {
    "key": "Sorry,You can't Create Past Date Meetings!",
-   "value": "beklager , du kan ikke opdatere en gammelt sag!"
+   "value": "Det er ikke muligt at oprette en møde på den valgte dato!"
  },
  {
    "key": "End date and time should be greater than start date and time.",
    "value": "Slutdato og tid bør være ældre end startdato og tid."
+ },
+ {
+   "key": "Are you sure you want to delete Meeting?",
+   "value": "Er du sikker på at du vil slette denne møde?"
  }
 
 ]
