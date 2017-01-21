@@ -60,6 +60,7 @@ $scope.statusUpdate = function(surveyStatus,surveyData){
 	var updateSurveyData = angular.copy(surveyData);
 	delete updateSurveyData.deadlineDays;
 	delete updateSurveyData.deadlineHours;
+	delete updateSurveyData.isExpired;
 	requestObject.surveyListObj.surveydtoLs.push(updateSurveyData);
 	
 	services.updateSurvey(requestObject).then(function(data){
@@ -112,6 +113,7 @@ function gettingData(){
 				var humanReadable = {};
 				var hours = Math.floor(hDiff);
 				var minutes = minDiff - 60 * hours;
+				survey.isExpired = hourDiff < 0 ? true: false;
 				survey.deadlineDays = Math.floor(hours/24);
 				survey.deadlineHours = hours%24;
 				return survey;
@@ -119,7 +121,6 @@ function gettingData(){
 			$scope.totalPagesCount = data.totalPage;
 			$scope.totalPages=[];
 			for(i =1; i<=$scope.totalPagesCount ; i ++){
-				console.log(i);
 				$scope.totalPages.push(i);
 			}
 		}else{
@@ -206,32 +207,33 @@ app.controller('questionController',['$scope','$location','services','constant',
          $location.path('/login');
     }
 	$scope.showQues=false;
-	var getDefaultQuestion = function (){
+	var getDefaultQuestion = function (subject){
+		var subject = subject == "" || subject == null || subject == undefined ? "" : subject;
 	  var defaultQuestion = {
-	  	"subject": null,
-	  "detail": null,
-	  "questionid": null,
+	  	"subject": subject,
+	  "detail": "",
+	  "questionid": "",
 	  "optiondtoLs":[{
 	    "detail": "",
-	    "responseid": null,
+	    "responseid": "",
 	    "responsecount": 0,
-	    "optionid": null
+	    "optionid": ""
 	  },
 	  {
 	    "detail": "",
-	    "responseid": null,
+	    "responseid": "",
 	    "responsecount": 0,
-	    "optionid": null
+	    "optionid": ""
 	  }]
 	}
 	return defaultQuestion;
 	};
 	var getDefaultOption = function(){
       var defaultOption = {
-      	"detail": null,
-      	"responseid": null,
-      	"responsecount": null,
-      	"optionid": null
+      	"detail": "",
+      	"responseid": "",
+      	"responsecount": 0,
+      	"optionid": ""
       }
       return defaultOption;
    	};
@@ -256,10 +258,10 @@ app.controller('questionController',['$scope','$location','services','constant',
    	$scope.surveyData = dataSharingService.getEditData()[0] !== undefined? dataSharingService.getEditData()[0]: {} ;
    	
 	if($scope.surveyData.hasOwnProperty("questiondtoLs")){
-		$scope.surveyData.questiondtoLs.length>0? $scope.questionList = $scope.surveyData.questiondtoLs : $scope.questionList.push(getDefaultQuestion());;
+		$scope.surveyData.questiondtoLs.length>0? $scope.questionList = $scope.surveyData.questiondtoLs : $scope.questionList.push(getDefaultQuestion($scope.surveyData.subject));;
 	}
 	else{
-		$scope.questionList.push(getDefaultQuestion());
+		$scope.questionList.push(getDefaultQuestion($scope.surveyData.subject));
 	}
 	$scope.cancel = function(){
 		
@@ -299,6 +301,7 @@ app.controller('questionController',['$scope','$location','services','constant',
 		};
 		delete $scope.surveyData.deadlineDays;
 		delete $scope.surveyData.deadlineHours;
+		delete $scope.surveyData.isExpired;
 		requestObject.surveyListObj.surveydtoLs.push($scope.surveyData);
 		if($scope.editSurvey){
 		    services.updateSurvey(requestObject).then(function(data){
@@ -327,7 +330,7 @@ app.controller('questionController',['$scope','$location','services','constant',
 	};
 	
 	$scope.addQuestion = function(){
-		$scope.questionList.push(getDefaultQuestion());
+		$scope.questionList.push(getDefaultQuestion($scope.surveyData.subject));
 	}
 	$scope.addOption = function(i,$event){
 		$scope.questionList[i].optiondtoLs.push(getDefaultOption());

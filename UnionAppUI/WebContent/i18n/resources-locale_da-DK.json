@@ -5,15 +5,15 @@
   },
   {
     "key":"Submit",
-    "value":"Indsende"
+    "value":"Indsend"
   },
   {
     "key":"Enter Your Email ID",
-    "value":"Indtast din e-mail-id"
+    "value":"Indtast din e-mail"
   },
   {
     "key":"Password",
-    "value":"adgangskode"
+    "value":"Adgangskode"
   },
   {
     "key":"Reset",
@@ -45,7 +45,7 @@
  },
  {
    "key": "Document Title",
-   "value": "Dokument Titel"
+   "value": "Dokument titel"
  },
  {
    "key": "Document",
@@ -53,11 +53,11 @@
  },
  {
    "key": "Attachment Type",
-   "value": "Attachment Type"
+   "value": "Vedheft type"
  },
  {
    "key": "Edit News",
-   "value": "Edit Nyheder"
+   "value": "Redigere nyhedsbrev"
  },
  {
    "key": "Here you can add more files with this file types",
@@ -113,7 +113,7 @@
  },
  {
    "key": "New Suggestions and Ideas",
-   "value": "Ny Forslag og ide"
+   "value": "Nyt Forslag og ide"
  },
  {
    "key": "Edit Suggestions and Ideas",
@@ -129,7 +129,7 @@
  },
  {
    "key": "New Local Agreement",
-   "value": "Ny Lokal Aftaler"
+   "value": "Nyt Lokal Aftaler"
  },
  {
    "key": "Edit Agreement",
@@ -221,11 +221,11 @@
  },
  {
    "key": "New Users Waiting For Approval",
-   "value": "Ny Bruger Afventer På Godkendelse"
+   "value": "Ny bruger afventer på godkendelse"
  },
  {
    "key": "User Name",
-   "value": "Bruger Navn"
+   "value": "Bruger navn"
  },
  {
    "key": "First Name",
@@ -257,7 +257,7 @@
  },
  {
    "key": "Tel Nr.",
-   "value": "Tlf.Nr."
+   "value": "Tlf. Nr."
  },
  {
    "key": "Job Title",
@@ -273,7 +273,7 @@
  },
  {
    "key": "Not Approve",
-   "value": "Ikke Godkendt"
+   "value": "Ikke godkendt"
  },
  {
    "key": "Save",
@@ -329,11 +329,11 @@
  },
  {
    "key": "Delete Option",
-   "value": "Slet Option"
+   "value": "Slet muligeden"
  },
  {
    "key": "Add Options",
-   "value": "Tilføj Options"
+   "value": "Tilføj muligeden"
  },
  {
    "key": "View Results",
@@ -349,7 +349,7 @@
  },
  {
    "key":"Not a valid time!",
-   "value":"Ikke et gyldigt tid!"
+   "value":"Tiden er ikke gyldigt!"
  },
  {
    "key": "Questions Detail",
@@ -357,7 +357,7 @@
  },
  {
    "key": "Result Deadline Survey Expired",
-   "value": "Afstemning Er Slut"
+   "value": "Afstemning er slut"
  },
  {
    "key": "Details",
@@ -453,7 +453,7 @@
  },
  {
    "key": "Did Not Answer",
-   "value": "Har Ikke Svaret"
+   "value": "Har ikke svaret"
  },
  {
    "key": "Actions",
@@ -461,7 +461,7 @@
  },
  {
    "key": "Add New Meeting",
-   "value": "Tilføj Nyt Møde"
+   "value": "Tilføj et nyt møde"
  },
  {
    "key": "Subject",
@@ -493,7 +493,7 @@
  },
   {
    "key": "New Newsletter",
-   "value": "Ny Nyhedsbrev"
+   "value": "Nyt Nyhedsbrev"
  },
  {
    "key": "Date",
@@ -521,11 +521,11 @@
  },
  {
    "key": "Create News Letter",
-   "value": "Oprette Et Nyt Nyheds Brev"
+   "value": "Oprette et nyt nyhedsbrev"
  },
  {
    "key": "Change User Role",
-   "value": "Skift Bruger Rolle"
+   "value": "Skift bruger rolle"
  },
  {
    "key": "Are you sure you want to convert",
@@ -533,15 +533,15 @@
  },
  {
    "key": "New Activity",
-   "value": "Ny Aktivitet"
+   "value": "Nyt aktivitet"
  },
  {
    "key": "Edit Activity",
-   "value": "Redigere Aktivitet"
+   "value": "Redigere aktivitet"
  },
  {
    "key": "Add New Activity",
-   "value": "Tilføj Nyt Aktivitet"
+   "value": "Tilføj et nyt aktivitet"
  },
  {
    "key": "Time",
@@ -565,19 +565,15 @@
  },
  {
    "key": "Add New Category",
-   "value": "Tilføj Et Nyt Kategori"
+   "value": "Tilføj et nyt kategor"
  },
  {
    "key": "Name",
    "value": "Navn"
  },
  {
-   "key": "Phone Number",
-   "value": "TLF.NR."
- },
- {
    "key": "Board Function",
-   "value": "Bestyrelses Funktion"
+   "value": "Bestyrelses funktion"
  },
  {
    "key": "Board",
@@ -605,7 +601,7 @@
  },
  {
    "key": "Cresta Suggestions And Ideas",
-   "value": "Opart Nyt"
+   "value": "Opart nyt"
  },
  {
    "key": "Deskription",
@@ -617,11 +613,11 @@
  },
  {
    "key": "New Summary",
-   "value": "Ny Referat"
+   "value": "Ny referat"
  },
  {
    "key": "Edit Summary",
-   "value": "Redigere Referat"
+   "value": "Redigere referat"
  },
  {
    "key": "Subject",
@@ -633,11 +629,11 @@
  },
  {
    "key": "Create Summary",
-   "value": "Opret Nyt"
+   "value": "Opret nyt"
  },
  {
    "key": "Create AMR",
-   "value": "Opret Nyt"
+   "value": "Opret nyt"
  },
  {
    "key": "AMR List",
@@ -657,15 +653,15 @@
  },
  {
    "key": "New Pay Rate",
-   "value": "Ny Løn Sats"
+   "value": "Nyt lønsats"
  },
  {
    "key": "Edit Pay Rate",
-   "value": "Redigere Løn Sats"
+   "value": "Redigere lønsats"
  },
  {
    "key": "Create Pay Rate",
-   "value": "Opret Løn Sats"
+   "value": "Opret lønsats"
  },
  {
    "key": "Admin User",
@@ -681,7 +677,7 @@
  },
  {
    "key": "Phone Number",
-   "value": "Tlf.Nr."
+   "value": "Tlf. Nr."
  },
  {
    "key": "Admin",
@@ -701,7 +697,7 @@
  },
  {
    "key": "Reset Password",
-   "value": "Nulstille kodeord"
+   "value": "Nulstil kodeord"
  },
  {
    "key": "Email is not valid",
@@ -721,7 +717,7 @@
  },
  {
    "key": "Empty Password and space are not allowed",
-   "value": "Tøm adgangskode og rum er ikke tilladt"
+   "value": "Tøm adgangskode og pladsen er ikke tilladt"
  },
  {
    "key": "Password should match",
@@ -729,19 +725,19 @@
  },
  {
    "key": "Password Reset Successfull",
-   "value": "Nulstil adgangskode succesfuld"
+   "value": "Nulstilling af adgangskoden lykkes"
  },
  {
    "key": "Password Reset Failed. Please try again.",
-   "value": "Nulstil adgangskode mislykkedes. Prøv igen."
+   "value": "Nulstilling af adgangskoden mislykkedes. Prøv igen."
  },
  {
    "key": "Close",
-   "value": "Tæt"
+   "value": "Luk"
  },
  {
    "key": "Sorry,You can't Update Past Date for",
-   "value": "Beklager, Du kan ikke opdatere Past Dato for"
+   "value": "beklager du kan ikke opdatere en gammelt sag"
  },
  {
    "key": "Sorry",
@@ -769,11 +765,11 @@
  },
  {
    "key": "Sorry,You can't Create Past Date Meetings!",
-   "value": "Undskyld, du kan ikke oprette Tidligere Dato Møder!"
+   "value": "beklager , du kan ikke opdatere en gammelt sag!"
  },
  {
    "key": "End date and time should be greater than start date and time.",
-   "value": "Slutdato og tid bør være større end startdato og tid."
+   "value": "Slutdato og tid bør være ældre end startdato og tid."
  }
 
 ]
