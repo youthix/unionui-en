@@ -417,7 +417,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
           "criteria": "FALSE"
         }
       }
-      services.getContactsFromCategory(requestObject).then(function(data){
+      services.getAllUsers(requestObject).then(function(data){
         var status = data.resStatus;
         if (status.code == "00" &&  status.msg =="SUCCESS") {
           $scope.allPendingUsers = data.userListObj.ul.filter(function(user){
@@ -1183,7 +1183,7 @@ app.controller('newActivitieController',['$scope','$location','$filter','service
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            saveActivitieCall();
         } else{
-                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Actvities"));
+                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Activities"));
                 return;
         }
        

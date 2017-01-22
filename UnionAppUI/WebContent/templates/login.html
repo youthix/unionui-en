@@ -18,12 +18,12 @@
 		  
           <div class="text-center">
 		  <br/>
-		  <a  ng-click="forgotPassword()">{{ "Forgot Password" | i18n }}?</a> <br><br> <a  ng-click="openResetPasswordModal(resetPassword)">{{"Reset"|i18n}} {{"Password"|i18n}}</a>
+		  <a  ng-click="forgotPassword()"><span data-i18n="Forgot Password"></span><!-- {{ "Forgot Password" | i18n }} -->?</a> <br><br> <a  ng-click="openResetPasswordModal(resetPassword)"><span data-i18n="Reset"></span> <span data-i18n="Password"></span></a>
 		  <br/><br/>
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <button type="submit" ng-disabled="loginForm.$invalid" ng-click="login(user)" class="btn btn-success btn-block">{{"Login" | i18n}}</button>
+              <button type="submit" ng-disabled="loginForm.$invalid" ng-click="login(user)" class="btn btn-success btn-block"><span data-i18n="Login" "></span></button>
             </div>
           </div>
 		  <h6 class="text-center"><br/>Powered by unik-apps.com</h6>
@@ -38,46 +38,46 @@
 <!-- END PAGE --> 
 <script type="text/ng-template" id="resetPassword.html">
         <div class="modal-header admin-modal-header">
-            <h3 class="modal-title">{{"Reset Password"|i18n}}</h3>
+            <h3 class="modal-title"><span data-i18n="Reset Password""></span></h3>
         </div>
         <div class="modal-body">
           <form name="resetPasswordForm" ng-show="showForm">
             <div class="form-group">
-              <label for="userName">{{"Email"|i18n}}:</label>
+              <label for="userName"><span data-i18n="Email""></span>:</label>
               <input type="text" class="form-control" id="userName" ng-model = "resetPassword.userName" ng-required=true placeholder="{{'Email'|i18n}}" ng-focus="invalidUserName=false">
-              <span class="error" ng-show="invalidUserName">{{"Email is not valid"|i18n}}.</span>
+              <span class="error" ng-show="invalidUserName"><span data-i18n="Email is not valid""></span>.</span>
             </div>
             <div class="form-group">
-              <label for="oldPassword">{{"Old Password"|i18n}}:</label>
+              <label for="oldPassword"><span data-i18n="Old Password""></span>:</label>
               <input type="password" class="form-control" id="oldPassword" ng-required=true ng-model="resetPassword.oldPassword" ng-focus="invalidOldPassword=false">
-              <span class="error" ng-show="invalidOldPassword">{{"Empty Password and space are not allowed"|i18n}}.</span>
+              <span class="error" ng-show="invalidOldPassword"><span data-i18n="Empty Password and space are not allowed""></span>.</span>
             </div>
             <div class="form-group">
-              <label for="newPassword">{{"New Password"|i18n}}:</label>
+              <label for="newPassword"><span data-i18n="New Password""></span>:</label>
               <input type="password" class="form-control" name="newPassword" id="newPassword" ng-required=true ng-model="resetPassword.newPassword" ng-focus="invalidNewPassword=false">
-              <span class="error" ng-show="invalidNewPassword">{{"Empty Password and space are not allowed"|i18n}}.</span>
+              <span class="error" ng-show="invalidNewPassword"><span data-i18n="Empty Password and space are not allowed""></span>.</span>
             </div><div class="form-group">
-              <label for="confirmPassword">{{"Confirm Password"|i18n}}:</label>
+              <label for="confirmPassword"><span data-i18n="Confirm Password""></span>:</label>
               <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" ng-required=true ng-model="resetPassword.confirmPassword" ng-focus="invalidConfirmPassword=false;passwordNotMatching=false">
-              <span class="error" ng-show="invalidConfirmPassword">{{"Empty Password and space are not allowed"|i18n}}.</span>
-              <span class="error" ng-show="passwordNotMatching">{{"Password should match"|i18n}}.</span>
+              <span class="error" ng-show="invalidConfirmPassword"><span data-i18n="Empty Password and space are not allowed""></span>.</span>
+              <span class="error" ng-show="passwordNotMatching"><span data-i18n="Password should match""></span>.</span>
             </div>
           </form>
           <div ng-show="resetSuccessfull">
-            {{"Password Reset Successfull"|i18n}}.
+            <span data-i18n="Password Reset Successfull""></span>.
           </div>
           <div ng-show="resetFailed">
-            {{"Password Reset Failed. Please try again."|i18n}}
+            <span data-i18n="Password Reset Failed. Please try again.""></span>
           </div>
         </div>
         <div class="modal-footer">
           <div ng-show="showForm">
             <button class="btn btn-primary" ng-click="ok(resetPassword)">OK</button>
             
-            <button class="btn btn-warning" ng-click="cancel()">{{"Cancel"|i18n}}</button>
+            <button class="btn btn-warning" ng-click="cancel()"><span data-i18n="Cancel""></span></button>
           </div>
           <div ng-show="resetFailed || resetSuccessfull">
-            <button class="btn btn-primary" ng-click="cancel()">{{"Close"|i18n}}</button>
+            <button class="btn btn-primary" ng-click="cancel()"><span data-i18n="Close""></span></button>
           </div>
         </div>
 </script>

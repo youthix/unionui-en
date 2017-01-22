@@ -113,7 +113,7 @@
               <tbody>
                 <tr ng-repeat="actionLog in allActionLogs">
                   <td><a href="" class="module-link" ng-click = "goto(actionLog.module)">{{actionLog.module}}</a></td>
-                  <td>{{actionLog.subject}}</td>
+                  <td style="width: 207px;"><p class="word-break">{{actionLog.subject}}</p></td>
                   <td>{{actionLog.action}}</td>
                   <td>{{actionLog.creator}}</td>
                   <td>{{actionLog.actdate}}</td>
