@@ -3908,6 +3908,10 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
     float:left;
 }
 
+.app-activity-table-body table{
+    table-layout: fixed;
+
+}
 .app-activity-table-body{
     overflow-y: scroll;
     max-height: 250px; 
@@ -4084,4 +4088,8 @@ a.btn.btn-default.add{
 .module-link{
     text-decoration: underline;
     
+}
+.word-break{
+   word-wrap: break-word;
+    margin: 0 auto;
 }
