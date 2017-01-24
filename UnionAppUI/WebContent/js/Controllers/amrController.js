@@ -1,4 +1,4 @@
-app.controller('amrController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {
+app.controller('amrController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route,$http) {
  //  alert("newsLetterController");
 
 
@@ -133,7 +133,7 @@ var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
 
     $scope.deleteAmr = function (amrData) {
 
-  if (confirm('Are you sure you want to delete this AMR?')) {
+  if (confirm($filter("i18n")('Are you sure you want to delete AMR?'))) {
 	console.log("delete amr Data:" + JSON.stringify(amrData));
 	var requestObject =
 				{

@@ -706,6 +706,34 @@
  {
    "key": "Are you sure you want to delete Meeting?",
    "value": "Er du sikker på at du vil slette denne møde?"
+ },
+ {
+   "key": "Are you sure you want to delete AMR?",
+   "value": "Er du sikker på at du vil slette AMR?"
+ },
+ {
+   "key": "Are you sure you want to delete Activity?",
+   "value": "Er du sikker på at du vil slette aktiviteter?"
+ },
+ {
+   "key": "Are you sure you want to delete Suggestions and Ideas?",
+   "value": "Er du sikker på at du vil slette forslag ogideer?"
+ },
+ {
+   "key": "Are you sure you want to delete Agreement?",
+   "value": "Er du sikker på at du vil slette lokalaftale?"
+ },
+ {
+   "key": "Are you sure you want to delete News?",
+   "value": "Er du sikker på at du vil slette nyhedsbrev?"
+ },
+ {
+   "key": "Are you sure you want to delete payRate?",
+   "value": "Er du sikker på at du vil slette lønsats?"
+ },
+ {
+   "key": "Are you sure you want to delete Summary?",
+   "value": "Er du sikker på at du vil slette rafarat?"
  }
 
 ]
