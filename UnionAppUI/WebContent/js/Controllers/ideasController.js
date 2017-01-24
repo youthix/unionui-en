@@ -1,4 +1,4 @@
-app.controller('ideaDashBoardController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('ideaDashBoardController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
 
 
 
@@ -211,7 +211,7 @@ updateMeetingStatus = function(){
 
     $scope.deleteIdea = function (ideaData) {
 
-     if (confirm('Are you sure you want to delete Suggestions and Ideas?')) {
+     if (confirm($filter("i18n")('Are you sure you want to delete Suggestions and Ideas?'))) {
 
 
                // alert("Service need to intigreate.");

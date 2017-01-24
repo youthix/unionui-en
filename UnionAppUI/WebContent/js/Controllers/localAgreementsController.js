@@ -1,4 +1,4 @@
-app.controller('localAgreementsDashBoardController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('localAgreementsDashBoardController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
  //  alert("newsLetterController");
 $scope.date = constant.Date;
 $scope.time = constant.Time;
@@ -195,7 +195,7 @@ updateMeetingStatus = function(){
 
     $scope.deleteAgreement = function (agreement) {
 
-     if (confirm('Are you sure you want to delete Agreement?')) {
+     if (confirm($filter("i18n")('Are you sure you want to delete Agreement?'))) {
 
 
                // alert("Service need to intigreate.");

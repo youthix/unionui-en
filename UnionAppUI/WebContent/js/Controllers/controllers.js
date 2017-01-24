@@ -1325,7 +1325,7 @@ $scope.new_activity = constant.newActivity;
        // alert("Service need to intigreate.");
         console.log("deleteActivitieData:" + JSON.stringify(deleteActivitieData));
 
-        if (confirm('Are you sure you want to delete Activity?')) {
+        if (confirm($filter("i18n")('Are you sure you want to delete Activity?'))) {
 
 
               var requestObject = {

@@ -1,4 +1,4 @@
-app.controller('ContactListDashBoardController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('ContactListDashBoardController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
  //  alert("newsLetterController");
 $scope.date = constant.Date;
 $scope.time = constant.Time;
@@ -222,7 +222,7 @@ updateMeetingStatus = function(){
 
     $scope.deleteSummary = function (summaryData) {
 
-     if (confirm('Are you sure you want to delete Summary?')) {
+     if (confirm($filter("i18n")('Are you sure you want to delete Summary?'))){
 
 
                // alert("Service need to intigreate.");

@@ -1,4 +1,4 @@
-app.controller('newsLetterController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('newsLetterController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
  //  alert("newsLetterController");
 
 
@@ -135,7 +135,7 @@ $scope.currentPage = 1;
 
     $scope.deleteNews = function (newsData) {
 
-     if (confirm('Are you sure you want to delete News?')) {
+     if (confirm($filter("i18n")('Are you sure you want to delete News?'))) {
 
 
 
