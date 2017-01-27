@@ -24,7 +24,9 @@ a{color:#4e4e4e}
 blockquote.reply-message {
     font-size: 14px;
 }
-
+.jqte_placeholder {
+    display: block;
+}
 .modal {
     z-index: 9999996;
 }
@@ -4092,4 +4094,7 @@ a.btn.btn-default.add{
 .word-break{
    word-wrap: break-word;
     margin: 0 auto;
+}
+.btn-default[disabled]{
+    background-color: #1b4481;
 }

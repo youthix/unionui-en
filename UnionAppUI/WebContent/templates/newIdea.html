@@ -110,7 +110,7 @@
                       <div class="row">
                       <div class="col-xs-9">
                         <!--  <textarea name="textarea" id="jqte-test4"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea> -->
-						<textarea name="textarea" id="jqte-test4">{{"Description"|i18n}}</textarea>
+						<textarea name="textarea" id="jqte-test4"></textarea>
                       <!--  <textarea id="txtEditor" name="txtEditorContent"></textarea> -->
                       </div>
                     </div>
@@ -161,7 +161,7 @@
   <script src="js/libs/jquery.timepicker.js"></script>
 <script>
            (function () {
-             $('#jqte-test4').jqte();
+             $('#jqte-test4').jqte({placeholder: "Beskrivelse"});
 }());
 </script>
   <!-- END CONTENT -->

@@ -404,12 +404,14 @@ app.controller('editSummaryController',['$scope','$location','services','constan
         $location.path('/adminUser');
     };
 
-    
+    if ($rootScope.userName == undefined || $rootScope.userName == null) {
+         $location.path('/login');
+    }
     $scope.activeMenu ="Summary";
 
     $scope.summary = dataSharingService.getEditData()[0];
-    
-    angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
+    if($scope.summary !== undefined)
+      angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
 
 
    $scope.saveSummary = function(summaryData){

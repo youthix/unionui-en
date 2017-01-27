@@ -281,7 +281,7 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
     drawGraph();
     drawSpaceInfoGraph = function(spaceInfo){
       $scope.spaceInfo = angular.extend({},spaceInfo);
-      $scope.spaceInfo.usedSpacePercent = (spaceInfo.usedspace/spaceInfo.totalspace)*100+"%";
+      $scope.spaceInfo.usedSpacePercent = +((spaceInfo.usedspace/spaceInfo.totalspace)*100).toFixed(2)+"%";
       $scope.spaceInfo.unit = spaceInfo.unit.toUpperCase();
       $scope.remSpace = spaceInfo.remspace+spaceInfo
       var data = {

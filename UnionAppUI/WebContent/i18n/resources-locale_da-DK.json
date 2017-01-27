@@ -45,7 +45,7 @@
  },
  {
    "key": "Document Title",
-   "value": "Dokument titel"
+   "value": "Dokumentets titel"
  },
  {
    "key": "Document",
@@ -129,15 +129,15 @@
  },
  {
    "key": "New Local Agreement",
-   "value": "Nyt Lokal Aftaler"
+   "value": "Nyt Lokalaftal"
  },
  {
    "key": "Edit Agreement",
-   "value": "Redigere Aftaler"
+   "value": "Redigere aftalen"
  },
  {
    "key": "Create Local Agreement",
-   "value": "Opret Lokal Aftaler"
+   "value": "Opret et nyt aftal"
  },
  {
    "key": "App Users",
@@ -549,7 +549,7 @@
  },
  {
    "key": "New Summary",
-   "value": "Ny referat"
+   "value": "Nyt refarat"
  },
  {
    "key": "Edit Summary",
@@ -577,7 +577,7 @@
  },
  {
    "key": "New AMR",
-   "value": "Ny AMR"
+   "value": "Nyt AMR"
  },
  {
    "key": "Pay Rate",
