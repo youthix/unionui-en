@@ -167,6 +167,9 @@ updateMeetingStatus = function(){
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
+                  if(requestObject.summaryListObj.summarydtoLs[0].status=="online"){
+                    services.sendNotification();
+                  } 
                  gettingData();                 
              }
                 else
@@ -448,6 +451,7 @@ app.controller('editSummaryController',['$scope','$location','services','constan
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
+
                 $location.path('/summary');            
              }
                 else

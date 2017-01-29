@@ -104,8 +104,8 @@
             <td>25</td> -->
              <td class="actions">
                 <a data-toggle="tooltip"  ng-click="editIdea(idea)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
-                <a data-toggle="tooltip" ng-show="idea.status == 'offline' " ng-click="statusUpdate('offline',idea)" class="btn btn-default live"><i class="fa"></i></a>
-                <a data-toggle="tooltip" ng-show="summary.status == 'online' " ng-click="statusUpdate('online',idea)" class="btn btn-default offline"><i class="fa"></i></a>
+                <a data-toggle="tooltip" ng-show="idea.status.toLowerCase() == 'offline' " ng-click="statusUpdate('offline',idea)" class="btn btn-default live"><i class="fa"></i></a>
+                <a data-toggle="tooltip" ng-show="idea.status.toLowerCase() == 'online' " ng-click="statusUpdate('online',idea)" class="btn btn-default offline"><i class="fa"></i></a>
                 <a data-toggle="tooltip" ng-click="deleteIdea(idea)"  class="btn btn-default delete"><i class="fa fa-minus"></i></a>
             </td> 
            </tr>

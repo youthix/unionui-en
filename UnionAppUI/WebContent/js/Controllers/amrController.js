@@ -221,6 +221,9 @@ var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
+                  if(requestObject.amrListObj.amrdtoLs[0].status=="online"){
+                   services.sendNotification();
+                  }
                       amrListCall();
              	}else{
                 alert("Service :"+ status.msg);

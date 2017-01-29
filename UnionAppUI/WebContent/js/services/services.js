@@ -535,6 +535,19 @@ app.service('services', function ($http, $q) {
 		});
 
 		return deferred.promise;
+    };
+
+    this.sendNotification = function () {
+		var deferred = $q.defer();
+		$http.get(	serviceUrl +"send/notification",{'Content-Type': 'application/json;charset=UTF-8'})
+		.success(function(data) {
+			deferred.resolve(data);
+		})
+		.error(function(){
+			deferred.reject();
+		});
+
+		return deferred.promise;
     }; 
 
     }

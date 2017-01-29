@@ -699,6 +699,9 @@ updateMeetingStatus = function(){
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
+                 if(requestObject.meetingListObj.meetingdtoLs[0].status=="online"){
+                   services.sendNotification();
+                  }
                  allMeeitngsRequest();                       
              }
                 else
@@ -723,7 +726,7 @@ updateMeetingStatus = function(){
         if ( (d1.getTime() == d2.getTime()) ||  (d1.getTime() > d2.getTime()) ) {
            updateMeetingStatus();
         } else{
-                alert($filter("i18n")("Sorry,You can't Update Past Date for")+" "+$filter("i18n")("Meetings"));
+                alert($filter("i18n")("Sorry,You can't Create Past Date Meetings!"));
                 return;
         }
 
@@ -1402,6 +1405,9 @@ var requestObject   = {
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
+                 if(requestObject.activityListObj.activitydtoLs[0].status=="online"){
+                    services.sendNotification();
+                  }
                  allActivitiesCall();                       
              }
                 else

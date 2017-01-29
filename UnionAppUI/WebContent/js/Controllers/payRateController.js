@@ -184,6 +184,9 @@ updateMeetingStatus = function(){
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
+                 if(requestObject.payrateListObj.payratedtoLs[0].status=="online"){
+                    services.sendNotification();
+                  } 
                  gettingData();                 
              }
                 else
