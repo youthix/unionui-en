@@ -158,6 +158,9 @@ updateMeetingStatus = function(){
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
                  gettingData();                 
+                 if(requestObject.agreementListObj.agreementdtoLs[0].status=="online"){
+                   services.sendNotification();
+                  }
              }
                 else
             {

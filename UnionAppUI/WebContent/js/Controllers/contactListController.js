@@ -184,7 +184,10 @@ updateMeetingStatus = function(){
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
-                 gettingData();                 
+                 gettingData();
+                 if(requestObject.summaryListObj.summarydtoLs[0].status=="online"){
+                    services.sendNotification();
+                  }                  
              }
                 else
             {
@@ -472,6 +475,7 @@ app.controller('editContactController',['$scope','$location','services','constan
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
+                  
                 $location.path('/summary');            
              }
                 else
