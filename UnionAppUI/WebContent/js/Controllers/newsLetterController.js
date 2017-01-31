@@ -135,7 +135,7 @@ $scope.currentPage = 1;
 
     $scope.deleteNews = function (newsData) {
 
-     if (confirm($filter("i18n")('Are you sure you want to delete News?'))) {
+     if (confirm($filter("i18n")('Are you sure you want to delete')+" "+newsData.subject+"?")){
 
 
 

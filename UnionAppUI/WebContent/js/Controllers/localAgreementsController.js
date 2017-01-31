@@ -198,8 +198,7 @@ updateMeetingStatus = function(){
 
     $scope.deleteAgreement = function (agreement) {
 
-     if (confirm($filter("i18n")('Are you sure you want to delete Agreement?'))) {
-
+     if (confirm($filter("i18n")('Are you sure you want to delete')+" "+agreement.subject+"?")){
 
                // alert("Service need to intigreate.");
         console.log("deleteMeetingData:" + JSON.stringify(agreement));
