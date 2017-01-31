@@ -1,4 +1,4 @@
-app.controller('votingController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route,$http) {
+app.controller('votingController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route','$http', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route,$http) {
  //  alert("newsLetterController");
 	$scope.fotterTitle = constant.footer_title;
 /*-------------------------------------*/
@@ -48,7 +48,9 @@ app.controller('votingController',['$scope','$location','services','constant','d
 $scope.currentPage = 1;
 $scope.activeMenu ="Voting";
 $scope.statusUpdate = function(surveyStatus,surveyData){
-	
+	if(surveyStatus === "delete" && !confirm($filter("i18n")('Are you sure you want to delete')+" "+surveyData.subject+"?")){
+		return
+	}
 	surveyData.status = surveyStatus;
 	var requestObject = {
 		"bid": constant.bid,

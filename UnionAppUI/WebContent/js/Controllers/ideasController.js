@@ -214,8 +214,7 @@ updateMeetingStatus = function(){
 
     $scope.deleteIdea = function (ideaData) {
 
-     if (confirm($filter("i18n")('Are you sure you want to delete Suggestions and Ideas?'))) {
-
+     if (confirm($filter("i18n")('Are you sure you want to delete')+" "+ideaData.subject+"?")){
 
                // alert("Service need to intigreate.");
         console.log("deleteMeetingData:" + JSON.stringify(ideaData));

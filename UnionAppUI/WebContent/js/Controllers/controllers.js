@@ -602,7 +602,7 @@ $scope.currentPage = 1;
 
     $scope.deleteMeeting = function (meetingData) {
 
-     if (confirm($filter("i18n")('Are you sure you want to delete Meeting?'))) {
+     if (confirm($filter("i18n")('Are you sure you want to delete')+" "+meetingData.subject+"?")){
 
 
                // alert("Service need to intigreate.");
@@ -1328,7 +1328,7 @@ $scope.new_activity = constant.newActivity;
        // alert("Service need to intigreate.");
         console.log("deleteActivitieData:" + JSON.stringify(deleteActivitieData));
 
-        if (confirm($filter("i18n")('Are you sure you want to delete Activity?'))) {
+        if (confirm($filter("i18n")('Are you sure you want to delete')+" "+deleteActivitieData.subject+"?")){
 
 
               var requestObject = {

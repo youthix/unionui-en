@@ -225,7 +225,7 @@ updateMeetingStatus = function(){
 
     $scope.deletepayRate = function (payRateData) {
 
-     if (confirm($filter("i18n")('Are you sure you want to delete payRate?'))) {
+     if (confirm($filter("i18n")('Are you sure you want to delete')+" "+payRateData.subject+"?")){
 
 
                // alert("Service need to intigreate.");

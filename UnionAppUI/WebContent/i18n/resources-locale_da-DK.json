@@ -734,6 +734,10 @@
  {
    "key": "Are you sure you want to delete Summary?",
    "value": "Er du sikker på at du vil slette rafarat?"
+ },
+ {
+   "key": "Are you sure you want to delete",
+   "value": "Er du sikker på at du vil slette"
  }
 
 ]

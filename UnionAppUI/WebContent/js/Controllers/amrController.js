@@ -133,8 +133,8 @@ var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
 
     $scope.deleteAmr = function (amrData) {
 
-  if (confirm($filter("i18n")('Are you sure you want to delete AMR?'))) {
-	console.log("delete amr Data:" + JSON.stringify(amrData));
+  if (confirm($filter("i18n")('Are you sure you want to delete')+" "+amrData.subject+"?")){
+  console.log("delete amr Data:" + JSON.stringify(amrData));
 	var requestObject =
 				{
 					"bid": constant.bid,

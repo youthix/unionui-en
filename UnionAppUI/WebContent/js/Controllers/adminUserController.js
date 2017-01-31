@@ -283,7 +283,7 @@ $scope.statusUpdate = function(summaryStatus,summaryData){
 
 $scope.deleteSummary = function (summaryData) {
 
-  if (confirm('Are you sure you want to delete Summary?')) {
+  if (confirm($filter("i18n")('Are you sure you want to delete')+" "+summaryData.subject+"?")){
 
 
     // alert("Service need to intigreate.");
