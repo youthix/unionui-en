@@ -82,18 +82,23 @@
         <div class="col-sm-12"> 
           <!-- Website statistic -->
           <div class="box-info">
-			<div class="col-md-9 table-responsive custom-table">
-			   <table data-sortable="" class="table" data-sortable-initialized="true">
+          <div class="admin-user-table">
+			<div class="table-responsive custom-table scroll-table-header">
+			   <table class="table" data-sortable-initialized="true">
 				  <thead>
 					 <tr>
 						<th ng-click="sortBy('fn')">{{'Name'| i18n }} <span class="sortorder" ng-show="propertyName==='fn'" ng-class="{reverse: reverse}"></span></th>
 						<th ng-click="sortBy('role')">{{'Actions'| i18n }} <span class="sortorder" ng-show="propertyName==='role'" ng-class="{reverse: reverse}"></span></th>
-						<th>{{'Phone Number'| i18n }} </th>
-						<th ng-click="sortBy('title')">{{'Board Function'| i18n }} <span class="sortorder" ng-show="propertyName==='title'" ng-class="{reverse: reverse}"></th>
+						<th>{{'Phone Number'| i18n }}</th>
+						<th ng-click="sortBy('title')">{{'Board Function'| i18n }} <span class="sortorder" ng-show="propertyName==='title'" ng-class="{reverse: reverse}"></span></th>
 					 </tr>
-				  </thead>
+          </thead>
+				  </table>
+          </div>
+        <div class="table-responsive custom-table scroll-table-body">
+        <table class="table" data-sortable-initialized="true">
 				  <tbody>
-					 <tr ng-show="user.status === 'A'" ng-repeat="user in allAdminUsers | orderBy:propertyName:reverse">
+					 <tr ng-show="user.status.toLowerCase() === 'a'" ng-repeat="user in allAdminUsers | orderBy:propertyName:reverse">
 						<td>{{user.fn}} {{user.ln}}</td>
             <td class="actions adminuser">
               <a ng-click="open(user)" ng-if="user.role === 'N'" data-toggle="tooltip" title="" class="btn btn-default offline deleted" data-original-title="{{'Normal'| i18n }}"><i class="fa"></i></a>
@@ -105,6 +110,7 @@
            
 				  </tbody>
 			   </table>
+      </div>
 			</div>
 			
 			<div class="col-md-12 spacer-20"></div>

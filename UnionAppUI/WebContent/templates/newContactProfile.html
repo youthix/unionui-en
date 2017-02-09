@@ -1,0 +1,249 @@
+
+<style>
+.kv-avatar .file-preview-frame,.kv-avatar .file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    max-width: 220px;
+}
+</style>
+
+
+
+<div class="container"> 
+  
+  <!-- Your logo goes here -->
+  <div class="logo-brand header sidebar rows main-logo">
+    <div class="logo">
+      <h1><a href="#fakelink" class="visible-xs"><img src="images/wfs-logo-transparent.png" alt="Logo"></a></h1>
+    </div>
+  </div>
+ 
+    <ng-include src="'templates/menubar.html'"></ng-include>
+  
+  <!-- BEGIN CONTENT -->
+  <div class="right content-page"> 
+    
+    <!-- BEGIN CONTENT HEADER -->
+    <div class="header content rows-content-header"> 
+      
+      <!-- Button mobile view to collapse sidebar menu -->
+      <button class="button-menu-mobile show-sidebar"> <i class="fa fa-bars"></i> </button>
+      
+      <!-- BEGIN NAVBAR CONTENT-->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container"> 
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-angle-double-down"></i> </button>
+          </div>
+          <!-- End div .navbar-header --> 
+          
+          <!-- Navbar collapse -->
+          <div class="navbar-collapse collapse"> 
+      
+      <ul class="nav navbar-nav top-navbar"> 
+              <!-- Notifications -->
+              <!-- <li>
+        <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
+              </li> -->
+              
+              <!-- Dropdown User session -->
+              <!-- <li class="dropdown"> <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-user"></i></a>
+                <ul class="dropdown-menu animated half flipInX">
+                  <li><a href="" ng-click="detailAdmin()">{{'Account Setting' | i18n}}</a></li>
+                  <li class="divider"></li>
+                  <li><a class="md-trigger" href="#fakelink">{{'Logout' |i18n}}</a></li>
+                </ul>
+              </li> -->
+              <!-- End Dropdown User session -->      
+      </ul> 
+      
+      <div class="top-logo">
+        <img src="images/wfs-logo-transparent.png" alt="Logo">
+      </div>      
+            
+          </div>
+          <!-- End div .navbar-collapse --> 
+        </div>
+        <!-- End div .container --> 
+      </div>
+      <!-- END NAVBAR CONTENT--> 
+    
+  <div class="media user-field">
+          <div class="media-body welcome pull-left">{{"Profile"|i18n}}
+          <!-- End div .media-body --> 
+        </div>
+        <!-- End div .media --> 
+        
+  </div>
+    </div>
+    <!-- END CONTENT HEADER --> 
+    
+    <!-- START YOUR CONTENT HERE --> 
+    <!-- ============================================================== -->
+    <div class="body content rows scroll-y"> 
+    
+      <!-- Page header -->
+      <div class="page-heading">       
+      
+      <div class="row">
+        <div class="col-sm-12"> 
+          <!-- Website statistic -->
+          <div class="box-info">
+      <div class="table-responsive myprofile">
+       <form name="myForm" novalidate>
+      <div class="image-holder profile"> 
+
+      <!-- Image format -->
+    
+       <img class="media-object img-circle" id="blah" alt="Avatar">
+
+      <!-- default icon -->
+
+      <i class="media-object img-circle fa fa-user" ng-if="!profileData.imageurl" ng-show="defualtImage" alt="Avatar"></i>
+      <br>
+      <label for="avatar" class="btn">{{"Upload Image"|i18n}}
+        <input name="avatar" id="avatar" file-model='file' type="file" class="file-loading" style="display: none;" >
+      </label>
+      </div>
+      </form>
+        <div class="col-md-12 spacer-20"></div>
+        <form name="contactProfileForm">
+        <table data-sortable="" width="500" class="table" data-sortable-initialized="true">
+          <!-- <thead>
+           <tr>
+            <th colspan="2">Job Title</th>
+           </tr>
+          </thead> -->
+          <tbody>
+           <!-- <tr>
+            <td>{{"User Name"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.usNa" ng-required="true" ng-disabled="disabled"></td>
+           </tr> -->
+           <tr>
+            <td>{{"First Name"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.fn" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+           <tr>
+            <td>{{"Last Name"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.ln" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+           <tr>
+            <td>{{"Gender"|i18n}}</td>
+            <td>
+                          <select ng-model="profileData.gen" ng-required="true" ng-disabled="disabled">
+                            <option value="M" ng-selected="profileData.gen=='M'">{{"Male"|i18n}}</option>
+                            <option value="F" ng-selected="profileData.gen=='F'">{{"Female"|i18n}}</option>
+                            </select>
+                        </td>
+           </tr>
+           <tr>
+            <td>{{"Address"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.add" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+           <tr>
+            <td>{{"City"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.city" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+           <tr>
+            <td>{{"Zip Code"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.zipcode" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+           <tr>
+            <td>{{"Age"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.age" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+           <!--<tr>
+            <td>Post Nr.</td>
+            <td><input type="text" ng-model="profileData.ln" ng-disabled="disabled"></td>
+           </tr>
+            <tr>
+            <td>By</td>
+            <td><input type="text" ng-model="profileData.usNa" ng-disabled="disabled"></td>
+           </tr> -->
+           <tr>
+            <td>{{"Tel Nr."|i18n}}</td>
+            <td><input type="text" ng-model="profileData.conNu" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+           <tr>
+            <td>{{"Email"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.emId" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+                     <tr>
+            <td>{{"Job Title"|i18n}}</td>
+            <td><input type="text" ng-model="profileData.title" ng-required="true" ng-disabled="disabled"></td>
+           </tr>
+                     <tr>
+            <td>{{"Category"|i18n}}</td>
+            <td>
+                          <select ng-model="profileData.category" ng-required="true" ng-disabled="disabled">
+                            <option value="{{cat.catname}}" ng-selected="profileData.category==cat.catname" ng-repeat="cat in ContactListCategory" >{{cat.catname}}</option>
+                            </select>
+                        </td>
+           </tr>
+          </tbody>
+         </table>
+
+      </div>
+      
+      <div class="col-md-12 spacer-20"></div>
+      
+      <!-- <div class="col-md-5 table-responsive text-center align-center">
+         <table data-sortable="" class="table" data-sortable-initialized="true">
+          <tbody>
+          <tr>
+            <td><a href="#">Register</a></td><td><a href="#">{{"Save"|i18n}}</a></td>
+          </tr>
+          </tbody>
+         </table>
+      </div> -->
+
+        <div class="text-center actions">
+          <div class="button-wrap">
+          <button type="button" class="btn btn-primary" ng-click="contactcancel(profileData.category)">{{"Cancel"|i18n}}</button>
+           <button type="submit" class="btn btn-default" ng-click="edit()" ng-show="showButton">{{"Edit"|i18n}}</button>
+           <button type="submit" class="btn btn-primary" ng-disabled="contactProfileForm.$invalid" ng-click="save(profileData)" ng-hide="showButton">{{"Save"|i18n}}</button>
+        </div>
+      </div>
+      </form>
+          </div>
+          <!-- End div .box-info --> 
+        </div>
+        
+        <!-- End div .col-sm-4 --> 
+      </div>
+      <!-- End div .row --> 
+      
+      <!-- Footer -->
+      <footer> <h6 class="text-center">&copy; Powered by <a href="http://unik-apps.com" target="_blank">unik-apps.com</a></h6></footer>
+      <!-- End Footer --> 
+      
+    </div>
+    <!-- ============================================================== --> 
+    <!-- END YOUR CONTENT HERE --> 
+    <!-- ============================================================== --> 
+    
+  </div>
+  <!-- END CONTENT -->
+  <div class="md-overlay"></div>
+<!-- 
+  <script type="text/javascript">
+  $.uploadPreview({
+    input_field: "#image-upload",   // Default: .image-upload
+    preview_box: "#image-preview",  // Default: .image-preview
+    label_field: "#image-label",    // Default: .image-label
+    label_default: "Choose File",   // Default: Choose File
+    label_selected: "Change File",  // Default: Change File
+    no_label: false                 // Default: false
+  });
+</script> -->
+
+
+</div>
+</div>

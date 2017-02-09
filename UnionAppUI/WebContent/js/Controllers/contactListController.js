@@ -79,12 +79,42 @@ $rootScope.comingFromDashboard=false;
     };
   
 
-    $scope.editSummary = function(summaryData){
-       dataSharingService.addEditData(summaryData);
-      $location.path('/editSummary');
+    $scope.editCategory = function(category){
+       dataSharingService.addEditData(category);
+      $location.path('/editCategory');
     };
 
+ $scope.deleteCategory = function(delCategory){
 
+  
+
+            var requestObject ={
+              "bid": constant.bid,
+              "categoryListObj": {"categorydtoLs": [   {
+                "catid": delCategory.catid,
+                "cattype": delCategory.cattype,
+                "usercount": delCategory.usercount,
+                "action": "delete",
+                "catname": delCategory.catname,
+                "channel": "admin"
+              }]}
+          }
+           
+            services.updateCategory(requestObject).then( function(data){
+                                                    
+                console.log("Data is:" + JSON.stringify(data));
+                var status = data.resStatus;
+                if (status.code == "00" &&  status.msg =="SUCCESS") {
+                  //$scope.dataFromCategory = 
+                $location.path('/ContactList');            
+             }else
+            {
+                alert("Service :"+ status.msg);
+            }
+        });
+
+
+    };
 
       gettingData = function(){
 
@@ -284,108 +314,7 @@ updateMeetingStatus = function(){
    
 }]);
 
-app.controller('newContactController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
 
-
- $scope.activeMenu ="Contact List";
-
-
-
-   $scope.MeetingDashboard = function(){
-       
-         $location.path('/MeetingDashboard'); //MeetingDashboardController
-    };
-
-    $scope.ActivitiesDashboard = function(){
-     
-         $location.path('/activitiesList');   // it will redirect to activities Page Activities
-    };
-
-    $scope.NewsLetterDashboard = function(){
-        
-         $location.path('/newsLetterList');
-    };
-
-    $scope.summaryDashBoard = function(){
-       
-        $location.path('/summary');
-    };
-
-     $scope.IdeaDashBoard = function(){
-        $location.path('/ideas')
-    };
-
-     $scope.LAGDashBoard = function(){
-        $location.path('/localAgreements');
-    };
-
-    $scope.PayRateDashBoard = function(){
-        $location.path('/payRate');
-    };
-
-    $scope.ContactList = function(){
-        $location.path('/ContactList');
-    };
-
-    $scope.AdminUserDasgBoard = function(){
-        $location.path('/adminUser');
-    };
-
- if ($rootScope.userName == undefined || $rootScope.userName == null) {
-         $location.path('/login');
-    }
-
-$scope.addProfile = function(){
-   $location.path('/miniContactProfile');
-};
-
-/*$scope.newProfile = function(){
-   $location.path('/newContactProfile');
-};*/
-$scope.save = function(summary){
-
-  $scope.detail = angular.element('#jqte-test3').val();
-
-  var requestObject = {
-   "bid": "constant.bid",
-   "summaryListObj": {"summarydtoLs": [   {
-      "subject": summary.subject,
-      "detail":  $scope.detail,
-      "sumdate": summary.meetdate,
-      "sumtime": "00:00:00",
-      "creator": "$rootScope.userName",
-      "status": "offline"
-   }]}
-};
-
-    services.createNewsSummary(requestObject).then(function(data){
-                                                    
-                console.log("Data is:" + JSON.stringify(data));
-                var status = data.resStatus;
-                if (status.code == "00" &&  status.msg =="SUCCESS") {
-                 //allMeeitngsRequest();  
-                 $location.path('/summary');                     
-             }
-                else
-            {
-                alert("Service :"+ status.msg);
-            }
-        });
-
-
-};
-
-
-
-/*$scope.cancel = function(){
-   $location.path('/summary'); 
-};*/
-
-
-
-
-   
-}]);
 app.controller('editContactController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
    
 
@@ -701,6 +630,12 @@ if($route.current.params.approveUser){
     $scope.approveUser =true;
     $location.search({approveUser:null})
     $scope.edit();
+}else if($route.current.params.newContact){
+  $scope.newContact = true;
+  $location.search({newContact:null});
+  $scope.profileData.category = $route.current.params.category;
+  $location.search({category:null});
+  $scope.edit();
 }
 
 $scope.contactcancel=function(cat){	
@@ -774,12 +709,13 @@ $scope.fetchAdminDetails=function(email){
               "criteria":  "TRUE",
               "fetchUserCriteriaObj": {
             	  "name":"emailid",
-                  "value":"super@gmail.com"
+                  "value":email
               
     }
    }};
+
 	services.getContactsFromCategory(requestObject).then( function(data){
-		$rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].fn;
+		$rootScope.userName = data.userListObj.ul[0].fn+" "+data.userListObj.ul[0].ln;
         $rootScope.adminDetails=data.userListObj.ul[0];
         var img=data.userListObj.ul[0].imageurl;
         if(null != img && undefined != img && ""!=img)
@@ -790,38 +726,61 @@ $scope.fetchAdminDetails=function(email){
 }
 
 var catData ={"catname":$scope.profileData.category};   
-
-     services.updateProfile(requestObject).then( function(data){
-                                                    
-          console.log("Data is:" + JSON.stringify(data));
-          var status = data.resStatus;
-          if (status.code == "00" &&  status.msg =="SUCCESS") {
-            $scope.dataFromCategory = data.userListObj.ul;                
-    				dataSharingService.addEditData(catData);
-            
-    				 if($scope.uploadImageFlag==true){
-    					  console.log("Uploading image");
-    					  $scope.saveProfilePic(data);
-    				 }
-    				 else{
-    					 if($rootScope.comingFromDashboard==true)
-    						{
-    							$scope.fetchAdminDetails(data.userListObj.ul[0].emId);
-    							$location.path('/dashBoard');
-    						}
-    						else if($scope.approveUser){
-                  $location.path('/dashBoard');
-                }
-                else{
-    		          $location.path('/ContactList'); 
-                }
-    				 }
-          				                
-          }else{
-            alert("Service Error:"+ status.msg);
-          }
-        });
-
+  if($scope.newContact){
+    console.log(requestObject)
+    services.registerProfile(requestObject).then( function(data){
+                                                      
+            console.log("Data is:" + JSON.stringify(data));
+            var status = data.resStatus;
+            if (status.code == "00" &&  status.msg =="SUCCESS") {
+              $scope.dataFromCategory = data.userListObj.ul;                
+              dataSharingService.addEditData(catData);
+              
+               if($scope.uploadImageFlag==true){
+                  console.log("Uploading image");
+                  $scope.saveProfilePic(data);
+               }
+               else{
+                  $location.path('/ContactList'); 
+                 }
+                                    
+            }else{
+              alert("Service Error:"+ status.msg);
+            }
+          });
+  }
+  else{
+       services.updateProfile(requestObject).then( function(data){
+                                                      
+            console.log("Data is:" + JSON.stringify(data));
+            var status = data.resStatus;
+            if (status.code == "00" &&  status.msg =="SUCCESS") {
+              $scope.dataFromCategory = data.userListObj.ul;                
+      				dataSharingService.addEditData(catData);
+              
+      				 if($scope.uploadImageFlag==true){
+      					  console.log("Uploading image");
+      					  $scope.saveProfilePic(data);
+      				 }
+      				 else{
+      					 if($rootScope.comingFromDashboard==true)
+      						{
+      							$scope.fetchAdminDetails(data.userListObj.ul[0].emId);
+      							$location.path('/dashBoard');
+      						}
+      						else if($scope.approveUser){
+                    $location.path('/dashBoard');
+                  }
+                  else{
+      		          $location.path('/ContactList'); 
+                  }
+      				 }
+            				                
+            }else{
+              alert("Service Error:"+ status.msg);
+            }
+          });
+  }
 };
 
 
@@ -879,6 +838,7 @@ $scope.addNewContact = function(){
         $location.path('/newCategory');
     };
 
+
     
     $scope.activeMenu ="Contact List"; 
 
@@ -886,7 +846,9 @@ $scope.addNewContact = function(){
     $rootScope.category = $scope.ContactListDataFromDashBoard.catname;
     
   //  angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
-
+$scope.newContactProfile = function(category){
+    $location.path('/miniContactProfile').search({newContact:true,category:$rootScope.category});
+};
 
    $scope.saveSummary = function(){
 
@@ -1021,13 +983,115 @@ if ($rootScope.userName == undefined || $rootScope.userName == null) {
             var requestObject ={
               "bid": constant.bid,
               "categoryListObj": {"categorydtoLs": [   {
-                "catname": $scope.catname
+                "catid": "",
+                "cattype": $scope.cattype,
+                "usercount": "0",
+                "action": null,
+                "catname": $scope.catname,
+                "channel": "admin"
               }]}
           }
            
      
                                 
             services.newCategory(requestObject).then( function(data){
+                                                    
+                console.log("Data is:" + JSON.stringify(data));
+                var status = data.resStatus;
+                if (status.code == "00" &&  status.msg =="SUCCESS") {
+                  //$scope.dataFromCategory = 
+                $location.path('/ContactList');            
+             }else
+            {
+                alert("Service :"+ status.msg);
+            }
+        });
+
+
+    };
+
+    // $scope.saveSummary();
+
+    $scope.cancel = function(){
+   $location.path('/summary'); 
+};
+
+
+}]); 
+
+app.controller('editCategoryController',['$scope','$location','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,services,constant,dataSharingService,$rootScope,$route) {
+   
+
+if ($rootScope.userName == undefined || $rootScope.userName == null) {
+         $location.path('/login');
+    }
+
+   $scope.MeetingDashboard = function(){
+       
+         $location.path('/MeetingDashboard'); //MeetingDashboardController
+    };
+
+    $scope.ActivitiesDashboard = function(){
+     
+         $location.path('/activitiesList');   // it will redirect to activities Page Activities
+    };
+
+    $scope.NewsLetterDashboard = function(){
+        
+         $location.path('/newsLetterList');
+    };
+
+    $scope.summaryDashBoard = function(){
+       
+        $location.path('/summary');
+    };
+
+     $scope.IdeaDashBoard = function(){
+        $location.path('/ideas')
+    };
+
+     $scope.LAGDashBoard = function(){
+        $location.path('/localAgreements');
+    };
+
+    $scope.PayRateDashBoard = function(){
+        $location.path('/payRate');
+    };
+
+    $scope.ContactList = function(){
+        $location.path('/ContactList');
+    };
+
+    $scope.AdminUserDasgBoard = function(){
+        $location.path('/adminUser');
+    };
+
+
+    
+    $scope.activeMenu ="Contact List";
+
+    $scope.category = dataSharingService.getEditData()[0];
+    console.log($scope.category)
+  //  angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
+
+
+   $scope.saveCategory = function(){
+
+  
+
+            var requestObject ={
+              "bid": constant.bid,
+              "categoryListObj": {"categorydtoLs": [   {
+                "catid": $scope.category.catid,
+                "cattype": $scope.category.cattype,
+                "usercount": $scope.category.usercount,
+                "action": "edit",
+                "catname": $scope.category.catname,
+                "channel": "admin"
+              }]}
+          }
+           
+            services.updateCategory(requestObject).then( function(data){
                                                     
                 console.log("Data is:" + JSON.stringify(data));
                 var status = data.resStatus;

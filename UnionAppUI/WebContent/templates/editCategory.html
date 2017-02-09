@@ -29,11 +29,11 @@
           
           <!-- Navbar collapse -->
           <div class="navbar-collapse collapse"> 
-		  
-			<ul class="nav navbar-nav top-navbar">
+      
+      <ul class="nav navbar-nav top-navbar">
               <!-- Notifications -->
               <!-- <li>
-			  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
+        <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="label label-danger absolute">24</span></a>                
               </li> -->
               
               <!-- Dropdown User session -->
@@ -44,12 +44,12 @@
                   <li><a class="md-trigger" href="#fakelink">{{'Logout' |i18n}}</a></li>
                 </ul>
               </li>
-              <!-- End Dropdown User session -->			
-			</ul> 
-			
-			<div class="top-logo">
-			  <img src="images/wfs-logo-transparent.png" alt="Logo">
-			</div>			
+              <!-- End Dropdown User session -->      
+      </ul> 
+      
+      <div class="top-logo">
+        <img src="images/wfs-logo-transparent.png" alt="Logo">
+      </div>      
             
           </div>
           <!-- End div .navbar-collapse --> 
@@ -57,52 +57,54 @@
         <!-- End div .container --> 
       </div>
       <!-- END NAVBAR CONTENT--> 
-	  
-	<div class="media user-field">
+    
+  <div class="media user-field">
           <div class="media-body welcome pull-left"> {{"Contact List"|i18n}}
           <!-- End div .media-body --> 
         </div>
         <!-- End div .media --> 
         
-	</div>
+  </div>
     </div>
     <!-- END CONTENT HEADER --> 
     
     <!-- START YOUR CONTENT HERE --> 
     <!-- ============================================================== -->
     <div class="body content rows scroll-y"> 
-	  
+    
       <!-- Page header -->
       <div class="page-heading">       
       
       <div class="row">
         <div class="col-sm-12"> 
           <!-- Website statistic -->
-          <div class="box-info">
-			<div class="table-responsive text-center category-list-table" ng-repeat="contact in ContactListData">
-			   <table data-sortable="" class="table" data-sortable-initialized="true">
-				  <thead>
-					 <tr>
-						<th></th>
-						<th width="190px"><span ng-hide="contact.usercount > 0">{{"Actions"|i18n}}</span></th> 
-					 </tr>
-				  </thead>
-				  <tbody>
-					 <tr>
-						<td><h3 class="mgn-top-7" ng-click="detailContact(contact)">{{contact.catname}}</h3></td>
-						<td  width="190px" class="actions" ng-hide="contact.usercount > 0 ">
-            <a data-toggle="tooltip" ng-hide="survey.status == 'online' "  ng-click="editCategory(contact)" class="btn btn-default white"><i class="fa fa-edit"></i></a>
-            <a data-toggle="tooltip" ng-click="deleteCategory(contact)"  class="btn btn-default delete" ><i class="fa fa-minus" ></i></a>      
-            </td>
-					 </tr>
-				  </tbody>
-			   </table>
-			</div>
-			
-			
-			<div class="col-xs-12 text-center">
-				<button type="button" class="btn btn-wfs" ng-click="addNewContact()"><i class="fa fa-plus"></i>{{"Add New Category"|i18n}}</button>
-			</div>
+          <div class="box-info new-category">
+
+          <div class="row">
+                      <div class="col-xs-6">
+                      <label>{{"Category Name"|i18n}}:</label>
+                         <input type="text" class="form-control" placeholder="{{'Category Name'|i18n}}" ng-model="category.catname">
+                      </div>
+                      <div class="col-xs-6">
+                      <label>{{"Category Type"|i18n}}:</label>
+                         <select  class="form-control" ng-model="category.cattype" ng-disabled="disabled">
+                            <option value="internal" ng-selected="category.cattype=='internal'">{{"Internal"|i18n}}</option>
+                            <option value="external" ng-selected="category.cattype=='external'">{{"External"|i18n}}</option>
+                            </select>
+                      </div>
+                            
+                    </div>
+                  <div class="row">
+                    <div class="col-xs-12 text-center">
+                            
+                              <button type="button" class="btn btn-wfs" ng-click="ContactList()">{{"Cancel"|i18n}}</button>
+                           
+                              <button type="button" class="btn btn-wfs" ng-click="saveCategory()"><i class="fa fa-plus"></i>{{"Save Category"|i18n}}</button>
+                            
+                  </div> 
+                  </div>
+
+      
           </div>
           <!-- End div .box-info --> 
         </div>

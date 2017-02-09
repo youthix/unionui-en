@@ -124,7 +124,8 @@
              <div class="col-xs-12">
             	<button type="button" class="btn btn-wfs" ng-click="ContactList()">{{"Cancel"|i18n}}</button>
                 
-		 		<!--<button type="button" class="btn btn-wfs" ng-click="newProfile()"><i class="fa fa-plus"></i>Add Contact</button>-->
+		 		 <!-- <button type="button" class="btn btn-wfs" ng-show="category.cattype.toLowerCase() === 'external'" ng-click="newContactProfile(category)"><i class="fa fa-plus"></i>Add Contact</button> -->
+         <button type="button" class="btn btn-wfs" ng-click="newContactProfile(category)"><i class="fa fa-plus"></i>{{"Add Contact"|i18n}}</button>
 			</div>
 			<div class="text-center">
           </div>

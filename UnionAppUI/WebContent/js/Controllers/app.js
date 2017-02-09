@@ -184,10 +184,22 @@ app.config(['$routeProvider','$locationProvider','$httpProvider',function($route
                                         templateUrl:'templates/editContact.html'
 
                                       })
+                                        .when('/newContactProfile',
+                                      {
+                                        controller:'newContactController',
+                                        templateUrl:'templates/newContactProfile.html'
+
+                                      })
                                          .when('/newCategory',
                                       {
                                         controller:'newCategoryController',
                                         templateUrl:'templates/newCategory.html'
+
+                                      })
+                                       .when('/editCategory',
+                                      {
+                                        controller:'editCategoryController',
+                                        templateUrl:'templates/editCategory.html'
 
                                       })
                                            .when('/miniContactProfile',

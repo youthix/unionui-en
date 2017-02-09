@@ -80,7 +80,10 @@ app.controller('adminUserDashBoardController',['$scope','$location','$filter','$
     services.getAllUsers(requestObject).then(function(data){
       var status = data.resStatus;
       if (status.code == "00" &&  status.msg =="SUCCESS") {
-        $scope.allAdminUsers = data.userListObj.ul               
+        $scope.allAdminUsers = data.userListObj.ul   
+        $scope.allAdminUsers.forEach(function (u) {
+          console.log(u.status);
+        })
       }
       else
       {

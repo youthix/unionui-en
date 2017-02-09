@@ -750,6 +750,22 @@
  {
    "key": "Are you sure you want to delete",
    "value": "Er du sikker på at du vil slette"
+ },
+ {
+   "key": "Internal",
+   "value": "intern bruger"
+ },
+ {
+   "key": "External",
+   "value": "eksterne kontakter"
+ },
+ {
+   "key": "Category Type",
+   "value": "Kategori Type"
+ },
+ {
+   "key": "Add Contact",
+   "value": "Tilføj kontakt"
  }
 
 ]

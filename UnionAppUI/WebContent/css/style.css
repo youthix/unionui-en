@@ -3910,19 +3910,19 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
     float:left;
 }
 
-.app-activity-table-body table{
+.scroll-table-body table{
     table-layout: fixed;
 
 }
-.app-activity-table-body{
+.scroll-table-body{
     overflow-y: scroll;
-    max-height: 250px; 
+    max-height: 235px; 
 }
-.app-activity-table-header{
+.scroll-table-header{
     padding-right: 20px;
 }
-.app-activity-table-header table thead tr th,
-.app-activity-table-body table tbody tr td{
+.scroll-table-header table thead tr th,
+.scroll-table-body table tbody tr td{
     width: 20%;
     text-align: center;
 }
@@ -3931,6 +3931,14 @@ input[type="text"][disabled="disabled"]{cursor:not-allowed; background-color:#f9
 }
 .survey-table-cell{
     display: table-cell;
+}
+.admin-user-table , .category-list-table , .new-category{
+    width:75%;
+    margin: 0 auto;
+}
+.new-category{
+    width:60%;
+    margin: 0 auto;
 }
 .start-date{
     float:left;
