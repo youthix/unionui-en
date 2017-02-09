@@ -3666,9 +3666,15 @@ input[type="text"]:hover, input[type="text"]:focus {outline: 0 none; box-shadow:
 	border-radius: 100px;
 }
 
+.table-responsive.myprofile{
+    text-align: center;
+}
+
+.inline-block{
+    display: inline-block;
+}
 .table-responsive.myprofile table {
     width: 530px;
-    margin: 0 auto;
 }
 
 .table-responsive.myprofile table th {

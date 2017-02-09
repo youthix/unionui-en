@@ -1,4 +1,4 @@
-app.controller('ContactListDashBoardController',['$scope','$location','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$filter,services,constant,dataSharingService,$rootScope,$route) {
+app.controller('ContactListDashBoardController',['$scope','$location','$timeout','$filter','services','constant','dataSharingService','$rootScope','$route', function ($scope,$location,$timeout,$filter,services,constant,dataSharingService,$rootScope,$route) {
  //  alert("newsLetterController");
 $scope.date = constant.Date;
 $scope.time = constant.Time;
@@ -90,13 +90,13 @@ $rootScope.comingFromDashboard=false;
 
             var requestObject ={
               "bid": constant.bid,
+              "channel": "admin",
               "categoryListObj": {"categorydtoLs": [   {
                 "catid": delCategory.catid,
                 "cattype": delCategory.cattype,
                 "usercount": delCategory.usercount,
                 "action": "delete",
-                "catname": delCategory.catname,
-                "channel": "admin"
+                "catname": delCategory.catname
               }]}
           }
            
@@ -106,7 +106,9 @@ $rootScope.comingFromDashboard=false;
                 var status = data.resStatus;
                 if (status.code == "00" &&  status.msg =="SUCCESS") {
                   //$scope.dataFromCategory = 
-                $location.path('/ContactList');            
+                /*$timeout(function() {
+                $location.path('/ContactList')},0); */
+                 gettingData();           
              }else
             {
                 alert("Service :"+ status.msg);
@@ -683,25 +685,49 @@ $scope.save = function(){
 
              var requestObject = {
               "bid": "123",
+              "channel":"admin",
               "userListObj": {"ul": [   {
-                "usNa":  $scope.profileData.usNa,
-                "pwd":  $scope.profileData.pwd,
+                "usNa":  $scope.profileData.usNa !== undefined && $scope.profileData.usNa !== null ? $scope.profileData.usNa : null,
+                "pwd":  $scope.profileData.pwd !== undefined && $scope.profileData.pwd !== null ? $scope.profileData.pwd : null,
                 "fn":  $scope.profileData.fn,
                 "ln":  $scope.profileData.ln,
-                "joinDt": $scope.profileData.joinDt,
+                "joinDt": $scope.profileData.joinDt !== undefined && $scope.profileData.joinDt !== null ? $scope.profileData.joinDt : null,
                 "age":  $scope.profileData.age,
                 "gen":  $scope.profileData.gen,
                 "add":  $scope.profileData.add,
                 "city":  $scope.profileData.city,
-                "zipcode": $scope.profileData.zipcode,
+                "zipcode": $scope.profileData.zipcode ,
                 "conNu": $scope.profileData.conNu,
                 "emId":  $scope.profileData.emId,
-                "role": $scope.profileData.role,
+                "role": $scope.profileData.role !== undefined && $scope.profileData.role !== null ? $scope.profileData.role : null,
                 "category":$scope.profileData.category,
                 "title":$scope.profileData.title,
-                "status":"a"
+                "status": $scope.profileData.status !== undefined && $scope.profileData.status !== null ? $scope.profileData.status : "e",
+                "loginstatus":$scope.profileData.loginstatus !== undefined && $scope.profileData.loginstatus !== null? $scope.profileData.loginstatus : "f"
    }]}
 };
+/*var requestObject = {
+   "bid": "123",
+   "channel":"admin",
+   "userListObj": {"ul": [   {
+      "add":"test",
+"age":"22",
+"category":"testCat1",
+"city":"test",
+"conNu":"1231231231",
+"emId":"test@testingtesting.com",
+"fn":"test",
+"gen":"M",
+"joinDt":"null",
+"ln":"test",
+"pwd":"null",
+"role":"null",
+"status":"a",
+"title":"test",
+"usNa":"null",
+"zipcode":"12312"
+   }]}
+}*/
 $scope.fetchAdminDetails=function(email){
 	var requestObject = {
             "bid": "123",
@@ -844,7 +870,7 @@ $scope.addNewContact = function(){
 
     $scope.ContactListDataFromDashBoard = dataSharingService.getEditData()[0];
     $rootScope.category = $scope.ContactListDataFromDashBoard.catname;
-    
+    console.log($scope.ContactListDataFromDashBoard)
   //  angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
 $scope.newContactProfile = function(category){
     $location.path('/miniContactProfile').search({newContact:true,category:$rootScope.category});
@@ -975,20 +1001,21 @@ if ($rootScope.userName == undefined || $rootScope.userName == null) {
     
   //  angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
 
-
+$scope.cattype = "internal";
    $scope.saveCategory = function(){
 
   
 
             var requestObject ={
               "bid": constant.bid,
+              "channel": "admin",
               "categoryListObj": {"categorydtoLs": [   {
                 "catid": "",
                 "cattype": $scope.cattype,
                 "usercount": "0",
                 "action": null,
-                "catname": $scope.catname,
-                "channel": "admin"
+                "catname": $scope.catname
+                
               }]}
           }
            
@@ -1081,13 +1108,13 @@ if ($rootScope.userName == undefined || $rootScope.userName == null) {
 
             var requestObject ={
               "bid": constant.bid,
+              "channel": "admin",
               "categoryListObj": {"categorydtoLs": [   {
                 "catid": $scope.category.catid,
                 "cattype": $scope.category.cattype,
                 "usercount": $scope.category.usercount,
                 "action": "edit",
-                "catname": $scope.category.catname,
-                "channel": "admin"
+                "catname": $scope.category.catname
               }]}
           }
            

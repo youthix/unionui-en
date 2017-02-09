@@ -249,6 +249,29 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
         dataSharingService.addEditData(userData);
         $location.path('/miniContactProfile').search({approveUser:true});
     };
+
+    $scope.donotApproveUser = function(userData){
+      userData.status = "b";
+      var requestObject = {
+        "bid": constant.bid,
+            "channel":"admin",
+            "userListObj": {
+                "ul": [
+                    ]}}
+      requestObject.userListObj.ul.push(userData)
+        services.updateProfile(requestObject).then( function(data){
+                                                      
+            console.log("Data is:" + JSON.stringify(data));
+            var status = data.resStatus;
+            if (status.code == "00" &&  status.msg =="SUCCESS") {
+              getAllPendingUsers();
+              $scope.showWaitingUsers = true;
+                                    
+            }else{
+              alert("Service Error:"+ status.msg);
+            }
+          });
+    };
     
     function drawGraph(){
       services.getVisitorInfo({}).then(function(data){
