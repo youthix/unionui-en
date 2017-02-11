@@ -84,20 +84,25 @@
           <div class="box-info">
 			<div class="col-md-9 table-responsive custom-table">
 			<div class="header">{{category}}</div>
-			   <table data-sortable="" class="table" data-sortable-initialized="true">
+      <div class="table-responsive custom-table scroll-table-header">
+			   <table  class="table" data-sortable-initialized="true">
 				  <thead>
 					 <tr>
 						<th>{{"Name"|i18n}}</th>
 						<th>{{"Phone Number"|i18n}}</th>
-            <th>{{"Board Function"|i18n}}</th>
+            <th>{{"Function"|i18n}}</th>
 						<th>{{"Actions"|i18n}}</th>
 					 </tr>
 				  </thead>
+          </table>
+          </div>
+        <div class="table-responsive custom-table scroll-table-body">
+        <table class="table" data-sortable-initialized="true">
 				  <tbody>
 					 <tr ng-repeat="eachContact in dataFromCategory">
-						<td class="cursor-pointer" ng-click="detailContactListData(eachContact)">{{eachContact.usNa}}</td>
+						<td class="cursor-pointer" ng-click="detailContactListData(eachContact)">{{eachContact.fn}} {{eachContact.ln}}</td>
 						<td class="cursor-pointer" ng-click="detailContactListData(eachContact)">{{eachContact.conNu}}</td>
-            <td class="cursor-pointer" ng-click="detailContactListData(eachContact)">{{eachContact.fn}}</td>
+            <td class="cursor-pointer" ng-click="detailContactListData(eachContact)">{{eachContact.title}}</td>
 						<td class="actions smaller-td">
               <a data-toggle="tooltip" ng-click="deleteContact(eachContact.emId,$index,$event)"  class="btn btn-default delete" data-original-title="{{'Delete Contact'|i18n}}" title="{{'Delete Contact'|i18n}}"><i class="fa fa-minus" ng-click="deleteContact(eachContact.emId,$index,$event)"></i></a>
             </td>
@@ -119,6 +124,7 @@
 					 </tr> -->
 				  </tbody>
 			   </table>
+         </div>
                <div class="col-md-12 spacer-20"></div>
 			<div class="text-center">
              <div class="col-xs-12">

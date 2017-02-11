@@ -860,7 +860,6 @@ $scope.addNewContact = function(){
 
     $scope.ContactListDataFromDashBoard = dataSharingService.getEditData()[0];
     $rootScope.category = $scope.ContactListDataFromDashBoard.catname;
-    console.log($scope.ContactListDataFromDashBoard)
   //  angular.element('#jqte-test2').parent().parent().find(".jqte_editor").html( $scope.summary.detail );
 $scope.newContactProfile = function(category){
     $location.path('/miniContactProfile').search({newContact:true,category:$rootScope.category});
