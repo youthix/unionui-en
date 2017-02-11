@@ -758,7 +758,16 @@ var catData ={"catname":$scope.profileData.category};
             console.log("Data is:" + JSON.stringify(data));
             var status = data.resStatus;
             if (status.code == "00" &&  status.msg =="SUCCESS") {
+                  $scope.dataFromCategory = data.userListObj.ul;                
+              dataSharingService.addEditData(catData);
+              
+               if($scope.uploadImageFlag==true){
+                  console.log("Uploading image");
+                  $scope.saveProfilePic(data);
+               }
+               else{
                   $location.path('/ContactList'); 
+                 }
             }else{
               alert("Service Error:"+ status.msg);
             }
