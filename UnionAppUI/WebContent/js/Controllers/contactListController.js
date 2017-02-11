@@ -687,8 +687,8 @@ $scope.save = function(){
               "bid": "123",
               "channel":"admin",
               "userListObj": {"ul": [   {
-                "usNa":  $scope.profileData.usNa !== undefined && $scope.profileData.usNa !== null ? $scope.profileData.usNa : null,
-                "pwd":  $scope.profileData.pwd !== undefined && $scope.profileData.pwd !== null ? $scope.profileData.pwd : null,
+                "usNa":  $scope.profileData.usNa !== undefined && $scope.profileData.usNa !== null ? $scope.profileData.usNa : "xxx",
+                "pwd":  $scope.profileData.pwd !== undefined && $scope.profileData.pwd !== null ? $scope.profileData.pwd : "xxx",
                 "fn":  $scope.profileData.fn,
                 "ln":  $scope.profileData.ln,
                 "joinDt": $scope.profileData.joinDt !== undefined && $scope.profileData.joinDt !== null ? $scope.profileData.joinDt : null,
@@ -699,7 +699,7 @@ $scope.save = function(){
                 "zipcode": $scope.profileData.zipcode ,
                 "conNu": $scope.profileData.conNu,
                 "emId":  $scope.profileData.emId,
-                "role": $scope.profileData.role !== undefined && $scope.profileData.role !== null ? $scope.profileData.role : null,
+                "role": $scope.profileData.role !== undefined && $scope.profileData.role !== null ? $scope.profileData.role : "e",
                 "category":$scope.profileData.category,
                 "title":$scope.profileData.title,
                 "status": $scope.profileData.status !== undefined && $scope.profileData.status !== null ? $scope.profileData.status : "e",
@@ -753,27 +753,17 @@ $scope.fetchAdminDetails=function(email){
 
 var catData ={"catname":$scope.profileData.category};   
   if($scope.newContact){
-    console.log(requestObject)
     services.registerProfile(requestObject).then( function(data){
                                                       
             console.log("Data is:" + JSON.stringify(data));
             var status = data.resStatus;
             if (status.code == "00" &&  status.msg =="SUCCESS") {
-              $scope.dataFromCategory = data.userListObj.ul;                
-              dataSharingService.addEditData(catData);
-              
-               if($scope.uploadImageFlag==true){
-                  console.log("Uploading image");
-                  $scope.saveProfilePic(data);
-               }
-               else{
                   $location.path('/ContactList'); 
-                 }
-                                    
             }else{
               alert("Service Error:"+ status.msg);
             }
           });
+    $scope.newContact = false;
   }
   else{
        services.updateProfile(requestObject).then( function(data){
