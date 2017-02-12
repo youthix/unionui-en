@@ -246,12 +246,13 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
 	  };
 
     $scope.aprroveUser = function(userData){
+       userData.status = "a";
         dataSharingService.addEditData(userData);
         $location.path('/miniContactProfile').search({approveUser:true});
     };
 
     $scope.donotApproveUser = function(userData){
-      userData.status = "b";
+      userData.status = "delete";
       var requestObject = {
         "bid": constant.bid,
             "channel":"admin",
