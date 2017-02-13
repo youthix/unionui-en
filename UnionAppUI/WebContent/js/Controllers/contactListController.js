@@ -687,7 +687,7 @@ $scope.save = function(){
               "bid": "123",
               "channel":"admin",
               "userListObj": {"ul": [   {
-                "usNa":  $scope.profileData.usNa !== undefined && $scope.profileData.usNa !== null ? $scope.profileData.usNa : "xxx",
+                "usNa":  $scope.profileData.usNa !== undefined && $scope.profileData.usNa !== null ? $scope.profileData.usNa : $scope.profileData.emId,
                 "pwd":  $scope.profileData.pwd !== undefined && $scope.profileData.pwd !== null ? $scope.profileData.pwd : "xxx",
                 "fn":  $scope.profileData.fn,
                 "ln":  $scope.profileData.ln,

@@ -252,15 +252,23 @@ app.controller('dashBoardController',['$scope','$location','$rootScope','dataSha
     };
 
     $scope.donotApproveUser = function(userData){
-      userData.status = "delete";
       var requestObject = {
-        "bid": constant.bid,
-            "channel":"admin",
-            "userListObj": {
-                "ul": [
-                    ]}}
-      requestObject.userListObj.ul.push(userData)
-        services.updateProfile(requestObject).then( function(data){
+       "bid": constant.bid,
+       "channel":"admin",
+       "userListObj": {"ul": [   {
+        "usNa": userData.emId,
+        "pwd": "xxx",
+        "status": "delete"
+      }]},
+      "criteria":    {
+        "criteria": "TRUE",
+        "updateUserCriteriaObj": {
+          "name":"status"
+        }
+      }
+    }
+     
+        services.updateStatus(requestObject).then( function(data){
                                                       
             console.log("Data is:" + JSON.stringify(data));
             var status = data.resStatus;
