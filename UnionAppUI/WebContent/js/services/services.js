@@ -1,7 +1,8 @@
 
 
 app.service('services', function ($http, $q) {
-	var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
+	//var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
+	var serviceUrl = "http://sample-env.bmhmhxifym.ap-south-1.elasticbeanstalk.com/rest/service/";
 	//var testUrl = "http://localhost/pradeep/event/";
 	//http://localhost/UnionApp/rest/service/createmeeting
 	this.login = function (loginData) {
@@ -336,7 +337,8 @@ app.service('services', function ($http, $q) {
 		$http(
 				{
 					method: 'POST', 
-					url: 'http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/upload', 
+					//url: 'http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/upload', 
+					url: 'http://sample-env.bmhmhxifym.ap-south-1.elasticbeanstalk.com/rest/service/upload',
 					data: fd, 
 					headers: {'Content-Type': undefined,
 					            'attachmentTitle': title,

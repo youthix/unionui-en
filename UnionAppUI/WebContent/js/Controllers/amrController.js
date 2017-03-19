@@ -56,7 +56,7 @@ $scope.fotterTitle = constant.footer_title;
         $location.path('/ideas')
     };
 
-var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
+var serviceUrl = "http://sample-env.bmhmhxifym.ap-south-1.elasticbeanstalk.com/rest/service";
 
 
       amrListCall = function(){
@@ -154,7 +154,7 @@ var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
 					}
 				};
 									
-    var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
+    var serviceUrl = "http://sample-env.bmhmhxifym.ap-south-1.elasticbeanstalk.com/rest/service";
 	var updaterequest={
 			  method:'POST',
 			  data:requestObject,
@@ -206,7 +206,7 @@ var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
                 }
             };
                                 
-    var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
+    var serviceUrl = "http://sample-env.bmhmhxifym.ap-south-1.elasticbeanstalk.com/rest/service";
 	var updaterequest={
 			  method:'POST',
 			  data:requestObject,
@@ -327,7 +327,7 @@ $scope.saveAmr = function(newAmr){
       "status": "offline"
    }]}
 };
-var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
+var serviceUrl = "http://sample-env.bmhmhxifym.ap-south-1.elasticbeanstalk.com/rest/service";
 var request={
 		  method:'POST',
 		  data:requestObject,
@@ -441,7 +441,7 @@ app.controller('amrEditController',['$scope','$location','services','constant','
                     ]
                 }
             };
-var serviceUrl = "http://codeplay-dev6.cloud.cms500.com/unionapp/rest/service/";
+var serviceUrl = "http://sample-env.bmhmhxifym.ap-south-1.elasticbeanstalk.com/rest/service";
 var request={
 		  method:'POST',
 		  data:requestObject,
